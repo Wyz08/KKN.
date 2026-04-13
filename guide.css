@@ -1,0 +1,28 @@
+:root {
+    /* Warna Dasar Baru dari About Us */
+    --warna-latar: #120b02; 
+    --rgb-latar: 18, 11, 2; /* Versi RGB dari #120b02 */
+    
+    /* Warna Kuning Khas KKN */
+    --warna-kuning: #fcb201;
+    --rgb-kuning: 252, 178, 1;
+    
+    /* Warna Glow dari */
+    --rgb-glow-kiri: 255, 184, 0;  /* rgba(255, 184, 0, 0.15) */
+    --rgb-glow-kanan: 215, 157, 11; /* rgba(215, 157, 11, 0.21) */
+    
+    --warna-putih: #dcd4d4;
+    --warna-abu-terang: #dcd7d7;
+    --rgb-putih: 220, 212, 212;
+    --rgb-hitam: 0, 0, 0;
+
+    /* Variabel Efek Glassmorphism & Gradasi */
+    --gradasi-kaca-hero: linear-gradient(90deg, rgba(41, 24, 8, 1) 4%, rgba(63, 36, 2, 1) 43%);
+    --gradasi-kaca-bento: linear-gradient(145deg, rgba(63, 36, 2, 0.6) 0%, rgba(41, 24, 8, 0.4) 100%);
+    --border-kaca-tipis: 1px solid rgba(var(--rgb-putih), 0.05);
+    --border-kuning-tipis: 1px solid rgba(var(--rgb-kuning), 0.15);
+    
+    /* Variabel Font */
+    --font-judul: 'ADLaM Display', cursive;
+    --font-teks: 'Inter', sans-serif;
+}

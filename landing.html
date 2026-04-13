@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKN - Keluh Kesah Ngampus</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="guide.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="beranda">
+    
+    <!-- Efek Glow Latar Belakang -->
+    <div class="glow-kiri-atas"></div>
+    <div class="glow-kanan-atas"></div>
+    <div class="glow-tengah"></div>
+
+    <!--HEADER-->
+    <header class="container">
+        <!-- Logo berfungsi ganda sebagai tombol kembali ke atas -->
+        <a href="#beranda" class="logo-kkn" style="text-decoration: none;">KKN.</a>
+        <nav>
+            <a href="#fitur" class="menu-link">Fitur</a> 
+            <a href="#trending" class="menu-link">Trending</a>
+            <a href="about_us/about.html" class="menu-link">Tentang</a>
+        </nav>
+    </header>
+
+    <!-- Bagian Konten Utama -->
+    <main>
+        
+        <!-- SECTION 1: HERO -->
+        <section class="hero-section">
+            <div class="container hero-container">
+                <!-- Kolom Kiri: Teks dan Tombol -->
+                <div class="hero-kiri">
+                    <h1 class="judul-utama">
+                        Mulai<br>
+                        <span class="teks-kuning">Curhatmu</span>
+                    </h1>
+                    
+                    <p class="deskripsi">
+                        Tempat curhat paling nyaman buat kamu yang lagi capek nugas, pusing skripsi, atau meratapi dompet menipis di akhir bulan.
+                    </p>
+                    
+                    <div class="grup-tombol">
+                        <button class="btn-primer" onclick="window.location.href='daftar/signin.html'">Masuk</button>
+                        <button class="btn-sekunder" onclick="window.location.href='daftar/signup.html'">Daftar</button>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Kartu Curhat Mengambang -->
+                <div class="hero-kanan">
+                    <div class="kartu-curhat">
+                        <div class="kartu-header">
+                            <div class="avatar">🦊</div>
+                            <div>
+                                <div class="nama-user">Mas Yeb</div>
+                                <div class="waktu">2 jam yang lalu • Skripsi</div>
+                            </div>
+                        </div>
+                        <h3 class="kartu-judul">Dosen Ghosting 😭</h3>
+                        <p class="kartu-teks">
+                            Skripsi stuck, dosen pembimbing ghosting seminggu. Udah revisi bab 3 sampai 5 kali, tapi tiap dichat balesannya cuma "ok nanti saya cek".
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION PITA PEMBATAS -->
+        <div class="marquee-pembatas">
+            <div class="marquee-konten">
+                <span>🤫 100% ANONIM <i>•</i> 🎓 KHUSUS MAHASISWA <i>•</i> 🔥 BEBAS NGELUH <i>•</i> 💸 DOMPET MENIPIS <i>•</i> 💔 DOSEN KILLER <i>•</i> 📚 SKRIPSI STUCK <i>•</i></span>
+                <span>🤫 100% ANONIM <i>•</i> 🎓 KHUSUS MAHASISWA <i>•</i> 🔥 BEBAS NGELUH <i>•</i> 💸 DOMPET MENIPIS <i>•</i> 💔 DOSEN KILLER <i>•</i> 📚 SKRIPSI STUCK <i>•</i></span>
+            </div>
+        </div>
+
+        <!--SECTION 2: FITUR BENTO GRID (Target: #fitur)-->
+        <section id="fitur" class="fitur-section">
+            <div class="container">
+                <h2 class="section-judul">Kenapa Curhat di <span>KKN?</span></h2>
+                
+                <div class="bento-grid">
+                    <div class="bento-kartu bento-large">
+                        <div class="bento-bg-ikon">🥷</div>
+                        <div>
+                            <div class="bento-ikon" style="font-size: 32px;">🛡️</div>
+                            <h3 class="bento-judul">Bebas Berekspresi Tanpa Tinggalkan Jejak</h3>
+                        </div>
+                        <p class="bento-teks" style="max-width: 90%;">Gak perlu takut di-judge atau dilacak dosen. Identitasmu disamarkan seutuhnya, bebas tumpahin semua uneg-uneg terpendam selama masa kuliah tanpa beban.</p>
+                    </div>
+
+                    <div class="bento-kartu bento-box" style="justify-content: center; align-items: center; text-align: center;">
+                        <div class="bento-ikon" style="margin-bottom: 8px;">🔥</div>
+                        <h3 class="bento-judul" style="font-size: 20px; margin-bottom: 0;">Sangat<br>Seru</h3>
+                    </div>
+
+                    <div class="bento-kartu bento-box" style="justify-content: center; align-items: center; text-align: center; background: rgba(252, 178, 1, 0.08); border-color: rgba(252, 178, 1, 0.2);">
+                        <h3 class="bento-judul" style="font-size: 56px; color: var(--warna-kuning); margin-bottom: 0;">100%</h3>
+                        <p class="bento-teks" style="font-weight: bold; color: var(--warna-putih);">Aman & Rahasia</p>
+                    </div>
+
+                    <div class="bento-kartu bento-wide" style="flex-direction: row; align-items: center; gap: 32px;">
+                        <div class="bento-ikon" style="font-size: 72px; margin-bottom: 0;">🤝</div>
+                        <div>
+                            <h3 class="bento-judul" style="font-size: 24px;">Temukan Teman Satu Frekuensi</h3>
+                            <p class="bento-teks">Pusing skripsi? Nunggu revisian? Kamu gak sendirian. Temukan ribuan mahasiswa lain dengan keresahan yang sama di sini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--SECTION 3: TRENDING GALLERY (Target: #trending)-->
+        <section id="trending" class="trending-section">
+            <div class="container">
+                <h2 class="section-judul">Lagi Rame <span>Diomongin 🌶️</span></h2>
+            </div>
+            
+            <div class="trending-wrapper">
+                <div class="kartu-trending">
+                    <span class="tag-trending">#UangHabis</span>
+                    <div class="konten-bawah-trending">
+                        <div class="kartu-header">
+                            <div class="avatar" style="font-size: 16px; width: 30px; height: 30px;">💸</div>
+                            <div>
+                                <div class="nama-user" style="font-size: 14px;">Anak Kos Sedih</div>
+                                <div class="waktu">10 mnt yang lalu</div>
+                            </div>
+                        </div>
+                        <h3 class="kartu-judul" style="font-size: 18px;">Baru Tanggal 15...</h3>
+                        <p class="kartu-teks">Saldo tinggal 50 ribu, padahal belum bayar kas kelas. Ada yang tau resep indomie dicampur promag biar kenyang sampai akhir bulan?</p>
+                    </div>
+                </div>
+
+                <div class="kartu-trending">
+                    <span class="tag-trending">#TugasNumpuk</span>
+                    <div class="konten-bawah-trending">
+                        <div class="kartu-header">
+                            <div class="avatar" style="font-size: 16px; width: 30px; height: 30px;">🧟‍♂️</div>
+                            <div>
+                                <div class="nama-user" style="font-size: 14px;">Zombie Kampus</div>
+                                <div class="waktu">1 jam yang lalu</div>
+                            </div>
+                        </div>
+                        <h3 class="kartu-judul" style="font-size: 18px;">Mata Panda 🐼</h3>
+                        <p class="kartu-teks">Tidur jam 3 pagi ngerjain laporan, jam 7 udah kelas pengganti. Apakah ini yang dinamakan simulasi kerja rodi sebelum lulus?</p>
+                    </div>
+                </div>
+
+                <div class="kartu-trending">
+                    <span class="tag-trending">#DosenKiller</span>
+                    <div class="konten-bawah-trending">
+                        <div class="kartu-header">
+                            <div class="avatar" style="font-size: 16px; width: 30px; height: 30px;">🥶</div>
+                            <div>
+                                <div class="nama-user" style="font-size: 14px;">Mahasiswa Abadi</div>
+                                <div class="waktu">3 jam yang lalu</div>
+                            </div>
+                        </div>
+                        <h3 class="kartu-judul" style="font-size: 18px;">Ujian Bikin Kena Mental</h3>
+                        <p class="kartu-teks">Ditanya teori bab 2, baru jawab "Menurut saya..", langsung dipotong "Saya gak nanya pendapat kamu!". Nangis batin di depan kelas.</p>
+                    </div>
+                </div>
+
+                <div class="kartu-trending">
+                    <span class="tag-trending">#Organisasi</span>
+                    <div class="konten-bawah-trending">
+                        <div class="kartu-header">
+                            <div class="avatar" style="font-size: 16px; width: 30px; height: 30px;">🎭</div>
+                            <div>
+                                <div class="nama-user" style="font-size: 14px;">Ketupel Capek</div>
+                                <div class="waktu">5 jam yang lalu</div>
+                            </div>
+                        </div>
+                        <h3 class="kartu-judul" style="font-size: 18px;">Rapat Terus, Eksekusi Minus</h3>
+                        <p class="kartu-teks">Rapat evaluasi dari jam 8 malam sampai jam 1 pagi, yang dibahas cuma warna id card panitia. Capek banget ngurusin birokrasi kampus.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--SECTION 4: CALL TO ACTION (CTA) BAWAH-->
+        <section class="cta-bawah-section" style="padding: 40px 0 80px 0; text-align: center; position: relative; z-index: 2;">
+            <div class="container">
+                <div style="background: linear-gradient(145deg, rgba(63, 36, 2, 0.4) 0%, rgba(41, 24, 8, 0.2) 100%); border: 1px solid rgba(252, 178, 1, 0.15); border-radius: 24px; padding: 40px 24px; backdrop-filter: blur(10px);">
+                    <h2 class="section-judul" style="margin-bottom: 12px; font-size: 32px;">Udah Nggak Tahan <span>Pengen Ngeluh?</span></h2>
+                    <p class="deskripsi" style="margin: 0 auto 24px auto; font-size: 15px; color: var(--warna-abu-terang); max-width: 500px;">
+                        Gabung sekarang, pakai topeng anonimmu, dan lepaskan beban pikiran tanpa takut dihakimi.
+                    </p>
+                    <div class="grup-tombol" style="justify-content: center;">
+                        <!-- Tombol Gass diubah menjadi link yang mengarah ke paling atas -->
+                        <a href="#beranda" class="btn-primer" style="font-size: 16px; padding: 12px 48px; display: inline-block; text-decoration: none;">Gass</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>KKN. Keluh Kesah Ngampus © 2026 | Tempat Ngeluh Paling Aman.</p>
+    </footer>
+
+    <!--JAVASCRIPT LOGIC-->
+    <script>
+        const trendingWrapper = document.querySelector('.trending-wrapper');
+        let isPaused = false;
+        let resumeTimeout;
+        let scrollSpeed = 1; 
+
+        if (trendingWrapper) {
+            trendingWrapper.style.scrollBehavior = 'auto';
+            const originalCards = [...trendingWrapper.children];
+            
+            for (let i = 0; i < 2; i++) {
+                originalCards.forEach(kartu => {
+                    const clone = kartu.cloneNode(true);
+                    trendingWrapper.appendChild(clone);
+                });
+            }
+
+            let resetPoint = 0;
+            function hitungTitikReset() {
+                const firstOriginal = trendingWrapper.children[0];
+                const firstClone = trendingWrapper.children[originalCards.length];
+                resetPoint = firstClone.offsetLeft - firstOriginal.offsetLeft;
+            }
+
+            hitungTitikReset();
+            window.addEventListener('resize', hitungTitikReset);
+
+            function autoScroll() {
+                if (!isPaused && resetPoint > 0) {
+                    trendingWrapper.scrollLeft += scrollSpeed;
+                    if (trendingWrapper.scrollLeft >= resetPoint) {
+                        trendingWrapper.scrollLeft -= resetPoint;
+                    }
+                }
+                requestAnimationFrame(autoScroll);
+            }
+
+            requestAnimationFrame(autoScroll);
+
+            function pauseScroll() {
+                isPaused = true;
+                clearTimeout(resumeTimeout); 
+            }
+
+            function resumeScrollAfterDelay() {
+                clearTimeout(resumeTimeout);
+                resumeTimeout = setTimeout(() => {
+                    isPaused = false;
+                }, 1500); 
+            }
+
+            trendingWrapper.addEventListener('mouseenter', pauseScroll);
+            trendingWrapper.addEventListener('mouseleave', resumeScrollAfterDelay);
+            trendingWrapper.addEventListener('touchstart', pauseScroll);
+            trendingWrapper.addEventListener('touchend', resumeScrollAfterDelay);
+        }
+    </script>
+</body>
+</html>
