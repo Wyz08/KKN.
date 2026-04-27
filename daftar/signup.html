@@ -65,52 +65,60 @@
 
     <!-- JAVASCRIPT UNTUK EFEK DELAY PASSWORD -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Mencari semua input yang awalnya bertipe password
-            const passwordInputs = document.querySelectorAll('input[type="password"]');
+        (function() {
+            // Cari input password berdasarkan id atau type
+            const passInputs = document.querySelectorAll('input[type="password"], #pass-input');
 
-            passwordInputs.forEach(input => {
-                // Ubah ke type text agar kita bisa mengubah karakter jadi titik secara manual via JS
-                input.setAttribute('type', 'text');
-                input.setAttribute('spellcheck', 'false'); // Matikan ejaan agar tidak ada garis merah
-                input.setAttribute('autocomplete', 'off'); // Matikan saran browser agar rapi
+            passInputs.forEach(input => {
+                input.setAttribute('type', 'text'); // Ubah ke text agar bisa dimanipulasi
+                input.style.fontFamily = 'monospace'; // Titik lebih rapi dan sejajar
 
-                let realPassword = ""; // Variabel menyimpan password asli di belakang layar
-                let hideTimer; // Timer untuk delay 1.5 detik
+                let realPass = "";
+                let timer;
 
                 input.addEventListener('input', function(e) {
-                    clearTimeout(hideTimer); // Reset timer tiap kali ada ketikan baru
+                    clearTimeout(timer);
+                    let val = input.value;
 
-                    let currentValue = input.value;
-
-                    // Deteksi jika user menghapus (backspace) karakter
-                    if (currentValue.length < realPassword.length) {
-                        realPassword = realPassword.substring(0, currentValue.length);
-                    }
-                    // Deteksi jika user menambah (mengetik) karakter
-                    else if (currentValue.length > realPassword.length) {
-                        // Ambil karakter terakhir yang baru saja diketik dan tambahkan ke password asli
-                        let addedChar = currentValue.slice(currentValue.length - realPassword.length);
-                        realPassword += addedChar;
+                    // Jika input dikosongkan total
+                    if (val === "") {
+                        realPass = "";
+                        return;
                     }
 
-                    // Logika Visual di Layar (Masking)
-                    if (realPassword.length > 0) {
-                        // Ubah semua huruf jadi titik (•), KECUALI huruf yang paling terakhir diketik
-                        let maskedText = '•'.repeat(realPassword.length - 1) + realPassword.slice(-1);
-                        input.value = maskedText;
+                    let isDeleting = val.length < realPass.length;
 
-                        // Set waktu 1.5 detik (1500ms) untuk otomatis menyembunyikan huruf terakhir jadi titik
-                        hideTimer = setTimeout(() => {
-                            input.value = '•'.repeat(realPassword.length);
-                        }, 1500);
+                    // Jika mengetik ulang semuanya atau paste teks baru (tidak ada titik)
+                    if (!val.includes('•')) {
+                        realPass = val;
+                        isDeleting = false;
+                    } 
+                    // Jika menambah karakter di akhir
+                    else if (val.length > realPass.length) {
+                        let newChars = val.substring(realPass.length).replace(/•/g, '');
+                        realPass += newChars;
+                    } 
+                    // Jika menghapus karakter (backspace)
+                    else if (isDeleting) {
+                        realPass = realPass.substring(0, val.length);
+                    }
+
+                    // Tampilkan ke layar
+                    if (isDeleting) {
+                        // Jika habis dihapus, langsung sembunyikan semua (tidak ada delay)
+                        input.value = '•'.repeat(realPass.length);
                     } else {
-                        input.value = "";
+                        // Jika ditambah, perlihatkan 1 huruf terakhir
+                        input.value = '•'.repeat(Math.max(0, realPass.length - 1)) + realPass.slice(-1);
                     }
+
+                    // Timer 1.5 detik untuk menyembunyikan huruf terakhir
+                    timer = setTimeout(() => {
+                        input.value = '•'.repeat(realPass.length);
+                    }, 1500);
                 });
             });
-        });
+        })();
     </script>
-
 </body>
 </html>
