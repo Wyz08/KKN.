@@ -990,7 +990,7 @@ body#beranda footer {
     } 
 }
 
-* ==========================================================
+/* ==========================================================
    7. MEDIA QUERIES (RESPONSIVE / MOBILE UNTUK LANDING PAGE)
    ========================================================== */
 @media (max-width: 768px) {
@@ -1000,119 +1000,128 @@ body#beranda footer {
         padding-right: 20px;
     }
 
-    /* Merapikan Header & Menu Navigasi agar tetap sejajar (kiri-kanan) */
+    /* --- FIX HEADER & NAV --- */
     header {
-        flex-direction: row;
+        flex-direction: row; /* Tetap sejajar kiri-kanan */
         justify-content: space-between;
         align-items: center;
-        padding-top: 24px;
-        gap: 0;
+        padding-top: 20px;
+        gap: 8px; /* Beri sedikit jarak aman */
     }
     .logo-kkn {
-        font-size: 28px; /* Dikecilkan sedikit agar muat di layar HP */
+        font-size: 22px; /* Diperkecil agar muat sebaris di HP */
     }
     nav {
-        gap: 16px; /* Jarak antar menu dirapatkan */
+        gap: 12px; /* Padding antar menu dirapatkan */
         flex-wrap: nowrap;
     }
     nav a.menu-link {
-        font-size: 14px; /* Ukuran font menu disesuaikan untuk HP */
+        font-size: 12px; /* Diperkecil agar tidak turun ke bawah */
     }
 
-    /* Mengubah Hero Section menjadi atas-bawah (stacking) */
+    /* --- FIX HERO SECTION (MENCEGAH OVERLAP/HANCUR) --- */
     .hero-container {
-        flex-direction: column;
+        flex-direction: column; /* Ubah orientasi jadi atas-bawah */
         text-align: center;
-        padding-top: 40px;
+        padding-top: 30px;
         padding-bottom: 60px;
-        gap: 50px;
+        gap: 40px;
         min-height: auto;
     }
     .hero-kiri {
+        flex: none; /* Mereset sifat desktop */
         max-width: 100%;
+        width: 100%;
         align-items: center;
     }
     .judul-utama {
-        font-size: 42px; /* Font dikecilkan untuk HP */
+        font-size: 40px; /* Sesuaikan ukuran font judul di HP */
     }
     .deskripsi {
-        font-size: 15px;
+        font-size: 14px;
+        margin: 0 auto;
     }
     .grup-tombol {
         justify-content: center;
         flex-wrap: wrap;
-    }
-    .hero-kanan {
-        justify-content: center;
         width: 100%;
     }
+    .hero-kanan {
+        flex: none; /* Mereset sifat desktop */
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        margin-top: 10px; /* Beri jarak dengan teks atas */
+    }
+    .kartu-curhat {
+        padding: 24px;
+        margin: 0 auto;
+    }
 
-    /* PERBAIKAN BENTO GRID: Dibuat 2 Kolom (Sampingan) */
+    /* --- FIX BENTO GRID (2 KOLOM SAMPINGAN) --- */
     .bento-grid {
-        grid-template-columns: repeat(2, 1fr); /* Membagi menjadi 2 kolom sama besar */
+        grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
         gap: 16px;
     }
-    
     .bento-large {
-        grid-column: span 2; /* Kartu pertama teks panjang tetap full width */
+        grid-column: span 2;
         min-height: 200px;
     }
-    
     .bento-box {
-        grid-column: span 1; /* Kotak kecil kini mengisi 1 kolom (Sampingan!) */
+        grid-column: span 1;
         min-height: 160px;
-        padding: 20px 16px; /* Padding dikurangi sedikit agar konten tidak sesak */
+        padding: 20px 16px;
     }
-    
     .bento-box .bento-judul {
-        font-size: 18px !important; /* Font dikecilkan sedikit agar pas saat berdampingan */
+        font-size: 18px !important;
     }
-    
     .bento-wide {
-        grid-column: span 2; /* Kartu terakhir bawah tetap full width */
+        grid-column: span 2;
         flex-direction: column !important;
         text-align: center;
         align-items: center !important;
         gap: 16px !important;
     }
-    
     .bento-large .bento-judul {
-        font-size: 32px;
+        font-size: 28px;
     }
-    
     .bento-ikon {
         margin-bottom: 8px;
     }
 
-    /* Menyesuaikan ukuran kartu Trending */
+    /* --- FIX KARTU TRENDING --- */
     .kartu-trending {
-        flex: 0 0 280px; /* Lebar kartu dikecilkan agar scroll di HP lebih mulus */
+        flex: 0 0 280px;
         height: 380px;
         padding: 24px;
     }
 
-    /* Call To Action Bawah */
+    /* --- FIX CTA BAWAH --- */
     .cta-bawah-section .section-judul {
-        font-size: 26px !important;
+        font-size: 24px !important;
     }
     .cta-bawah-section > .container > div {
         padding: 32px 16px !important;
     }
 }
 
-/* Khusus untuk HP dengan layar sangat kecil (misal: iPhone SE) */
+/* Khusus untuk HP dengan layar sangat kecil (misal: iPhone SE / < 400px) */
 @media (max-width: 400px) {
     .judul-utama {
-        font-size: 36px;
+        font-size: 34px;
     }
     .btn-primer, .btn-sekunder {
-        width: 100%;
+        width: 100%; /* Tombol memenuhi lebar layar */
+    }
+    /* Jika layarnya benar-benar terlalu kecil, kita paksa logo sedikit lebih kecil lagi agar tetap sebaris */
+    .logo-kkn {
+        font-size: 20px; 
     }
     nav {
-        gap: 12px; /* Dapatkan lebih rapat untuk layar sangat kecil */
+        gap: 8px; 
     }
     nav a.menu-link {
-        font-size: 13px; /* Kecilkan font sedikit lagi di iPhone SE */
+        font-size: 11px;
     }
 }
