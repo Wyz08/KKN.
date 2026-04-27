@@ -490,8 +490,9 @@ nav a.menu-link:hover, nav a.active {
     width: 100%; 
     max-width: 400px; 
     border-radius: 31px; 
-    border: 1px solid rgba(var(--rgb-putih), 0.11); 
-    box-shadow: 0px 10px 40px rgba(var(--rgb-hitam), 0.3); 
+    border: 1px solid rgba(var(--rgb-kuning), 0.3); 
+    box-shadow: 0px 10px 40px rgba(var(--rgb-hitam), 0.4),
+                0px 0px 25px rgba(var(--rgb-kuning), 0.15);
     backdrop-filter: blur(5.7px); 
     -webkit-backdrop-filter: blur(5.7px); 
     background: var(--gradasi-kaca-hero); 
