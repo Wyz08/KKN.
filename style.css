@@ -244,6 +244,12 @@ body:has(.viewport), body:has(.signup-viewport) {
     outline: none; 
 }
 
+/* TAMBAHAN: Styling untuk teks placeholder agar lebih terbaca tapi tidak mencolok */
+.input-field input::placeholder {
+    color: #8c8c8c; /* Warna abu-abu menengah, tidak terlalu gelap dan bukan putih murni */
+    opacity: 1; /* Mencegah browser (seperti Firefox/Safari) menurunkan opasitas bawaannya */
+}
+
 /* TAMBAHAN UNTUK LUPA PASSWORD */
 .lupa-password-container {
     text-align: right;
