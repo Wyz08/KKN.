@@ -1040,26 +1040,40 @@ body#beranda footer {
         width: 100%;
     }
 
-    /* Merapikan susunan Fitur Bento Grid menjadi 1 kolom sejajar ke bawah */
+    /* PERBAIKAN BENTO GRID: Dibuat 2 Kolom (Sampingan) */
     .bento-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* Membagi menjadi 2 kolom sama besar */
         grid-auto-rows: auto;
         gap: 16px;
     }
-    .bento-large, .bento-wide, .bento-box {
-        grid-column: span 1;
-        grid-row: auto;
+    
+    .bento-large {
+        grid-column: span 2; /* Kartu pertama teks panjang tetap full width */
         min-height: 200px;
     }
-    .bento-large .bento-judul {
-        font-size: 32px;
+    
+    .bento-box {
+        grid-column: span 1; /* Kotak kecil kini mengisi 1 kolom (Sampingan!) */
+        min-height: 160px;
+        padding: 20px 16px; /* Padding dikurangi sedikit agar konten tidak sesak */
     }
+    
+    .bento-box .bento-judul {
+        font-size: 18px !important; /* Font dikecilkan sedikit agar pas saat berdampingan */
+    }
+    
     .bento-wide {
+        grid-column: span 2; /* Kartu terakhir bawah tetap full width */
         flex-direction: column !important;
         text-align: center;
         align-items: center !important;
         gap: 16px !important;
     }
+    
+    .bento-large .bento-judul {
+        font-size: 32px;
+    }
+    
     .bento-ikon {
         margin-bottom: 8px;
     }
