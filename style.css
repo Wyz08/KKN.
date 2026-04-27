@@ -244,6 +244,25 @@ body:has(.viewport), body:has(.signup-viewport) {
     outline: none; 
 }
 
+/* TAMBAHAN UNTUK LUPA PASSWORD */
+.lupa-password-container {
+    text-align: right;
+    margin-top: -1vh; /* Menarik teks agak naik mendekati input password */
+    margin-bottom: 2vh; /* Memberi jarak ke tombol Masuk */
+}
+
+.lupa-password {
+    color: #b0b0b0;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lupa-password:hover {
+    color: #FCB201;
+    text-decoration: underline;
+}
+
 .btn-gold { 
     width: 100%; 
     background-color: #FCB201; 
