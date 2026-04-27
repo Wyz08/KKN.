@@ -989,3 +989,103 @@ body#beranda footer {
         grid-template-columns: 1fr; 
     } 
 }
+
+/* ==========================================================
+   7. MEDIA QUERIES (RESPONSIVE / MOBILE UNTUK LANDING PAGE)
+   ========================================================== */
+@media (max-width: 768px) {
+    /* Persempit jarak aman (padding) di layar HP */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* Merapikan Header & Menu Navigasi */
+    header {
+        flex-direction: column;
+        gap: 16px;
+        padding-top: 24px;
+    }
+    nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Mengubah Hero Section menjadi atas-bawah (stacking) */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 60px;
+        gap: 50px;
+        min-height: auto;
+    }
+    .hero-kiri {
+        max-width: 100%;
+        align-items: center;
+    }
+    .judul-utama {
+        font-size: 42px; /* Font dikecilkan untuk HP */
+    }
+    .deskripsi {
+        font-size: 15px;
+    }
+    .grup-tombol {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .hero-kanan {
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Merapikan susunan Fitur Bento Grid menjadi 1 kolom sejajar ke bawah */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 16px;
+    }
+    .bento-large, .bento-wide, .bento-box {
+        grid-column: span 1;
+        grid-row: auto;
+        min-height: 200px;
+    }
+    .bento-large .bento-judul {
+        font-size: 32px;
+    }
+    .bento-wide {
+        flex-direction: column !important;
+        text-align: center;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+    .bento-ikon {
+        margin-bottom: 8px;
+    }
+
+    /* Menyesuaikan ukuran kartu Trending */
+    .kartu-trending {
+        flex: 0 0 280px; /* Lebar kartu dikecilkan agar scroll di HP lebih mulus */
+        height: 380px;
+        padding: 24px;
+    }
+
+    /* Call To Action Bawah */
+    .cta-bawah-section .section-judul {
+        font-size: 26px !important;
+    }
+    .cta-bawah-section > .container > div {
+        padding: 32px 16px !important;
+    }
+}
+
+/* Khusus untuk HP dengan layar sangat kecil (misal: iPhone SE) */
+@media (max-width: 400px) {
+    .judul-utama {
+        font-size: 36px;
+    }
+    .btn-primer, .btn-sekunder {
+        width: 100%;
+    }
+}
