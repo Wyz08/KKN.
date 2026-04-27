@@ -990,7 +990,7 @@ body#beranda footer {
     } 
 }
 
-/* ==========================================================
+* ==========================================================
    7. MEDIA QUERIES (RESPONSIVE / MOBILE UNTUK LANDING PAGE)
    ========================================================== */
 @media (max-width: 768px) {
@@ -1000,16 +1000,23 @@ body#beranda footer {
         padding-right: 20px;
     }
 
-    /* Merapikan Header & Menu Navigasi */
+    /* Merapikan Header & Menu Navigasi agar tetap sejajar (kiri-kanan) */
     header {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
         padding-top: 24px;
+        gap: 0;
+    }
+    .logo-kkn {
+        font-size: 28px; /* Dikecilkan sedikit agar muat di layar HP */
     }
     nav {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 16px; /* Jarak antar menu dirapatkan */
+        flex-wrap: nowrap;
+    }
+    nav a.menu-link {
+        font-size: 14px; /* Ukuran font menu disesuaikan untuk HP */
     }
 
     /* Mengubah Hero Section menjadi atas-bawah (stacking) */
@@ -1101,5 +1108,11 @@ body#beranda footer {
     }
     .btn-primer, .btn-sekunder {
         width: 100%;
+    }
+    nav {
+        gap: 12px; /* Dapatkan lebih rapat untuk layar sangat kecil */
+    }
+    nav a.menu-link {
+        font-size: 13px; /* Kecilkan font sedikit lagi di iPhone SE */
     }
 }
