@@ -1006,30 +1006,30 @@ body#beranda footer {
         justify-content: space-between;
         align-items: center;
         padding-top: 20px;
-        gap: 8px; /* Beri sedikit jarak aman */
+        gap: 8px;
     }
     .logo-kkn {
-        font-size: 22px; /* Diperkecil agar muat sebaris di HP */
+        font-size: 26px; /* Dibesarkan lagi agar pas dan estetik */
     }
     nav {
-        gap: 12px; /* Padding antar menu dirapatkan */
+        gap: 16px; /* Jarak antar menu lebih proporsional */
         flex-wrap: nowrap;
     }
     nav a.menu-link {
-        font-size: 12px; /* Diperkecil agar tidak turun ke bawah */
+        font-size: 13px; /* Ukuran menu pas untuk jari */
     }
 
     /* --- FIX HERO SECTION (MENCEGAH OVERLAP/HANCUR) --- */
     .hero-container {
         flex-direction: column; /* Ubah orientasi jadi atas-bawah */
         text-align: center;
-        padding-top: 30px;
+        padding-top: 60px; /* JARAK EXTRA agar tidak nabrak menu atas */
         padding-bottom: 60px;
         gap: 40px;
         min-height: auto;
     }
     .hero-kiri {
-        flex: none; /* Mereset sifat desktop */
+        flex: none; /* Mereset sifat desktop max-width: 50% */
         max-width: 100%;
         width: 100%;
         align-items: center;
@@ -1051,7 +1051,7 @@ body#beranda footer {
         width: 100%;
         max-width: 100%;
         justify-content: center;
-        margin-top: 10px; /* Beri jarak dengan teks atas */
+        margin-top: 20px; /* Jarak ekstra dari tombol */
     }
     .kartu-curhat {
         padding: 24px;
@@ -1065,19 +1065,22 @@ body#beranda footer {
         gap: 16px;
     }
     .bento-large {
-        grid-column: span 2;
-        min-height: 200px;
+        grid-column: 1 / -1 !important; /* Paksa mengambil lebar penuh layar (overrides span 2 bug) */
+        grid-row: auto !important; /* MENGHILANGKAN BUG KOTAK KURUS MANJANG (overrides span 2 bug) */
+        min-height: auto;
     }
     .bento-box {
-        grid-column: span 1;
-        min-height: 160px;
+        grid-column: span 1 !important; /* Setengah lebar untuk masing-masing 2 kotak kecil */
+        grid-row: auto !important;
+        min-height: 140px;
         padding: 20px 16px;
     }
     .bento-box .bento-judul {
         font-size: 18px !important;
     }
     .bento-wide {
-        grid-column: span 2;
+        grid-column: 1 / -1 !important; /* Paksa mengambil lebar penuh layar */
+        grid-row: auto !important;
         flex-direction: column !important;
         text-align: center;
         align-items: center !important;
@@ -1114,14 +1117,13 @@ body#beranda footer {
     .btn-primer, .btn-sekunder {
         width: 100%; /* Tombol memenuhi lebar layar */
     }
-    /* Jika layarnya benar-benar terlalu kecil, kita paksa logo sedikit lebih kecil lagi agar tetap sebaris */
     .logo-kkn {
-        font-size: 20px; 
+        font-size: 22px; /* Disesuaikan untuk SE */
     }
     nav {
-        gap: 8px; 
+        gap: 10px; 
     }
     nav a.menu-link {
-        font-size: 11px;
+        font-size: 12px;
     }
 }
