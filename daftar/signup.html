@@ -41,17 +41,18 @@
             <form>
                 <div class="input-field">
                     <label>Username</label>
-                    <input type="text" placeholder="(Disarankan samaran)">
+                    <input type="text" placeholder="(Disarankan samaran)" autocomplete="off">
                 </div>
 
                 <div class="input-field">
                     <label>Email</label>
-                    <input type="email">
+                    <input type="email" placeholder="emailkampus@student.ac.id" autocomplete="off">
                 </div>
 
                 <div class="input-field">
                     <label>Password</label>
-                    <input type="password">
+                    <!-- Input password standar tanpa manipulasi JS -->
+                    <input type="password" placeholder="••••••••" autocomplete="off">
                 </div>
 
                 <button type="submit" class="btn-gold">Daftar</button>
@@ -63,62 +64,5 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT UNTUK EFEK DELAY PASSWORD -->
-    <script>
-        (function() {
-            // Cari input password berdasarkan id atau type
-            const passInputs = document.querySelectorAll('input[type="password"], #pass-input');
-
-            passInputs.forEach(input => {
-                input.setAttribute('type', 'text'); // Ubah ke text agar bisa dimanipulasi
-                input.style.fontFamily = 'monospace'; // Titik lebih rapi dan sejajar
-
-                let realPass = "";
-                let timer;
-
-                input.addEventListener('input', function(e) {
-                    clearTimeout(timer);
-                    let val = input.value;
-
-                    // Jika input dikosongkan total
-                    if (val === "") {
-                        realPass = "";
-                        return;
-                    }
-
-                    let isDeleting = val.length < realPass.length;
-
-                    // Jika mengetik ulang semuanya atau paste teks baru (tidak ada titik)
-                    if (!val.includes('•')) {
-                        realPass = val;
-                        isDeleting = false;
-                    } 
-                    // Jika menambah karakter di akhir
-                    else if (val.length > realPass.length) {
-                        let newChars = val.substring(realPass.length).replace(/•/g, '');
-                        realPass += newChars;
-                    } 
-                    // Jika menghapus karakter (backspace)
-                    else if (isDeleting) {
-                        realPass = realPass.substring(0, val.length);
-                    }
-
-                    // Tampilkan ke layar
-                    if (isDeleting) {
-                        // Jika habis dihapus, langsung sembunyikan semua (tidak ada delay)
-                        input.value = '•'.repeat(realPass.length);
-                    } else {
-                        // Jika ditambah, perlihatkan 1 huruf terakhir
-                        input.value = '•'.repeat(Math.max(0, realPass.length - 1)) + realPass.slice(-1);
-                    }
-
-                    // Timer 1.5 detik untuk menyembunyikan huruf terakhir
-                    timer = setTimeout(() => {
-                        input.value = '•'.repeat(realPass.length);
-                    }, 1500);
-                });
-            });
-        })();
-    </script>
 </body>
 </html>
