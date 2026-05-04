@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lupa Password - Ruang Aman</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="signup-viewport">
+        <div class="register-card" style="text-align: center; padding-top: 5vh;">
+
+            <!-- Tombol X kembali ke halaman Masuk -->
+            <a href="signin.html" class="btn-kembali-signup" title="Tutup">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </a>
+
+            <!-- Ikon Tanda Tanya Bulat -->
+            <div style="width: 64px; height: 64px; background: rgba(252, 178, 1, 0.1); border: 1px solid rgba(252, 178, 1, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; color: #FCB201;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+            </div>
+
+            <h1 style="margin-bottom: 10px;">Lupa password?</h1>
+            <p class="tagline" style="margin-bottom: 4vh; font-size: 0.95rem;">Jangan khawatir, kami akan mengirimkan instruksi reset ke emailmu.</p>
+
+            <form action="signin.html" style="text-align: left;">
+                <div class="input-field" style="margin-bottom: 3vh;">
+                    <!-- Sesuai gambar referensi, tidak perlu label, cukup placeholder -->
+                    <input type="email" placeholder="Masukkan email kampusmu" autocomplete="off" required style="padding: 15px;">
+                </div>
+
+                <!-- Garis Pembatas Tipis (Opsional seperti di referensi) -->
+                <div style="height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 3vh; width: 100%;"></div>
+
+                <!-- Kontainer Dua Tombol -->
+                <div style="display: flex; gap: 15px;">
+                    <!-- Tombol Batal -->
+                    <a href="signin.html" class="btn-gray" style="flex: 1; text-decoration: none; padding: 15px; margin: 0; font-size: 1rem;">
+                        Batal
+                    </a>
+                    
+                    <!-- Tombol Reset -->
+                    <button type="submit" class="btn-gold" style="flex: 1.2; margin: 0; font-size: 1rem;">
+                        Reset Password
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>
