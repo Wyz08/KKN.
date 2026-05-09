@@ -32,7 +32,7 @@
             <h1 style="margin-bottom: 10px;">Lupa password?</h1>
             <p class="tagline" style="margin-bottom: 4vh; font-size: 0.95rem;">Jangan khawatir, kami akan mengirimkan instruksi reset ke emailmu.</p>
 
-            <form action="signin.html" style="text-align: left;">
+            <form onsubmit="event.preventDefault(); window.location.href='signin.html';" style="text-align: left;">
                 <div class="input-field" style="margin-bottom: 3vh;">
                     <!-- Sesuai gambar referensi, tidak perlu label, cukup placeholder -->
                     <input type="email" placeholder="Masukkan email kampusmu" autocomplete="off" required style="padding: 15px;">
