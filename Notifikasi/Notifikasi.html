@@ -10,41 +10,43 @@
 </head>
 <body class="app-body">
 
-    <!-- Efek Cahaya Latar Belakang (Ambient Glow) konsisten dengan Profil/Home -->
+    <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
     <div class="ambient-glow"></div>
 
     <!-- Container Utama Desktop Super Lebar -->
     <main class="feed-container">
         
-        <!-- Header Atas (Konsisten dengan Profil) -->
-        <header class="top-header">
-            <!-- Logo KKN -->
-            <div style="font-size: 1.8rem; font-weight: 900; color: #FCB201; letter-spacing: -1px;">
-                KKN<span style="color: #fff;">.</span>
-            </div>
-            <h1 class="header-title" style="margin-left: -20px;">Notifikasi</h1>
-            <button class="icon-btn btn-menu" title="Menu Pengaturan" onclick="showToast('Membuka menu pengaturan...')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-            </button>
-        </header>
+        <!-- Bagian Atas yang di-Rombak (Full Glassmorphism & Rounded) -->
+        <div class="top-section-glass">
+            <!-- Header Atas -->
+            <header class="top-header notif-header">
+                <div class="logo-kkn-text">
+                    KKN<span>.</span>
+                </div>
+                <h1 class="header-title title-notif">Notifikasi</h1>
+                <button class="icon-btn btn-menu" title="Menu Pengaturan" onclick="showToast('Membuka menu pengaturan...')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </header>
 
-        <!-- Kotak Pencarian -->
-        <div class="search-container">
-            <div class="search-inner">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0a0a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 15px;">
-                    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" placeholder="Cari keresahan mahasiswa..." autocomplete="off">
+            <!-- Kotak Pencarian (Rounded) -->
+            <div class="search-container notif-search">
+                <div class="search-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCB201" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" placeholder="Cari notifikasi..." autocomplete="off">
+                </div>
             </div>
+
+            <!-- Filter Navigasi (Pills Kapsul) -->
+            <nav class="pills-nav notif-pills">
+                <button class="pill active">Semua</button>
+                <button class="pill">Belum Dibaca</button>
+                <button class="pill">Komentar</button>
+                <button class="pill">Peringatan</button>
+            </nav>
         </div>
-
-        <!-- Filter Navigasi (Pills) -->
-        <nav class="pills-nav">
-            <button class="pill active">Semua</button>
-            <button class="pill">Belum Dibaca</button>
-            <button class="pill">Komentar</button>
-            <button class="pill">Peringatan</button>
-        </nav>
 
         <!-- Daftar Notifikasi -->
         <div class="notif-list">
@@ -122,7 +124,7 @@
 
     </main>
 
-    <!-- Navigasi Bawah (Bottom Nav) persis dengan profil.html -->
+    <!-- Navigasi Bawah (Bottom Nav) -->
     <nav class="bottom-nav">
         <a href="../index.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -132,7 +134,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
             <span>Galeri</span>
         </a>
-        <!-- NOTIF AKTIF -->
         <a href="notif.html" class="nav-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
             <span>Notif</span>
@@ -143,8 +144,9 @@
         </a>
     </nav>
 
+    <!-- SCRIPT INTERAKTIF -->
     <script>
-        // --- 1. FUNGSI TOAST (NOTIFIKASI) ---
+        // --- 1. FUNGSI TOAST (NOTIFIKASI KECIL DI BAWAH) ---
         function showToast(message) {
             let toast = document.getElementById('custom-toast');
             if (!toast) {
@@ -162,18 +164,17 @@
             }, 2000);
         }
 
-        // --- 2. INTERAKTIF TAB PILLS ---
+        // --- 2. INTERAKTIF TAB PILLS (FILTER) ---
         const pills = document.querySelectorAll('.pill');
         pills.forEach(pill => {
             pill.addEventListener('click', () => {
                 pills.forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
-                showToast('Menampilkan: ' + pill.textContent);
-                // Di aplikasi asli, logic filter notifikasi akan ditaruh di sini
+                showToast('Menampilkan filter: ' + pill.textContent);
             });
         });
 
-        // --- 3. HAPUS UNREAD SAAT DIKLIK ---
+        // --- 3. HAPUS TANDA UNREAD SAAT DIKLIK ---
         const notifBoxes = document.querySelectorAll('.notif-box');
         notifBoxes.forEach(box => {
             box.addEventListener('click', function() {
