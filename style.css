@@ -1127,3 +1127,70 @@ body#beranda footer {
         font-size: 12px;
     }
 }
+
+/* ==========================================================
+   8. GAYA VERIFIKASI KODE (OTP)
+   ========================================================== */
+.otp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 4vh 0;
+}
+
+.otp-input {
+    width: 65px;
+    height: 65px;
+    background-color: #3d362d; /* Warna abu gelap */
+    border: 2px solid transparent;
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.otp-input:focus {
+    border-color: #FCB201; /* Warna emas KKN saat aktif */
+    background-color: #2a241c;
+    box-shadow: 0 0 15px rgba(252, 178, 1, 0.2);
+}
+
+.teks-bawah-verif {
+    text-align: center;
+    color: #b0b0b0;
+    font-size: 13px;
+    margin-bottom: 4vh;
+    line-height: 1.6;
+}
+
+.teks-bawah-verif span {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.teks-bawah-verif a {
+    color: #FCB201;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.teks-bawah-verif a:hover {
+    text-decoration: underline;
+}
+
+/* Penyesuaian layar HP sempit untuk kotak OTP */
+@media (max-width: 380px) {
+    .otp-container {
+        gap: 10px !important;
+    }
+    .otp-input {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 24px !important;
+    }
+}
+
