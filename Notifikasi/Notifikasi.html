@@ -6,7 +6,8 @@
     <title>Notifikasi - Ruang Aman</title>
     <!-- Menghubungkan ke file CSS utama di luar folder -->
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- PERBAIKAN FATAL: Memasukkan font ADLaM Display untuk Logo KKN -->
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="app-body">
 
@@ -20,7 +21,8 @@
         <div class="top-section-glass">
             <!-- Header Atas -->
             <header class="top-header notif-header">
-                <div class="logo-kkn-text">
+                <!-- Memanggil class logo-kkn global -->
+                <div class="logo-kkn" onclick="window.location.href='../index.html'">
                     KKN<span>.</span>
                 </div>
                 <h1 class="header-title title-notif">Notifikasi</h1>
@@ -32,7 +34,7 @@
             <!-- Kotak Pencarian (Rounded) -->
             <div class="search-container notif-search">
                 <div class="search-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FCB201" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
                         <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                     <input type="text" placeholder="Cari notifikasi..." autocomplete="off">
@@ -58,7 +60,7 @@
                         <div class="img-box">
                             <div class="avatar-initial">AR</div>
                             <span class="icon-badge yellow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#120f0c" stroke="#120f0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                             </span>
                         </div>
                     </div>
@@ -75,9 +77,9 @@
                 <div class="notif-content">
                     <div class="avatar-area">
                         <div class="img-box">
-                            <div class="avatar-initial" style="background-color: #3b82f6;">KM</div>
+                            <div class="avatar-initial" style="background-color: #3b82f6; color: #fff;">KM</div>
                             <span class="icon-badge blue">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                             </span>
                         </div>
                     </div>
@@ -107,9 +109,9 @@
                 <div class="notif-content">
                     <div class="avatar-area">
                         <div class="img-box">
-                            <div class="avatar-initial" style="background-color: #10b981;">DN</div>
+                            <div class="avatar-initial" style="background-color: #10b981; color: #fff;">DN</div>
                             <span class="icon-badge yellow">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#120f0c" stroke="#120f0c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                             </span>
                         </div>
                     </div>
@@ -146,13 +148,12 @@
 
     <!-- SCRIPT INTERAKTIF -->
     <script>
-        // --- 1. FUNGSI TOAST (NOTIFIKASI KECIL DI BAWAH) ---
         function showToast(message) {
             let toast = document.getElementById('custom-toast');
             if (!toast) {
                 toast = document.createElement('div');
                 toast.id = 'custom-toast';
-                toast.style.cssText = 'position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: #FCB201; color: #120f0c; padding: 12px 24px; border-radius: 30px; font-weight: 700; font-size: 0.9rem; z-index: 9999; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 15px rgba(252, 178, 1, 0.4); text-align: center; white-space: nowrap;';
+                toast.style.cssText = 'position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: var(--warna-kuning, #FCB201); color: var(--warna-latar, #120b02); padding: 12px 24px; border-radius: 30px; font-family: var(--font-teks); font-weight: 700; font-size: 0.9rem; z-index: 9999; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 15px rgba(252, 178, 1, 0.4); text-align: center; white-space: nowrap;';
                 document.body.appendChild(toast);
             }
             toast.textContent = message;
@@ -164,7 +165,6 @@
             }, 2000);
         }
 
-        // --- 2. INTERAKTIF TAB PILLS (FILTER) ---
         const pills = document.querySelectorAll('.pill');
         pills.forEach(pill => {
             pill.addEventListener('click', () => {
@@ -174,7 +174,6 @@
             });
         });
 
-        // --- 3. HAPUS TANDA UNREAD SAAT DIKLIK ---
         const notifBoxes = document.querySelectorAll('.notif-box');
         notifBoxes.forEach(box => {
             box.addEventListener('click', function() {
