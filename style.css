@@ -1428,24 +1428,60 @@ body.app-body {
    10. GAYA HALAMAN NOTIFIKASI
    ========================================================== */
 
-/* Kotak Pencarian Notifikasi */
-.search-container { 
-    margin-bottom: 25px; 
+/* Wadah Kaca Bagian Atas (Header, Search, Pills) */
+.top-section-glass {
+    background: rgba(22, 18, 14, 0.4);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin: -20px -20px 20px -20px;
+    padding: 20px 20px 15px 20px;
+    border-radius: 0 0 40px 40px; /* Lengkungan halus di bawah */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+/* Modifikasi Header Khusus Notifikasi dalam Kaca */
+.top-header.notif-header {
+    border-bottom: none;
+    margin-bottom: 15px;
+    padding: 5px 0;
+    background: transparent;
+    backdrop-filter: none;
+    position: static;
+}
+
+.logo-kkn-text {
+    font-size: 2rem; 
+    font-weight: 900; 
+    color: #FCB201; 
+    letter-spacing: -1.5px;
+}
+.logo-kkn-text span { color: #fff; }
+
+.title-notif {
+    font-size: 1.5rem;
+}
+
+/* Kotak Pencarian Notifikasi (Rounded Sempurna) */
+.search-container.notif-search { 
+    margin-bottom: 20px; 
 }
 .search-inner {
-    background: rgba(22, 18, 14, 0.6);
-    backdrop-filter: blur(10px);
+    border-radius: 50px; /* Menghilangkan sudut runcing */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(252, 178, 1, 0.1);
     display: flex;
     align-items: center;
-    padding: 16px 25px;
-    border-radius: 50px;
-    border: 1px solid rgba(255,255,255,0.05);
+    padding: 12px 25px;
     transition: 0.3s;
 }
 .search-inner:focus-within {
     border-color: #FCB201;
     background: rgba(26, 22, 17, 0.9);
 }
+.search-icon { margin-right: 15px; }
 .search-inner input {
     background: transparent;
     border: none;
@@ -1458,43 +1494,44 @@ body.app-body {
     color: #a0a0a0;
 }
 
-/* Tab Filter Navigasi (Pills) */
-.pills-nav { 
+/* Tab Filter Navigasi (Pills Kapsul) */
+.pills-nav.notif-pills { 
     display: flex; 
     gap: 12px; 
-    margin-bottom: 30px; 
-    overflow-x: auto; /* Bisa digeser di HP */
-    padding-bottom: 5px; /* Spasi untuk scrollbar */
-    scrollbar-width: none; /* Firefox */
+    margin-bottom: 0; /* Margin bawah dihapus karena sudah dibungkus kaca */
+    overflow-x: auto; 
+    padding-bottom: 5px; 
+    scrollbar-width: none; 
 }
-.pills-nav::-webkit-scrollbar { display: none; } /* Chrome, Safari */
+.pills-nav.notif-pills::-webkit-scrollbar { display: none; } 
 
 .pill {
-    background: rgba(22, 18, 14, 0.6);
-    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 50px; /* Bentuk kapsul melengkung sempurna */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
     color: #a0a0a0;
-    padding: 12px 25px;
-    border-radius: 30px;
+    padding: 10px 25px;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 .pill:hover { background: rgba(255,255,255,0.05); }
 .pill.active { 
     background: #FCB201; 
     color: #120f0c; 
     border-color: #FCB201; 
+    box-shadow: 0 4px 15px rgba(252, 178, 1, 0.3);
 }
 
 /* Kotak Notifikasi */
 .notif-list { display: flex; flex-direction: column; gap: 15px; }
 .notif-box {
-    background: rgba(22, 18, 14, 0.6);
+    border-radius: 25px; /* Sudut lebih lembut/rounded */
+    background: rgba(22, 18, 14, 0.5);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
     padding: 20px 25px;
     display: flex;
     justify-content: space-between;
@@ -1507,8 +1544,8 @@ body.app-body {
     background-color: rgba(26, 22, 17, 0.8);
 }
 .notif-box.unread { 
-    border-left: 5px solid #FCB201; 
-    background: rgba(252, 178, 1, 0.05);
+    border-left: 4px solid #FCB201; 
+    background: rgba(252, 178, 1, 0.03);
 }
 
 .notif-content { display: flex; align-items: center; gap: 20px; width: 100%; }
@@ -1549,9 +1586,19 @@ body.app-body {
 
 .dot-unread { min-width: 12px; height: 12px; background: #FCB201; border-radius: 50%; margin-left: 15px;}
 
+/* Responsif Layar Besar (Desktop) */
+@media (min-width: 769px) {
+    /* Menyesuaikan padding efek kaca atas agar pas di Desktop */
+    .top-section-glass {
+        padding: 30px 40px 20px 40px;
+        margin: -20px -40px 30px -40px; /* Melebar ke ujung container desktop */
+        border-radius: 0 0 50px 50px;
+    }
+}
+
 /* Responsif Mobile untuk Notifikasi */
 @media (max-width: 768px) {
-    .notif-box { padding: 18px 20px; }
+    .notif-box { padding: 18px 20px; border-radius: 20px; }
     .notif-content { gap: 15px; }
     .avatar-initial, .warning-square { width: 50px; height: 50px; min-width: 50px; font-size: 1.2rem; }
     .notif-info p { font-size: 0.9rem; }
