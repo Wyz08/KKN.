@@ -1428,35 +1428,51 @@ body.app-body {
    10. GAYA HALAMAN NOTIFIKASI
    ========================================================== */
 
-/* Wadah Kaca Bagian Atas (Header, Search, Pills) */
-.top-section-glass {
-    background: rgba(var(--rgb-latar), 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: var(--border-kaca-tipis);
-    margin: -20px -20px 20px -20px;
-    padding: 20px 20px 15px 20px;
-    border-radius: 0 0 40px 40px; 
-    box-shadow: 0 10px 30px rgba(var(--rgb-hitam), 0.2);
+/* Wadah Kaca Bagian Atas Full Width (Menyentuh ujung layar) */
+.top-section-glass.full-width-header {
     position: sticky;
     top: 0;
-    z-index: 20;
+    left: 0;
+    width: 100%;
+    margin: 0; 
+    padding: 15px 0 20px 0;
+    border-radius: 0 0 40px 40px; /* Lengkungan elegan di bawah */
+    background: rgba(var(--rgb-latar), 0.7);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: var(--border-kaca-tipis);
+    box-shadow: 0 15px 40px rgba(var(--rgb-hitam), 0.5);
+    z-index: 50;
+}
+
+/* Pembungkus isi header agar sejajar dengan konten di bawahnya */
+.header-inner {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Penyesuaian margin container utama Notif */
+.feed-container.notif-feed {
+    padding-top: 30px; /* Jarak antara header kaca dengan list notif */
 }
 
 /* Modifikasi Header Khusus Notifikasi dalam Kaca */
 .top-header.notif-header {
     border-bottom: none;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 5px 0;
     background: transparent;
     backdrop-filter: none;
     position: static;
 }
 
-/* Penyesuaian Logo KKN agar persis dengan Landing Page */
 .notif-header .logo-kkn {
     font-size: 32px; 
     line-height: 1;
+    cursor: pointer;
 }
 
 .title-notif {
@@ -1467,7 +1483,7 @@ body.app-body {
 
 /* Kotak Pencarian Notifikasi (Rounded Sempurna) */
 .search-container.notif-search { 
-    margin-bottom: 20px; 
+    margin-bottom: 25px; 
 }
 .search-inner {
     border-radius: 50px; 
@@ -1475,12 +1491,13 @@ body.app-body {
     border: var(--border-kaca-tipis);
     display: flex;
     align-items: center;
-    padding: 12px 25px;
+    padding: 14px 25px;
     transition: all 0.3s ease;
 }
 .search-inner:focus-within {
     border: var(--border-kuning-tipis);
     background: rgba(var(--rgb-latar), 0.9);
+    box-shadow: 0 0 15px rgba(var(--rgb-kuning), 0.1);
 }
 .search-icon { 
     margin-right: 15px; 
@@ -1497,7 +1514,7 @@ body.app-body {
 }
 .search-inner input::placeholder {
     color: var(--warna-abu-terang);
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 /* Tab Filter Navigasi (Pills Kapsul) */
@@ -1552,6 +1569,7 @@ body.app-body {
 .notif-box:hover {
     border: var(--border-kuning-tipis); 
     background-color: rgba(var(--rgb-latar), 0.8);
+    transform: translateY(-2px);
 }
 .notif-box.unread { 
     border-left: 4px solid var(--warna-kuning); 
@@ -1560,7 +1578,6 @@ body.app-body {
 
 .notif-content { display: flex; align-items: center; gap: 20px; width: 100%; }
 
-/* Pengganti Gambar Avatar yang Aman dari Bot */
 .avatar-initial {
     width: 60px; height: 60px;
     background-color: var(--warna-kuning); 
@@ -1589,7 +1606,6 @@ body.app-body {
     border: 1px solid rgba(234, 67, 53, 0.3);
 }
 
-/* Tipografi Notifikasi */
 .notif-info p { 
     margin: 0; font-size: 1rem; line-height: 1.5; 
     color: var(--warna-abu-terang); 
@@ -1609,9 +1625,8 @@ body.app-body {
 
 /* Responsif Layar Besar (Desktop) */
 @media (min-width: 769px) {
-    .top-section-glass {
-        padding: 30px 40px 20px 40px;
-        margin: -20px -40px 30px -40px;
+    .top-section-glass.full-width-header {
+        padding-top: 25px; 
         border-radius: 0 0 50px 50px;
     }
 }
