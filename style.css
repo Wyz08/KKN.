@@ -1430,13 +1430,14 @@ body.app-body {
 
 /* Wadah Kaca Bagian Atas (Header, Search, Pills) */
 .top-section-glass {
-    background: rgba(22, 18, 14, 0.4);
+    background: rgba(var(--rgb-latar), 0.4);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: var(--border-kaca-tipis);
     margin: -20px -20px 20px -20px;
     padding: 20px 20px 15px 20px;
-    border-radius: 0 0 40px 40px; /* Lengkungan halus di bawah */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border-radius: 0 0 40px 40px; 
+    box-shadow: 0 10px 30px rgba(var(--rgb-hitam), 0.2);
     position: sticky;
     top: 0;
     z-index: 20;
@@ -1452,16 +1453,16 @@ body.app-body {
     position: static;
 }
 
-.logo-kkn-text {
-    font-size: 2rem; 
-    font-weight: 900; 
-    color: #FCB201; 
-    letter-spacing: -1.5px;
+/* Penyesuaian Logo KKN agar persis dengan Landing Page */
+.notif-header .logo-kkn {
+    font-size: 32px; 
+    line-height: 1;
 }
-.logo-kkn-text span { color: #fff; }
 
 .title-notif {
     font-size: 1.5rem;
+    font-family: var(--font-teks);
+    color: var(--warna-putih);
 }
 
 /* Kotak Pencarian Notifikasi (Rounded Sempurna) */
@@ -1469,36 +1470,41 @@ body.app-body {
     margin-bottom: 20px; 
 }
 .search-inner {
-    border-radius: 50px; /* Menghilangkan sudut runcing */
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(252, 178, 1, 0.1);
+    border-radius: 50px; 
+    background: rgba(var(--rgb-putih), 0.03);
+    border: var(--border-kaca-tipis);
     display: flex;
     align-items: center;
     padding: 12px 25px;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 .search-inner:focus-within {
-    border-color: #FCB201;
-    background: rgba(26, 22, 17, 0.9);
+    border: var(--border-kuning-tipis);
+    background: rgba(var(--rgb-latar), 0.9);
 }
-.search-icon { margin-right: 15px; }
+.search-icon { 
+    margin-right: 15px; 
+    color: var(--warna-kuning);
+}
 .search-inner input {
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: var(--warna-putih);
+    font-family: var(--font-teks);
     font-size: 1rem;
     width: 100%;
     outline: none;
 }
 .search-inner input::placeholder {
-    color: #a0a0a0;
+    color: var(--warna-abu-terang);
+    opacity: 0.7;
 }
 
 /* Tab Filter Navigasi (Pills Kapsul) */
 .pills-nav.notif-pills { 
     display: flex; 
     gap: 12px; 
-    margin-bottom: 0; /* Margin bawah dihapus karena sudah dibungkus kaca */
+    margin-bottom: 0; 
     overflow-x: auto; 
     padding-bottom: 5px; 
     scrollbar-width: none; 
@@ -1506,10 +1512,11 @@ body.app-body {
 .pills-nav.notif-pills::-webkit-scrollbar { display: none; } 
 
 .pill {
-    border-radius: 50px; /* Bentuk kapsul melengkung sempurna */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(255, 255, 255, 0.02);
-    color: #a0a0a0;
+    font-family: var(--font-teks);
+    border-radius: 50px; 
+    border: var(--border-kaca-tipis);
+    background: rgba(var(--rgb-putih), 0.02);
+    color: var(--warna-abu-terang);
     padding: 10px 25px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -1517,35 +1524,38 @@ body.app-body {
     white-space: nowrap;
     transition: all 0.3s ease;
 }
-.pill:hover { background: rgba(255,255,255,0.05); }
+.pill:hover { 
+    background: rgba(var(--rgb-putih), 0.05); 
+}
 .pill.active { 
-    background: #FCB201; 
-    color: #120f0c; 
-    border-color: #FCB201; 
-    box-shadow: 0 4px 15px rgba(252, 178, 1, 0.3);
+    background: var(--warna-kuning); 
+    color: var(--warna-latar); 
+    border-color: var(--warna-kuning); 
+    box-shadow: 0 4px 15px rgba(var(--rgb-kuning), 0.3);
 }
 
 /* Kotak Notifikasi */
 .notif-list { display: flex; flex-direction: column; gap: 15px; }
 .notif-box {
-    border-radius: 25px; /* Sudut lebih lembut/rounded */
-    background: rgba(22, 18, 14, 0.5);
+    border-radius: 25px; 
+    background: rgba(var(--rgb-latar), 0.5);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(15px);
+    border: var(--border-kaca-tipis);
     padding: 20px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 .notif-box:hover {
-    border-color: rgba(252, 178, 1, 0.2); 
-    background-color: rgba(26, 22, 17, 0.8);
+    border: var(--border-kuning-tipis); 
+    background-color: rgba(var(--rgb-latar), 0.8);
 }
 .notif-box.unread { 
-    border-left: 4px solid #FCB201; 
-    background: rgba(252, 178, 1, 0.03);
+    border-left: 4px solid var(--warna-kuning); 
+    background: rgba(var(--rgb-kuning), 0.03);
 }
 
 .notif-content { display: flex; align-items: center; gap: 20px; width: 100%; }
@@ -1553,7 +1563,8 @@ body.app-body {
 /* Pengganti Gambar Avatar yang Aman dari Bot */
 .avatar-initial {
     width: 60px; height: 60px;
-    background-color: #FCB201; color: #120f0c;
+    background-color: var(--warna-kuning); 
+    color: var(--warna-latar);
     border-radius: 16px;
     display: flex; align-items: center; justify-content: center;
     font-size: 1.5rem; font-weight: 800;
@@ -1565,10 +1576,10 @@ body.app-body {
     position: absolute; bottom: -5px; right: -5px;
     width: 26px; height: 26px; border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
-    border: 3px solid #14110b;
+    border: 3px solid var(--warna-latar);
 }
-.icon-badge.yellow { background: #FCB201; }
-.icon-badge.blue { background: #3b82f6; }
+.icon-badge.yellow { background: var(--warna-kuning); color: var(--warna-latar); }
+.icon-badge.blue { background: #3b82f6; color: #fff; }
 
 .warning-square {
     min-width: 60px; height: 60px; 
@@ -1579,19 +1590,28 @@ body.app-body {
 }
 
 /* Tipografi Notifikasi */
-.notif-info p { margin: 0; font-size: 1rem; line-height: 1.5; color: #b0b0b0; }
-.notif-info strong { color: #ffffff; }
+.notif-info p { 
+    margin: 0; font-size: 1rem; line-height: 1.5; 
+    color: var(--warna-abu-terang); 
+}
+.notif-info strong { color: var(--warna-putih); }
 .red-text { color: #EA4335; }
-.time { color: #a0a0a0; font-size: 0.85rem; display: block; margin-top: 8px; }
+.time { 
+    color: rgba(var(--rgb-putih), 0.5); 
+    font-size: 0.85rem; display: block; margin-top: 8px; 
+}
 
-.dot-unread { min-width: 12px; height: 12px; background: #FCB201; border-radius: 50%; margin-left: 15px;}
+.dot-unread { 
+    min-width: 12px; height: 12px; 
+    background: var(--warna-kuning); 
+    border-radius: 50%; margin-left: 15px;
+}
 
 /* Responsif Layar Besar (Desktop) */
 @media (min-width: 769px) {
-    /* Menyesuaikan padding efek kaca atas agar pas di Desktop */
     .top-section-glass {
         padding: 30px 40px 20px 40px;
-        margin: -20px -40px 30px -40px; /* Melebar ke ujung container desktop */
+        margin: -20px -40px 30px -40px;
         border-radius: 0 0 50px 50px;
     }
 }
