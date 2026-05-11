@@ -1427,15 +1427,15 @@ body.app-body {
    10. GAYA HALAMAN NOTIFIKASI
    ========================================================== */
 
-/* Wadah Kaca Bagian Atas Full Width (Menyentuh ujung layar & Melekat di Atas) */
+/* Wadah Kaca Bagian Atas Full Width */
 .top-section-glass.full-width-header {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     margin: 0; 
-    padding: 0 0 15px 0; /* Padding atas dihilangkan agar mepet / naik penuh */
-    border-radius: 0 0 25px 25px; /* Lengkungan dikurangi agar tidak bulky */
+    padding: 0 0 15px 0; /* Padding dikecilkan agar kaca ditarik mentok ke kotak pencarian */
+    border-radius: 0 0 25px 25px; 
     background: rgba(var(--rgb-latar), 0.7);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -1444,10 +1444,9 @@ body.app-body {
     z-index: 50;
 }
 
-/* Pembungkus isi header: Full Width, tidak terkekang 1200px */
+/* Pembungkus isi header: Full Width, tidak terkekang */
 .header-inner {
     width: 100%;
-    max-width: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -1457,7 +1456,7 @@ body.app-body {
 .top-header.notif-header {
     border-bottom: none;
     margin-bottom: 15px; 
-    padding: 15px 40px; /* Spasi lebar dari ujung layar */
+    padding: 15px 5%; /* Spasi dari ujung layar menggunakan persentase agar responsif penuh */
     background: transparent;
     backdrop-filter: none;
     position: static;
@@ -1471,10 +1470,10 @@ body.app-body {
     font-size: 32px; 
     line-height: 1;
     cursor: pointer;
-    flex: 1; /* Memberi ruang bagi elemen lain */
+    flex: 1; 
 }
 
-/* Judul Notifikasi: Lebih subtle, elegan dan berada di tengah */
+/* Judul Notifikasi */
 .title-notif {
     font-size: 1rem; 
     font-family: var(--font-teks);
@@ -1486,23 +1485,20 @@ body.app-body {
     text-align: center;
 }
 
-/* Ikon Menu: Ditempatkan merapat di ujung kanan */
+/* Ikon Menu */
 .notif-header .btn-menu {
     flex: 1;
     display: flex;
     justify-content: flex-end;
 }
-.notif-header .btn-menu svg {
-    width: 24px;
-    height: 24px;
-}
 
-/* Kotak Pencarian: Lebar terkontrol (tidak raksasa), berada manis di tengah */
+/* Kotak Pencarian: Berada di tengah kaca, mentok bawah */
 .search-container.notif-search { 
-    margin: 0 auto 15px auto; 
+    margin: 0 auto; 
     width: 95%;
     max-width: 800px;
 }
+
 .search-inner {
     border-radius: 50px; 
     background: rgba(var(--rgb-putih), 0.03);
@@ -1537,14 +1533,13 @@ body.app-body {
     opacity: 0.6;
 }
 
-/* Tab Filter Navigasi: Rapi memusat di tengah */
+/* Tab Filter Navigasi: PINDAH KE DALAM FEED (Luar Kaca) */
 .pills-nav.notif-pills { 
     display: flex; 
-    justify-content: center;
+    justify-content: flex-start; /* Rata kiri agar sejajar dengan isi daftar notifikasi */
     gap: 10px; 
-    margin: 0 auto; 
-    width: 95%;
-    max-width: 800px;
+    margin: 0 0 20px 0; 
+    width: 100%;
     overflow-x: auto; 
     padding-bottom: 5px; 
     scrollbar-width: none; 
@@ -1574,11 +1569,13 @@ body.app-body {
     box-shadow: 0 4px 15px rgba(var(--rgb-kuning), 0.3);
 }
 
-/* Penyesuaian konten tengah (Daftar Notifikasi) agar presisi dengan lebar Header Search */
+/* Penyesuaian konten tengah (Daftar Notifikasi + Pills) */
 .feed-container.notif-feed {
     padding-top: 25px; 
-    max-width: 800px; /* Lebar dibatasi 800px agar mata pengguna tidak cepat lelah membacanya */
+    max-width: 800px; 
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Kotak Notifikasi */
@@ -1664,10 +1661,7 @@ body.app-body {
 /* Responsif Mobile untuk Notifikasi */
 @media (max-width: 768px) {
     .top-header.notif-header {
-        padding: 15px 20px; /* Kurangi padding dari ujung layar di HP */
-    }
-    .pills-nav.notif-pills {
-        justify-content: flex-start; /* Biar pill bisa discroll horizontal di HP */
+        padding: 15px 5%; 
     }
     .notif-box { padding: 15px 18px; border-radius: 16px; }
     .notif-content { gap: 12px; }
