@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKN - Feed Utama</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* ============================================================
+   ROOT VARIABLES (Tetap Sama)
+   ============================================================ */
+:root {
+    --warna-latar: #120b02;
+    --warna-kuning: #fcb201;
+    --rgb-kuning: 252, 178, 1;
+    --warna-putih: #dcd4d4;
+    --warna-abu: #b0b0b0;
+    --gradasi-kaca-bento: linear-gradient(145deg, rgba(63, 36, 2, 0.6) 0%, rgba(41, 24, 8, 0.4) 100%);
+    --border-kaca: 1px solid rgba(255, 255, 255, 0.05);
+    --font-judul: 'ADLaM Display', cursive;
+    --font-teks: 'Inter', sans-serif;
+    --warna-merah: #ff4d4d; /* Tambahan untuk Logout */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-teks);
+    background-color: var(--warna-latar);
+    background: radial-gradient(circle at 50% 0%, #2a1b05 0%, #120b02 100%);
+    color: white;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+/* ============================================================
+   TAMBAHAN LOGIKA SIDEBAR (HANYA CSS)
+   ============================================================ */
+#menu-toggle { display: none; }
+
+.overlay-blur {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: none; 
+    z-index: 1500;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0; right: -320px; 
+    width: 300px; height: 100%;
+    background: #0f0a02;
+    z-index: 2000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px 30px;
+    border-left: var(--border-kaca);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.close-sidebar {
+    background: rgba(255,255,255,0.1);
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+}
+
+/* Menghubungkan Checkbox ke Sidebar */
+#menu-toggle:checked ~ .sidebar-overlay { right: 0; }
+#menu-toggle:checked ~ .overlay-blur { display: block; }
+
+.menu-list-sidebar { display: flex; flex-direction: column; list-style: none; }
+.menu-item-sidebar {
+    display: flex; align-items: center; gap: 15px;
+    padding: 15px 0; color: white; text-decoration: none;
+    font-size: 15px; transition: 0.3s;
+}
+.menu-item-sidebar:hover { color: var(--warna-kuning); }
+.divider-sidebar { height: 1px; background: rgba(255,255,255,0.05); margin: 20px 0; }
+.logout-btn { color: var(--warna-merah) !important; font-weight: 700; }
+
+/* ============================================================
+   STRUKTUR DESAIN AWAL KAMU (TETAP SAMA)
+   ============================================================ */
+.container { max-width: 700px; margin: 0 auto; padding: 20px; transition: all 0.3s ease; }
+@media (min-width: 768px) { .container { max-width: 1200px; } }
+@media (min-width: 1200px) { .container { max-width: 1500px; } }
+
+.header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.logo { font-family: var(--font-judul); font-size: 32px; color: var(--warna-kuning); }
+
+/* Tombol Menu Awal Kamu */
+.menu-btn {
+    background: rgba(255,255,255,0.05);
+    border: var(--border-kaca);
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.search-container { position: relative; margin-bottom: 20px; }
+.search-container input { width: 100%; background: rgba(0, 0, 0, 0.3); border: none; border-radius: 50px; padding: 12px 20px 12px 45px; color: white; font-size: 14px; }
+.search-container i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); opacity: 0.5; }
+
+.filters { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 20px; scrollbar-width: none; }
+.filters::-webkit-scrollbar { display: none; }
+.chip { padding: 8px 16px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; font-size: 13px; color: var(--warna-abu); display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.chip.active { background: var(--warna-kuning); color: black; font-weight: 700; }
+
+.banner-promo { background: linear-gradient(90deg, #3d2402 0%, #1e1101 100%); border: 1px solid rgba(252, 178, 1, 0.2); border-radius: 20px; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.banner-promo h4 { color: var(--warna-kuning); font-size: 16px; }
+.banner-promo p { color: var(--warna-abu); font-size: 12px; }
+.btn-arrow { background: var(--warna-kuning); color: black; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; cursor: pointer; }
+
+.post-card { background: rgba(255, 255, 255, 0.03); border: var(--border-kaca); border-radius: 24px; padding: 25px; margin-bottom: 20px; backdrop-filter: blur(10px); }
+.post-user { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.user-info { display: flex; gap: 12px; align-items: center; }
+.user-info img { width: 45px; height: 45px; border-radius: 50%; object-fit: cover; }
+.user-name { font-weight: 600; font-size: 14px; }
+.post-date { font-size: 11px; color: var(--warna-abu); }
+.tag-kategori { background: rgba(252, 178, 1, 0.1); color: var(--warna-kuning); padding: 5px 14px; border-radius: 50px; font-size: 11px; font-weight: 700; }
+.post-content h3 { font-size: 18px; margin-bottom: 10px; color: white; }
+.post-content p { font-size: 14px; color: var(--warna-abu); line-height: 1.6; margin-bottom: 15px; }
+.post-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 16px; margin-bottom: 15px; }
+.post-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
+.interaction { display: flex; gap: 20px; }
+.stat { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--warna-abu); cursor: pointer; }
+
+.fab-post { position: fixed; bottom: 90px; right: 20px; background: var(--warna-kuning); color: black; padding: 14px 24px; border-radius: 50px; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); cursor: pointer; z-index: 100; }
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(18, 11, 2, 0.95); backdrop-filter: blur(20px); border-top: var(--border-kaca); display: flex; justify-content: space-around; padding: 12px 0; z-index: 1000; }
+@media (min-width: 768px) { .bottom-nav { justify-content: center; gap: 80px; } .fab-post { right: 40px; bottom: 100px; } }
+.nav-item { text-align: center; color: var(--warna-abu); font-size: 12px; text-decoration: none; transition: color 0.3s; }
+.nav-item.active { color: var(--warna-kuning); }
+.nav-item span { display: block; font-size: 22px; margin-bottom: 4px; }
+
+.nav-item span {
+    display: block;
+    margin-bottom: 4px;
+    height: 24px; /* Tentukan tinggi wadah ikon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item span img {
+    width: 22px;  /* Sesuaikan ukuran ikon agar pas di mata */
+    height: 22px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Efek sedikit membesar saat aktif atau di-hover */
+.nav-item.active span img {
+    transform: scale(1.1);
+    /* Jika menggunakan SVG, kamu bisa mengatur filter warna di sini jika perlu */
+}
+.icon-sidebar {
+    width: 20px;       /* Sesuaikan ukuran ikon */
+    height: 20px;      /* Sesuaikan ukuran ikon */
+    margin-right: 10px; /* Memberi jarak antara ikon dan teks */
+    vertical-align: middle; /* Agar ikon sejajar di tengah secara vertikal dengan teks */
+    object-fit: contain;
+}
+
+.menu-item-sidebar {
+    display: flex;
+    align-items: center; /* Cara modern untuk menyejajarkan ikon dan teks */
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+}
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="overlay-blur"></label>
+
+<aside class="sidebar-overlay">
+    <div class="sidebar-header">
+        <h2>Menu Utama</h2>
+        <label for="menu-toggle" class="close-sidebar">✕</label>
+    </div>
+    <nav class="menu-list-sidebar">
+    <!-- Menggunakan file gambar dari folder 'assets/icons/' -->
+    <a href="#" class="menu-item-sidebar">
+        <img src="assets\home.png" alt="Beranda" class="icon-sidebar"> Beranda
+    </a>
+    <a href="#" class="menu-item-sidebar">
+        <img src="assets\setting.png" alt="Pengaturan" class="icon-sidebar"> Pengaturan
+    </a>
+    <a href="#" class="menu-item-sidebar">
+        <img src="assets\info.png" alt="Aturan" class="icon-sidebar"> Aturan Komunitas
+    </a>
+    <a href="#" class="menu-item-sidebar">
+        <img src="assets\profil.png" alt="Tentang" class="icon-sidebar"> Tentang KKN
+    </a>
+    <a href="#" class="menu-item-sidebar">
+        <img src="assets\email.png" alt="Tentang" class="icon-sidebar"> Hubungi Kami
+    </a>
+    
+    <div class="divider-sidebar"></div>
+    
+    <a href="#" class="menu-item-sidebar logout-btn">
+        <img src="assets\logout.png" alt="Keluar" class="icon-sidebar"> Keluar Akun
+    </a>
+</nav>
+</aside>
+
+<div class="container">
+    <header class="header-top">
+        <div class="logo">KKN.</div>
+        <label for="menu-toggle" class="menu-btn">☰</label>
+    </header>
+
+    <div class="search-container">
+        <i>🔍</i>
+        <input type="text" placeholder="Cari keresahan mahasiswa...">
+    </div>
+
+    <div class="filters">
+        <div class="chip active">🔥 Hot</div>
+        <div class="chip">💰 Uang Habis</div>
+        <div class="chip">👻 Dosen Ghosting</div>
+        <div class="chip">📋 Tugas Numpuk</div>
+    </div>
+
+    <section class="banner-promo">
+        <div>
+            <h4>Baca Edisi Terbaru</h4>
+            <p>Kompilasi drama kampus paling relate minggu ini</p>
+        </div>
+        <div class="btn-arrow">→</div>
+    </section>
+
+        <article class="post-card">
+        <div class="post-user">
+            <div class="user-info">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar">
+                <div>
+                    <div class="user-name">Mas Yeb</div>
+                    <div class="post-date">2 jam yang lalu</div>
+                </div>
+            </div>
+            <div class="tag-kategori">Tugas Numpuk</div>
+        </div>
+        <div class="post-content">
+            <h3>Skripsi stuck, dosen pembimbing ghosting seminggu.</h3>
+            <p>Udah revisi bab 3 sampai 5 kali, tapi tiap dichat balesannya cuma "ok nanti saya cek". Giliran ditanya kapan bisa bimbingan, malah ilang. Ada yang senasib nggak sih? Rasanya pengen cuti aja dah.</p>
+        </div>
+        <div class="post-footer">
+            <div class="interaction">
+                <div class="stat">💛 99 Relate</div>
+                <div class="stat">💬 42 Komentar</div>
+            </div>
+            <div class="save-icon">🔖</div>
+        </div>
+    </article>
+
+    <article class="post-card">
+        <div class="post-user">
+            <div class="user-info">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="avatar">
+                <div>
+                    <div class="user-name">Atmin_Anonim</div>
+                    <div class="post-date">5 jam yang lalu</div>
+                </div>
+            </div>
+            <div class="tag-kategori">Uang Habis</div>
+        </div>
+        <div class="post-content">
+            <h3>Realita Akhir Bulan Mahasiswa Rantau</h3>
+            <p>Dompet sudah setipis harapan lulus tepat waktu. Penyelamat satu-satunya cuma stok mie instan di pojok kamar.</p>
+            <img src="assets/meme2.jpg" alt="Meme Akhir Bulan" class="post-image">
+        </div>
+        <div class="post-footer">
+            <div class="interaction">
+                <div class="stat">💛 150 Relate</div>
+                <div class="stat">💬 12 Komentar</div>
+            </div>
+            <div class="save-icon">🔖</div>
+        </div>
+    </article>
+</div>
+
+<div class="fab-post">
+    <span>📝</span> Posting Keresahanmu
+</div>
+
+<nav class="bottom-nav">
+    <a href="#" class="nav-item active">
+        <span><img src="assets\home.png" alt="Home"></span>
+        Home
+    </a>
+    <a href="#" class="nav-item">
+        <span><img src="assets\gallery.png" alt="Galeri"></span>
+        Galeri
+    </a>
+    <a href="#" class="nav-item">
+        <span><img src="assets\notif.png" alt="Notif"></span>
+        Notif
+    </a>
+    <a href="#" class="nav-item">
+        <span><img src="assets\profil.png" alt="Profil"></span>
+        Profil
+    </a>
+</nav>
+
+</body>
+</html>
