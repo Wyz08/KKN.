@@ -1467,20 +1467,18 @@ body.app-body {
 
 /* Hierarki Visual: Logo KKN Utama & Dominan */
 .notif-header .logo-kkn {
-    font-size: 28px; /* Sedikit dikecilkan menyesuaikan proporsi ramping header */
+    font-size: 28px; 
     line-height: 1;
     cursor: pointer;
     flex: 1; 
 }
 
-/* Judul Notifikasi */
+/* Judul Notifikasi (Diubah: Hapus Uppercase & sesuaikan ukuran) */
 .title-notif {
-    font-size: 0.95rem; 
+    font-size: 1.1rem; 
     font-family: var(--font-teks);
     color: var(--warna-abu-terang);
     font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
     flex: 1;
     text-align: center;
 }
@@ -1558,6 +1556,10 @@ body.app-body {
     cursor: pointer;
     white-space: nowrap;
     transition: all 0.3s ease;
+    outline: none !important; /* MENGHILANGKAN EFEK KOTAK PERSEGI */
+}
+.pill:focus-visible {
+    outline: none !important; /* Mencegah outline bawaan browser saat diklik */
 }
 .pill:hover { 
     background: rgba(var(--rgb-putih), 0.05); 
