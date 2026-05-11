@@ -1423,3 +1423,136 @@ body.app-body {
     .fab-post { padding: 18px; border-radius: 50%; bottom: 90px; right: 20px; }
     .fab-text { display: none; }
 }
+
+/* ==========================================================
+   10. GAYA HALAMAN NOTIFIKASI
+   ========================================================== */
+
+/* Kotak Pencarian Notifikasi */
+.search-container { 
+    margin-bottom: 25px; 
+}
+.search-inner {
+    background: rgba(22, 18, 14, 0.6);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    padding: 16px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+.search-inner:focus-within {
+    border-color: #FCB201;
+    background: rgba(26, 22, 17, 0.9);
+}
+.search-inner input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+}
+.search-inner input::placeholder {
+    color: #a0a0a0;
+}
+
+/* Tab Filter Navigasi (Pills) */
+.pills-nav { 
+    display: flex; 
+    gap: 12px; 
+    margin-bottom: 30px; 
+    overflow-x: auto; /* Bisa digeser di HP */
+    padding-bottom: 5px; /* Spasi untuk scrollbar */
+    scrollbar-width: none; /* Firefox */
+}
+.pills-nav::-webkit-scrollbar { display: none; } /* Chrome, Safari */
+
+.pill {
+    background: rgba(22, 18, 14, 0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: #a0a0a0;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.pill:hover { background: rgba(255,255,255,0.05); }
+.pill.active { 
+    background: #FCB201; 
+    color: #120f0c; 
+    border-color: #FCB201; 
+}
+
+/* Kotak Notifikasi */
+.notif-list { display: flex; flex-direction: column; gap: 15px; }
+.notif-box {
+    background: rgba(22, 18, 14, 0.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.notif-box:hover {
+    border-color: rgba(252, 178, 1, 0.2); 
+    background-color: rgba(26, 22, 17, 0.8);
+}
+.notif-box.unread { 
+    border-left: 5px solid #FCB201; 
+    background: rgba(252, 178, 1, 0.05);
+}
+
+.notif-content { display: flex; align-items: center; gap: 20px; width: 100%; }
+
+/* Pengganti Gambar Avatar yang Aman dari Bot */
+.avatar-initial {
+    width: 60px; height: 60px;
+    background-color: #FCB201; color: #120f0c;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: 800;
+}
+
+.img-box { position: relative; }
+
+.icon-badge {
+    position: absolute; bottom: -5px; right: -5px;
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    border: 3px solid #14110b;
+}
+.icon-badge.yellow { background: #FCB201; }
+.icon-badge.blue { background: #3b82f6; }
+
+.warning-square {
+    min-width: 60px; height: 60px; 
+    background: rgba(234, 67, 53, 0.1);
+    color: #EA4335; border-radius: 16px;
+    display: flex; justify-content: center; align-items: center; 
+    border: 1px solid rgba(234, 67, 53, 0.3);
+}
+
+/* Tipografi Notifikasi */
+.notif-info p { margin: 0; font-size: 1rem; line-height: 1.5; color: #b0b0b0; }
+.notif-info strong { color: #ffffff; }
+.red-text { color: #EA4335; }
+.time { color: #a0a0a0; font-size: 0.85rem; display: block; margin-top: 8px; }
+
+.dot-unread { min-width: 12px; height: 12px; background: #FCB201; border-radius: 50%; margin-left: 15px;}
+
+/* Responsif Mobile untuk Notifikasi */
+@media (max-width: 768px) {
+    .notif-box { padding: 18px 20px; }
+    .notif-content { gap: 15px; }
+    .avatar-initial, .warning-square { width: 50px; height: 50px; min-width: 50px; font-size: 1.2rem; }
+    .notif-info p { font-size: 0.9rem; }
+}
