@@ -6,7 +6,7 @@
     <title>Notifikasi - Ruang Aman</title>
     <!-- Menghubungkan ke file CSS utama di luar folder -->
     <link rel="stylesheet" href="../style.css">
-    <!-- PERBAIKAN FATAL: Memasukkan font ADLaM Display untuk Logo KKN -->
+    <!-- Memasukkan font ADLaM Display untuk Logo KKN -->
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="app-body">
@@ -14,11 +14,10 @@
     <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
     <div class="ambient-glow"></div>
 
-    <!-- Container Utama Desktop Super Lebar -->
-    <main class="feed-container">
-        
-        <!-- Bagian Atas yang di-Rombak (Full Glassmorphism & Rounded) -->
-        <div class="top-section-glass">
+    <!-- BAGIAN ATAS (HEADER) - SEKARANG FULL WIDTH MEMBENTANG PENUH -->
+    <div class="top-section-glass full-width-header">
+        <!-- Inner container agar isinya tetap sejajar dengan konten di bawah -->
+        <div class="header-inner">
             <!-- Header Atas -->
             <header class="top-header notif-header">
                 <!-- Memanggil class logo-kkn global -->
@@ -49,8 +48,10 @@
                 <button class="pill">Peringatan</button>
             </nav>
         </div>
+    </div>
 
-        <!-- Daftar Notifikasi -->
+    <!-- CONTAINER TENGAH (DAFTAR NOTIFIKASI) - Tepat berada di tengah layar -->
+    <main class="feed-container notif-feed">
         <div class="notif-list">
             
             <!-- Notifikasi 1 (Relate) - Unread -->
@@ -123,10 +124,9 @@
             </div>
 
         </div>
-
     </main>
 
-    <!-- Navigasi Bawah (Bottom Nav) -->
+    <!-- Navigasi Bawah (Bottom Nav) Full Width -->
     <nav class="bottom-nav">
         <a href="../index.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
