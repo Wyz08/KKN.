@@ -1385,8 +1385,7 @@ body.app-body {
 
 
 /* =======================================
-   RESPONSIVE KEAJAIBAN DESKTOP!
-   Di sini kita merombak Profil menjadi Layout Horizontal
+   RESPONSIVE DESTKOP
    ======================================= */
 @media (min-width: 769px) {
     .profile-card-ui { 
@@ -1424,24 +1423,25 @@ body.app-body {
     .fab-text { display: none; }
 }
 
+/* ... existing code ... */
 /* ==========================================================
    10. GAYA HALAMAN NOTIFIKASI
    ========================================================== */
 
-/* Wadah Kaca Bagian Atas Full Width (Menyentuh ujung layar) */
+/* Wadah Kaca Bagian Atas Full Width (Lebih ramping & elegan) */
 .top-section-glass.full-width-header {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     margin: 0; 
-    padding: 15px 0 20px 0;
-    border-radius: 0 0 40px 40px; /* Lengkungan elegan di bawah */
+    padding: 10px 0 15px 0; /* Padding diperkecil */
+    border-radius: 0 0 30px 30px; /* Lengkungan disesuaikan agar tidak terlalu memakan tempat */
     background: rgba(var(--rgb-latar), 0.7);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border-bottom: var(--border-kaca-tipis);
-    box-shadow: 0 15px 40px rgba(var(--rgb-hitam), 0.5);
+    box-shadow: 0 10px 30px rgba(var(--rgb-hitam), 0.5);
     z-index: 50;
 }
 
@@ -1456,34 +1456,34 @@ body.app-body {
 
 /* Penyesuaian margin container utama Notif */
 .feed-container.notif-feed {
-    padding-top: 30px; /* Jarak antara header kaca dengan list notif */
+    padding-top: 25px; /* Jarak dirapatkan */
 }
 
 /* Modifikasi Header Khusus Notifikasi dalam Kaca */
 .top-header.notif-header {
     border-bottom: none;
-    margin-bottom: 20px;
-    padding: 5px 0;
+    margin-bottom: 15px; /* Margin dikurangi */
+    padding: 0;
     background: transparent;
     backdrop-filter: none;
     position: static;
 }
 
 .notif-header .logo-kkn {
-    font-size: 32px; 
+    font-size: 24px; /* Dikecilkan drastis agar elegan */
     line-height: 1;
     cursor: pointer;
 }
 
 .title-notif {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Dikecilkan agar proporsional */
     font-family: var(--font-teks);
     color: var(--warna-putih);
 }
 
-/* Kotak Pencarian Notifikasi (Rounded Sempurna) */
+/* Kotak Pencarian Notifikasi (Rounded Sempurna, Ramping) */
 .search-container.notif-search { 
-    margin-bottom: 25px; 
+    margin-bottom: 15px; /* Jarak dirapatkan */
 }
 .search-inner {
     border-radius: 50px; 
@@ -1491,7 +1491,7 @@ body.app-body {
     border: var(--border-kaca-tipis);
     display: flex;
     align-items: center;
-    padding: 14px 25px;
+    padding: 10px 20px; /* Dibuat lebih slim */
     transition: all 0.3s ease;
 }
 .search-inner:focus-within {
@@ -1500,15 +1500,17 @@ body.app-body {
     box-shadow: 0 0 15px rgba(var(--rgb-kuning), 0.1);
 }
 .search-icon { 
-    margin-right: 15px; 
+    margin-right: 12px; 
     color: var(--warna-kuning);
+    width: 18px; /* Ikon dikecilkan */
+    height: 18px;
 }
 .search-inner input {
     background: transparent;
     border: none;
     color: var(--warna-putih);
     font-family: var(--font-teks);
-    font-size: 1rem;
+    font-size: 0.9rem; /* Teks input dikecilkan */
     width: 100%;
     outline: none;
 }
@@ -1517,10 +1519,10 @@ body.app-body {
     opacity: 0.6;
 }
 
-/* Tab Filter Navigasi (Pills Kapsul) */
+/* Tab Filter Navigasi (Pills Kapsul Ramping) */
 .pills-nav.notif-pills { 
     display: flex; 
-    gap: 12px; 
+    gap: 10px; 
     margin-bottom: 0; 
     overflow-x: auto; 
     padding-bottom: 5px; 
@@ -1534,8 +1536,8 @@ body.app-body {
     border: var(--border-kaca-tipis);
     background: rgba(var(--rgb-putih), 0.02);
     color: var(--warna-abu-terang);
-    padding: 10px 25px;
-    font-size: 0.9rem;
+    padding: 8px 20px; /* Padding dikecilkan */
+    font-size: 0.85rem; /* Font dikecilkan */
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
@@ -1552,14 +1554,14 @@ body.app-body {
 }
 
 /* Kotak Notifikasi */
-.notif-list { display: flex; flex-direction: column; gap: 15px; }
+.notif-list { display: flex; flex-direction: column; gap: 12px; }
 .notif-box {
-    border-radius: 25px; 
+    border-radius: 20px; /* Sudut disesuaikan */
     background: rgba(var(--rgb-latar), 0.5);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: var(--border-kaca-tipis);
-    padding: 20px 25px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1576,65 +1578,66 @@ body.app-body {
     background: rgba(var(--rgb-kuning), 0.03);
 }
 
-.notif-content { display: flex; align-items: center; gap: 20px; width: 100%; }
+.notif-content { display: flex; align-items: center; gap: 15px; width: 100%; }
 
 .avatar-initial {
-    width: 60px; height: 60px;
+    width: 50px; height: 50px; /* Dikecilkan dari 60px */
     background-color: var(--warna-kuning); 
     color: var(--warna-latar);
-    border-radius: 16px;
+    border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; font-weight: 800;
+    font-size: 1.2rem; font-weight: 800;
 }
 
 .img-box { position: relative; }
 
 .icon-badge {
-    position: absolute; bottom: -5px; right: -5px;
-    width: 26px; height: 26px; border-radius: 50%;
+    position: absolute; bottom: -4px; right: -4px;
+    width: 22px; height: 22px; border-radius: 50%;
     display: flex; justify-content: center; align-items: center;
     border: 3px solid var(--warna-latar);
 }
+.icon-badge svg { width: 10px; height: 10px; }
 .icon-badge.yellow { background: var(--warna-kuning); color: var(--warna-latar); }
 .icon-badge.blue { background: #3b82f6; color: #fff; }
 
 .warning-square {
-    min-width: 60px; height: 60px; 
+    min-width: 50px; height: 50px; /* Dikecilkan */
     background: rgba(234, 67, 53, 0.1);
-    color: #EA4335; border-radius: 16px;
+    color: #EA4335; border-radius: 14px;
     display: flex; justify-content: center; align-items: center; 
     border: 1px solid rgba(234, 67, 53, 0.3);
 }
 
 .notif-info p { 
-    margin: 0; font-size: 1rem; line-height: 1.5; 
+    margin: 0; font-size: 0.95rem; line-height: 1.5; 
     color: var(--warna-abu-terang); 
 }
 .notif-info strong { color: var(--warna-putih); }
 .red-text { color: #EA4335; }
 .time { 
     color: rgba(var(--rgb-putih), 0.5); 
-    font-size: 0.85rem; display: block; margin-top: 8px; 
+    font-size: 0.8rem; display: block; margin-top: 6px; 
 }
 
 .dot-unread { 
-    min-width: 12px; height: 12px; 
+    min-width: 10px; height: 10px; 
     background: var(--warna-kuning); 
-    border-radius: 50%; margin-left: 15px;
+    border-radius: 50%; margin-left: 12px;
 }
 
 /* Responsif Layar Besar (Desktop) */
 @media (min-width: 769px) {
     .top-section-glass.full-width-header {
-        padding-top: 25px; 
-        border-radius: 0 0 50px 50px;
+        padding-top: 15px; 
+        border-radius: 0 0 30px 30px; /* Lengkungan tidak terlalu berlebihan di desktop */
     }
 }
 
 /* Responsif Mobile untuk Notifikasi */
 @media (max-width: 768px) {
-    .notif-box { padding: 18px 20px; border-radius: 20px; }
-    .notif-content { gap: 15px; }
-    .avatar-initial, .warning-square { width: 50px; height: 50px; min-width: 50px; font-size: 1.2rem; }
-    .notif-info p { font-size: 0.9rem; }
+    .notif-box { padding: 15px 18px; border-radius: 16px; }
+    .notif-content { gap: 12px; }
+    .avatar-initial, .warning-square { width: 45px; height: 45px; min-width: 45px; font-size: 1.1rem; }
+    .notif-info p { font-size: 0.85rem; }
 }
