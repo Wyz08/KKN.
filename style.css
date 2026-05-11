@@ -1434,13 +1434,13 @@ body.app-body {
     left: 0;
     width: 100%;
     margin: 0; 
-    padding: 0 0 15px 0; /* Padding dikecilkan agar kaca ditarik mentok ke kotak pencarian */
-    border-radius: 0 0 25px 25px; 
+    padding: 5px 0 15px 0; /* Sangat dirampingkan */
+    border-radius: 0 0 20px 20px; /* Lengkungan dikurangi agar tidak terlihat gemuk */
     background: rgba(var(--rgb-latar), 0.7);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border-bottom: var(--border-kaca-tipis);
-    box-shadow: 0 10px 30px rgba(var(--rgb-hitam), 0.5);
+    box-shadow: 0 8px 25px rgba(var(--rgb-hitam), 0.5);
     z-index: 50;
 }
 
@@ -1455,8 +1455,8 @@ body.app-body {
 /* Header Atas: Ikon dan Logo menyebar ke ujung kiri-kanan layar */
 .top-header.notif-header {
     border-bottom: none;
-    margin-bottom: 15px; 
-    padding: 15px 5%; /* Spasi dari ujung layar menggunakan persentase agar responsif penuh */
+    margin-bottom: 8px; /* Ditekan drastis agar search bar langsung naik ke atas */
+    padding: 10px 5% 0 5%; /* Padding ditekan agar tidak membuang ruang di atas */
     background: transparent;
     backdrop-filter: none;
     position: static;
@@ -1467,7 +1467,7 @@ body.app-body {
 
 /* Hierarki Visual: Logo KKN Utama & Dominan */
 .notif-header .logo-kkn {
-    font-size: 32px; 
+    font-size: 28px; /* Sedikit dikecilkan menyesuaikan proporsi ramping header */
     line-height: 1;
     cursor: pointer;
     flex: 1; 
@@ -1475,11 +1475,11 @@ body.app-body {
 
 /* Judul Notifikasi */
 .title-notif {
-    font-size: 1rem; 
+    font-size: 0.95rem; 
     font-family: var(--font-teks);
     color: var(--warna-abu-terang);
-    font-weight: 600;
-    letter-spacing: 2px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     flex: 1;
     text-align: center;
@@ -1495,17 +1495,17 @@ body.app-body {
 /* Kotak Pencarian: Berada di tengah kaca, mentok bawah */
 .search-container.notif-search { 
     margin: 0 auto; 
-    width: 95%;
+    width: 90%; /* Dibuat 90% agar ada sela premium di kanan-kiri */
     max-width: 800px;
 }
 
 .search-inner {
     border-radius: 50px; 
-    background: rgba(var(--rgb-putih), 0.03);
+    background: rgba(var(--rgb-putih), 0.04);
     border: var(--border-kaca-tipis);
     display: flex;
     align-items: center;
-    padding: 10px 20px; 
+    padding: 8px 18px; /* Padding input lebih tipis agar ramping */
     transition: all 0.3s ease;
 }
 .search-inner:focus-within {
@@ -1514,17 +1514,17 @@ body.app-body {
     box-shadow: 0 0 15px rgba(var(--rgb-kuning), 0.1);
 }
 .search-icon { 
-    margin-right: 12px; 
+    margin-right: 10px; 
     color: var(--warna-kuning);
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
 }
 .search-inner input {
     background: transparent;
     border: none;
     color: var(--warna-putih);
     font-family: var(--font-teks);
-    font-size: 0.95rem; 
+    font-size: 0.9rem; 
     width: 100%;
     outline: none;
 }
@@ -1536,9 +1536,9 @@ body.app-body {
 /* Tab Filter Navigasi: PINDAH KE DALAM FEED (Luar Kaca) */
 .pills-nav.notif-pills { 
     display: flex; 
-    justify-content: flex-start; /* Rata kiri agar sejajar dengan isi daftar notifikasi */
-    gap: 10px; 
-    margin: 0 0 20px 0; 
+    justify-content: flex-start;
+    gap: 12px; 
+    margin: 10px 0 35px 0; /* Jarak bawah ditambah DRASTIS (35px) agar tidak menempel dengan notif */
     width: 100%;
     overflow-x: auto; 
     padding-bottom: 5px; 
