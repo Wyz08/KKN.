@@ -1423,20 +1423,19 @@ body.app-body {
     .fab-text { display: none; }
 }
 
-/* ... existing code ... */
 /* ==========================================================
    10. GAYA HALAMAN NOTIFIKASI
    ========================================================== */
 
-/* Wadah Kaca Bagian Atas Full Width (Lebih ramping & elegan) */
+/* Wadah Kaca Bagian Atas Full Width (Menyentuh ujung layar & Melekat di Atas) */
 .top-section-glass.full-width-header {
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     margin: 0; 
-    padding: 10px 0 15px 0; /* Padding diperkecil */
-    border-radius: 0 0 30px 30px; /* Lengkungan disesuaikan agar tidak terlalu memakan tempat */
+    padding: 0 0 15px 0; /* Padding atas dihilangkan agar mepet / naik penuh */
+    border-radius: 0 0 25px 25px; /* Lengkungan dikurangi agar tidak bulky */
     background: rgba(var(--rgb-latar), 0.7);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -1445,45 +1444,64 @@ body.app-body {
     z-index: 50;
 }
 
-/* Pembungkus isi header agar sejajar dengan konten di bawahnya */
+/* Pembungkus isi header: Full Width, tidak terkekang 1200px */
 .header-inner {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* Penyesuaian margin container utama Notif */
-.feed-container.notif-feed {
-    padding-top: 25px; /* Jarak dirapatkan */
-}
-
-/* Modifikasi Header Khusus Notifikasi dalam Kaca */
+/* Header Atas: Ikon dan Logo menyebar ke ujung kiri-kanan layar */
 .top-header.notif-header {
     border-bottom: none;
-    margin-bottom: 15px; /* Margin dikurangi */
-    padding: 0;
+    margin-bottom: 15px; 
+    padding: 15px 40px; /* Spasi lebar dari ujung layar */
     background: transparent;
     backdrop-filter: none;
     position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+/* Hierarki Visual: Logo KKN Utama & Dominan */
 .notif-header .logo-kkn {
-    font-size: 24px; /* Dikecilkan drastis agar elegan */
+    font-size: 32px; 
     line-height: 1;
     cursor: pointer;
+    flex: 1; /* Memberi ruang bagi elemen lain */
 }
 
+/* Judul Notifikasi: Lebih subtle, elegan dan berada di tengah */
 .title-notif {
-    font-size: 1.25rem; /* Dikecilkan agar proporsional */
+    font-size: 1rem; 
     font-family: var(--font-teks);
-    color: var(--warna-putih);
+    color: var(--warna-abu-terang);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    flex: 1;
+    text-align: center;
 }
 
-/* Kotak Pencarian Notifikasi (Rounded Sempurna, Ramping) */
+/* Ikon Menu: Ditempatkan merapat di ujung kanan */
+.notif-header .btn-menu {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.notif-header .btn-menu svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Kotak Pencarian: Lebar terkontrol (tidak raksasa), berada manis di tengah */
 .search-container.notif-search { 
-    margin-bottom: 15px; /* Jarak dirapatkan */
+    margin: 0 auto 15px auto; 
+    width: 95%;
+    max-width: 800px;
 }
 .search-inner {
     border-radius: 50px; 
@@ -1491,7 +1509,7 @@ body.app-body {
     border: var(--border-kaca-tipis);
     display: flex;
     align-items: center;
-    padding: 10px 20px; /* Dibuat lebih slim */
+    padding: 10px 20px; 
     transition: all 0.3s ease;
 }
 .search-inner:focus-within {
@@ -1502,7 +1520,7 @@ body.app-body {
 .search-icon { 
     margin-right: 12px; 
     color: var(--warna-kuning);
-    width: 18px; /* Ikon dikecilkan */
+    width: 18px;
     height: 18px;
 }
 .search-inner input {
@@ -1510,7 +1528,7 @@ body.app-body {
     border: none;
     color: var(--warna-putih);
     font-family: var(--font-teks);
-    font-size: 0.9rem; /* Teks input dikecilkan */
+    font-size: 0.95rem; 
     width: 100%;
     outline: none;
 }
@@ -1519,11 +1537,14 @@ body.app-body {
     opacity: 0.6;
 }
 
-/* Tab Filter Navigasi (Pills Kapsul Ramping) */
+/* Tab Filter Navigasi: Rapi memusat di tengah */
 .pills-nav.notif-pills { 
     display: flex; 
+    justify-content: center;
     gap: 10px; 
-    margin-bottom: 0; 
+    margin: 0 auto; 
+    width: 95%;
+    max-width: 800px;
     overflow-x: auto; 
     padding-bottom: 5px; 
     scrollbar-width: none; 
@@ -1536,8 +1557,8 @@ body.app-body {
     border: var(--border-kaca-tipis);
     background: rgba(var(--rgb-putih), 0.02);
     color: var(--warna-abu-terang);
-    padding: 8px 20px; /* Padding dikecilkan */
-    font-size: 0.85rem; /* Font dikecilkan */
+    padding: 8px 20px; 
+    font-size: 0.85rem; 
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
@@ -1553,10 +1574,17 @@ body.app-body {
     box-shadow: 0 4px 15px rgba(var(--rgb-kuning), 0.3);
 }
 
+/* Penyesuaian konten tengah (Daftar Notifikasi) agar presisi dengan lebar Header Search */
+.feed-container.notif-feed {
+    padding-top: 25px; 
+    max-width: 800px; /* Lebar dibatasi 800px agar mata pengguna tidak cepat lelah membacanya */
+    margin: 0 auto;
+}
+
 /* Kotak Notifikasi */
 .notif-list { display: flex; flex-direction: column; gap: 12px; }
 .notif-box {
-    border-radius: 20px; /* Sudut disesuaikan */
+    border-radius: 20px; 
     background: rgba(var(--rgb-latar), 0.5);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -1581,7 +1609,7 @@ body.app-body {
 .notif-content { display: flex; align-items: center; gap: 15px; width: 100%; }
 
 .avatar-initial {
-    width: 50px; height: 50px; /* Dikecilkan dari 60px */
+    width: 50px; height: 50px; 
     background-color: var(--warna-kuning); 
     color: var(--warna-latar);
     border-radius: 14px;
@@ -1602,7 +1630,7 @@ body.app-body {
 .icon-badge.blue { background: #3b82f6; color: #fff; }
 
 .warning-square {
-    min-width: 50px; height: 50px; /* Dikecilkan */
+    min-width: 50px; height: 50px; 
     background: rgba(234, 67, 53, 0.1);
     color: #EA4335; border-radius: 14px;
     display: flex; justify-content: center; align-items: center; 
@@ -1629,13 +1657,18 @@ body.app-body {
 /* Responsif Layar Besar (Desktop) */
 @media (min-width: 769px) {
     .top-section-glass.full-width-header {
-        padding-top: 15px; 
-        border-radius: 0 0 30px 30px; /* Lengkungan tidak terlalu berlebihan di desktop */
+        border-radius: 0 0 30px 30px; 
     }
 }
 
 /* Responsif Mobile untuk Notifikasi */
 @media (max-width: 768px) {
+    .top-header.notif-header {
+        padding: 15px 20px; /* Kurangi padding dari ujung layar di HP */
+    }
+    .pills-nav.notif-pills {
+        justify-content: flex-start; /* Biar pill bisa discroll horizontal di HP */
+    }
     .notif-box { padding: 15px 18px; border-radius: 16px; }
     .notif-content { gap: 12px; }
     .avatar-initial, .warning-square { width: 45px; height: 45px; min-width: 45px; font-size: 1.1rem; }
