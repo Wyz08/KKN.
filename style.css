@@ -1670,3 +1670,89 @@ body.app-body {
     .avatar-initial, .warning-square { width: 45px; height: 45px; min-width: 45px; font-size: 1.1rem; }
     .notif-info p { font-size: 0.85rem; }
 }
+
+/* ==========================================================
+   11. GAYA HALAMAN FEED / BERANDA (STORIES & TAMBAHAN POST)
+   ========================================================== */
+
+/* Container area status/cerita (Horizonal Scroll) */
+.stories-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0 20px 0;
+    scrollbar-width: none; /* Menyembunyikan scrollbar di Firefox */
+    margin-bottom: 10px;
+}
+.stories-container::-webkit-scrollbar { 
+    display: none; /* Menyembunyikan scrollbar di Chrome/Safari */
+}
+
+/* Setiap item status */
+.story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    min-width: 70px;
+}
+
+/* Lingkaran status */
+.story-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: #16120e;
+    border: 2px solid #333; /* Warna standar saat belum ada story */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.3s;
+}
+
+/* Lingkaran status jika ada cerita baru (warna kuning) */
+.story-avatar.has-story {
+    border-color: #FCB201;
+    padding: 2px;
+    background-clip: content-box;
+}
+
+/* Jika user pasang foto sungguhan (dari assets) */
+.story-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Tombol Plus (+) untuk tambah cerita sendiri */
+.story-add-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #FCB201;
+    color: #000;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #16120e; /* Biar ada jarak dari lingkaran status */
+}
+
+/* Teks nama di bawah status */
+.story-username {
+    font-size: 0.75rem;
+    color: #a0a0a0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
+    text-align: center;
+}
