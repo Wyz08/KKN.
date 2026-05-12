@@ -4,161 +4,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beranda - Ruang Aman</title>
-    <!-- Menghubungkan ke file CSS utama di luar folder 'kirim' -->
     <link rel="stylesheet" href="../style.css">
-    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="app-body">
 
     <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
     <div class="ambient-glow"></div>
 
-    <!-- Container Utama -->
-    <main class="feed-container">
+    <!-- Container Utama Home -->
+    <main class="feed-container home-layout">
         
-        <!-- Header Atas (Fix posisinya) -->
-        <header class="top-header" style="border-bottom: none; margin-bottom: 10px;">
-            <div class="logo-kkn" style="font-family: 'ADLaM Display', cursive; font-size: 24px; color: #FCB201;">
-                KKN.
-            </div>
-            <h1 class="header-title" style="font-size: 1.2rem;">Beranda</h1>
-            <button class="icon-btn btn-menu" title="Pengaturan">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <!-- Header -->
+        <header class="home-header">
+            <div class="logo-kkn">KKN.</div>
+            <button class="btn-menu-box" title="Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
             </button>
         </header>
 
-        <!-- Bagian Cerita (Stories) -->
-        <section class="stories-container">
-            <!-- Cerita Saya (Tambah) -->
-            <div class="story-item">
-                <div class="story-avatar" style="border-color: transparent;">
-                    <!-- Contoh penggunaan gambar dari folder assets - Copy -->
-                    <!-- Jika ada gambar: <img src="./assets - Copy/profile.jpg" alt="Profile"> -->
-                    <span>Me</span>
-                    <div class="story-add-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    </div>
-                </div>
-                <span class="story-username">Cerita</span>
-            </div>
+        <!-- Search Bar -->
+        <div class="home-search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" placeholder="Cari keresahan mahasiswa...">
+        </div>
 
-            <!-- Cerita Orang Lain -->
-            <div class="story-item">
-                <div class="story-avatar has-story" style="color: #3b82f6;">AR</div>
-                <span class="story-username">Arn_atminReal</span>
-            </div>
-            <div class="story-item">
-                <div class="story-avatar has-story" style="color: #10b981;">DN</div>
-                <span class="story-username">DosenNgegas</span>
-            </div>
-            <div class="story-item">
-                <div class="story-avatar has-story" style="color: #ef4444;">ZK</div>
-                <span class="story-username">ZombieKampus</span>
-            </div>
-            <div class="story-item">
-                <div class="story-avatar">AK</div>
-                <span class="story-username">AnakKos</span>
-            </div>
-             <div class="story-item">
-                <div class="story-avatar">SF</div>
-                <span class="story-username">SipalingF...</span>
-            </div>
-        </section>
+        <!-- Filter Pills -->
+        <div class="home-pills">
+            <button class="home-pill active">🔥 Hot</button>
+            <button class="home-pill">💰 Uang Habis</button>
+            <button class="home-pill">👻 Dosen Ghosting</button>
+            <button class="home-pill">📄 Tugas Numpuk</button>
+        </div>
 
-        <!-- Feed Section -->
-        <div class="post-feed" style="margin-top: 10px;">
+        <!-- Banner Edisi Terbaru -->
+        <div class="home-banner">
+            <div class="home-banner-text">
+                <h3>Baca Edisi Terbaru</h3>
+                <p>Kompilasi drama kampus paling relate minggu ini</p>
+            </div>
+            <button class="home-banner-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Daftar Postingan -->
+        <div class="home-feed-list">
             
-            <!-- Postingan 1 (Sesuai Gambar 1) -->
-            <article class="post-card">
-                <div class="post-header" style="margin-bottom: 10px;">
-                    <div class="post-meta" style="width: 100%; justify-content: space-between;">
-                        <div style="display: flex; gap: 12px; align-items: center;">
-                            <div class="avatar-circle" style="width: 45px; height: 45px; font-size: 1rem; margin-bottom: 0;">🦊</div>
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700; color: #fff;">Arn_atminReal</span>
-                                <span style="font-size: 0.8rem; color: #a0a0a0;">10 menit yang lalu</span>
-                            </div>
+            <!-- Postingan 1 -->
+            <article class="home-post">
+                <div class="home-post-header">
+                    <div class="home-post-user">
+                        <div class="home-post-avatar">
+                            <!-- SVG Orang Pakai Jas -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M12 15l-3 6"></path>
+                                <path d="M12 15l3 6"></path>
+                            </svg>
                         </div>
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                             <span class="post-tag">Tugas Numpuk</span>
-                             <button class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                        <div class="home-post-meta">
+                            <span class="home-post-name">Mas Yeb</span>
+                            <span class="home-post-time">2 jam yang lalu</span>
                         </div>
                     </div>
+                    <span class="home-post-tag">Tugas Numpuk</span>
                 </div>
-                <h3 class="post-title" style="font-size: 1.1rem;">Tugas UI UX gada yg bantuin gila</h3>
-                <p class="post-body">Kerkom rasa kerjap, yang lain pada ngilang dengan alasan "jaringan error" lah, "laptop ngelag" lah. Giliran nama minta ditaruh paling atas. Emang boleh setoxic ini bestie? 😭</p>
-                <div class="post-actions">
-                    <div class="action-group">
-                        <button class="btn-action relate active">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#FCB201" stroke="#FCB201" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span>120 Relate</span>
-                        </button>
-                        <button class="btn-action">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            <span>15 Komentar</span>
-                        </button>
+                
+                <h3 class="home-post-title">Skripsi stuck, dosen pembimbing ghosting seminggu.</h3>
+                <p class="home-post-desc">Udah revisi bab 3 sampai 5 kali, tapi tiap dichat balesannya cuma "ok nanti saya cek". Giliran ditanya kapan bisa bimbingan, malah ilang. Ada yang senasib nggak sih? Rasanya pengen cuti aja dah.</p>
+                
+                <div class="home-post-footer">
+                    <div class="home-post-stats">
+                        <span class="home-stat relate">💛 99 Relate</span>
+                        <span class="home-stat">💬 42 Komentar</span>
                     </div>
-                    <button class="btn-action" title="Simpan Postingan">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
+                    <div class="home-bookmark">
+                        <!-- Ikon Pita Pink/Merah -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
                 </div>
             </article>
 
-            <!-- Postingan 2 (Sesuai Gambar 2 - Dengan Gambar) -->
-            <article class="post-card">
-                <div class="post-header" style="margin-bottom: 10px;">
-                    <div class="post-meta" style="width: 100%; justify-content: space-between;">
-                        <div style="display: flex; gap: 12px; align-items: center;">
-                            <div class="avatar-circle" style="width: 45px; height: 45px; font-size: 1rem; margin-bottom: 0; background-color: #3b82f6; color: white;">AK</div>
-                            <div style="display: flex; flex-direction: column;">
-                                <span style="font-weight: 700; color: #fff;">AnakKosSedih</span>
-                                <span style="font-size: 0.8rem; color: #a0a0a0;">2 jam yang lalu</span>
-                            </div>
+            <!-- Postingan 2 -->
+            <article class="home-post">
+                <div class="home-post-header">
+                    <div class="home-post-user">
+                        <div class="home-post-avatar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M12 15l-3 6"></path>
+                                <path d="M12 15l3 6"></path>
+                            </svg>
                         </div>
-                        <div style="display: flex; gap: 10px; align-items: center;">
-                             <span class="post-tag" style="background-color: rgba(252, 178, 1, 0.15); color: #FCB201;">Uang Habis</span>
-                             <button class="icon-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg></button>
+                        <div class="home-post-meta">
+                            <span class="home-post-name">Atmin_Anonim</span>
+                            <span class="home-post-time">5 jam yang lalu</span>
                         </div>
                     </div>
+                    <span class="home-post-tag">Uang Habis</span>
                 </div>
-                <h3 class="post-title" style="font-size: 1.1rem;">Baru tanggal 15 Ya Allah...</h3>
-                <p class="post-body">Udah masuk mode bertahan hidup. Promag sama air putih jadi menu fine dining malam ini.</p>
                 
-                <!-- Kotak Gambar (Placeholder Kuning seperti di referensi) -->
-                <div class="post-image-placeholder" style="border: 2px dashed rgba(252, 178, 1, 0.4); background: rgba(252, 178, 1, 0.02); height: 250px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FCB201" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                    <span style="color: #FCB201; margin-top: 10px; font-size: 0.9rem;">Gambar / Meme dilampirkan</span>
+                <h3 class="home-post-title">Realita Akhir Bulan Mahasiswa Rantau</h3>
+                <p class="home-post-desc">Dompet sudah setipis harapan lulus tepat waktu. Penyelamat satu-satunya cuma stok mie instan di pojok kamar.</p>
+                
+                <!-- Kotak Gambar (Jika Ada) -->
+                <div class="home-image-placeholder">
+                    <!-- Kamu bisa ganti dengan <img> sungguhan jika mau -->
                 </div>
 
-                <div class="post-actions">
-                    <div class="action-group">
-                        <button class="btn-action relate">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                            <span>45 Relate</span>
-                        </button>
-                        <button class="btn-action">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            <span>8 Komentar</span>
-                        </button>
+                <div class="home-post-footer" style="margin-top: 15px;">
+                    <div class="home-post-stats">
+                        <span class="home-stat relate">💛 45 Relate</span>
+                        <span class="home-stat">💬 12 Komentar</span>
                     </div>
-                    <button class="btn-action" title="Simpan Postingan">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
-                    </button>
+                    <div class="home-bookmark" style="color: #6b7280;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
                 </div>
             </article>
 
         </div>
     </main>
 
-    <!-- Tombol Posting Melayang (FAB) -->
-    <button class="fab-post">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-        <span class="fab-text"></span>
+    <!-- Tombol Posting Melayang (FAB Panjang) -->
+    <button class="fab-extended">
+        <span class="fab-icon">📝</span>
+        Posting Keresahanmu
     </button>
 
     <!-- Navigasi Bawah (Bottom Nav) -->
     <nav class="bottom-nav">
-        <!-- Beranda (Active) -->
         <a href="#" class="nav-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             <span>Home</span>
