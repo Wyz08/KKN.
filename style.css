@@ -1672,87 +1672,165 @@ body.app-body {
 }
 
 /* ==========================================================
-   11. GAYA HALAMAN FEED / BERANDA (STORIES & TAMBAHAN POST)
+   GAYA DASAR HALAMAN APLIKASI (APP BODY)
    ========================================================== */
-
-/* Container area status/cerita (Horizonal Scroll) */
-.stories-container {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding: 10px 0 20px 0;
-    scrollbar-width: none; /* Menyembunyikan scrollbar di Firefox */
-    margin-bottom: 10px;
-}
-.stories-container::-webkit-scrollbar { 
-    display: none; /* Menyembunyikan scrollbar di Chrome/Safari */
-}
-
-/* Setiap item status */
-.story-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    min-width: 70px;
-}
-
-/* Lingkaran status */
-.story-avatar {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: #16120e;
-    border: 2px solid #333; /* Warna standar saat belum ada story */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body.app-body {
+    background-color: #0e0c0a; 
+    color: #ffffff;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
     position: relative;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    transition: 0.3s;
+    overflow-x: hidden;
 }
 
-/* Lingkaran status jika ada cerita baru (warna kuning) */
-.story-avatar.has-story {
-    border-color: #FCB201;
-    padding: 2px;
-    background-clip: content-box;
+.ambient-glow {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 100vw; height: 600px;
+    background: radial-gradient(ellipse at top, rgba(252, 178, 1, 0.12) 0%, rgba(14, 12, 10, 0) 70%);
+    z-index: -1; pointer-events: none;
 }
 
-/* Jika user pasang foto sungguhan (dari assets) */
-.story-avatar img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+/* Container utama Feed */
+.feed-container {
+    width: 95%; max-width: 1100px; margin: 0 auto;
+    padding: 0 20px 120px 20px; box-sizing: border-box;
 }
 
-/* Tombol Plus (+) untuk tambah cerita sendiri */
-.story-add-btn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: #FCB201;
-    color: #000;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #16120e; /* Biar ada jarak dari lingkaran status */
+/* Navigasi Bawah (Bottom Nav) */
+.bottom-nav {
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    background: #0e0c0a; border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex; justify-content: center; gap: 100px;
+    padding: 18px 0 25px 0; z-index: 60;
+}
+.nav-item {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: #6b7280; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s;
+}
+.nav-item.active, .nav-item:hover { color: #FCB201; }
+
+@media (max-width: 768px) {
+    .bottom-nav { gap: 0; justify-content: space-around; padding: 12px 0 15px 0; }
 }
 
-/* Teks nama di bawah status */
-.story-username {
-    font-size: 0.75rem;
-    color: #a0a0a0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 70px;
-    text-align: center;
+/* ==========================================================
+   11.GAYA KHUSUS HOME / FEED
+   ========================================================== */
+.home-layout {
+    padding-top: 10px;
+}
+
+/* Header Home */
+.home-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0; margin-bottom: 10px;
+}
+.home-header .logo-kkn {
+    font-family: 'ADLaM Display', cursive; font-size: 32px; color: #FCB201;
+}
+.home-header .btn-menu-box {
+    width: 42px; height: 42px;
+    background-color: #1a1611;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex; justify-content: center; align-items: center;
+    color: #dcd7d7; cursor: pointer; transition: 0.3s;
+}
+.home-header .btn-menu-box:hover { background-color: rgba(252, 178, 1, 0.1); color: #FCB201; }
+
+/* Search Bar Home */
+.home-search {
+    background-color: #1a1611;
+    border-radius: 50px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.02);
+}
+.home-search input {
+    background: transparent; border: none; outline: none;
+    color: white; width: 100%; font-size: 0.95rem; font-family: 'Inter', sans-serif;
+}
+.home-search input::placeholder { color: #6b7280; }
+
+/* Filter Pills Home */
+.home-pills {
+    display: flex; gap: 12px; margin-bottom: 30px; overflow-x: auto;
+    scrollbar-width: none;
+}
+.home-pills::-webkit-scrollbar { display: none; }
+.home-pill {
+    background-color: #1a1611; border: 1px solid rgba(255,255,255,0.05);
+    color: #dcd7d7; padding: 10px 20px; border-radius: 30px;
+    font-size: 0.9rem; font-weight: 600; white-space: nowrap; 
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    font-family: 'Inter', sans-serif; transition: 0.3s;
+}
+.home-pill.active { background-color: #FCB201; color: black; border-color: #FCB201; }
+
+/* Banner Edisi Terbaru */
+.home-banner {
+    background: linear-gradient(90deg, rgba(63,36,2,0.4) 0%, rgba(20,15,5,0.4) 100%);
+    border: 1px solid rgba(252, 178, 1, 0.2); border-radius: 20px; 
+    padding: 24px; display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 30px;
+}
+.home-banner-text h3 { color: #FCB201; margin: 0 0 6px 0; font-size: 1.15rem; font-weight: 700; }
+.home-banner-text p { color: #a0a0a0; margin: 0; font-size: 0.9rem; }
+.home-banner-btn {
+    width: 40px; height: 40px; background-color: #FCB201;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+    color: black; border: none; cursor: pointer; flex-shrink: 0; transition: 0.3s;
+}
+.home-banner-btn:hover { transform: scale(1.1); }
+
+/* Kartu Postingan Home */
+.home-feed-list { display: flex; flex-direction: column; gap: 24px; }
+.home-post {
+    background-color: #16120e; border-radius: 24px; padding: 28px;
+    border: 1px solid rgba(255,255,255,0.03); transition: 0.3s;
+}
+.home-post:hover { border-color: rgba(252, 178, 1, 0.2); }
+.home-post-header {
+    display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px;
+}
+.home-post-user { display: flex; align-items: center; gap: 14px; }
+.home-post-avatar {
+    width: 50px; height: 50px; background-color: #3b82f6;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center;
+}
+.home-post-meta { display: flex; flex-direction: column; gap: 2px; }
+.home-post-name { font-weight: 700; color: white; font-size: 1.05rem; }
+.home-post-time { font-size: 0.85rem; color: #888; }
+.home-post-tag { color: #FCB201; font-size: 0.85rem; font-weight: 600; padding: 4px 0;}
+.home-post-title { font-size: 1.4rem; margin: 0 0 12px 0; font-weight: 700; line-height: 1.4; color: #fff;}
+.home-post-desc { color: #a0a0a0; font-size: 1rem; line-height: 1.6; margin: 0 0 24px 0; }
+.home-image-placeholder {
+    width: 100%; height: 280px; background: url('../kirim/assets - Copy/meme2.jpg') center/cover;
+    background-color: #1a1611; border-radius: 16px; margin-bottom: 24px;
+}
+.home-post-footer { display: flex; justify-content: space-between; align-items: center; }
+.home-post-stats { display: flex; gap: 24px; }
+.home-stat { color: #888; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.home-stat.relate { color: #FCB201; }
+.home-bookmark { color: #f43f5e; cursor: pointer; transition: 0.3s; }
+.home-bookmark:hover { transform: scale(1.1); }
+
+/* Tombol FAB Diperpanjang (Kanan Bawah) */
+.fab-extended {
+    position: fixed; bottom: 110px;
+    right: max(20px, calc(50% - 550px + 20px));
+    background-color: #FCB201;
+    color: #000; border: none; padding: 14px 28px; border-radius: 40px;
+    font-size: 1.05rem; font-weight: 700; font-family: 'Inter', sans-serif;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 30px rgba(252, 178, 1, 0.4);
+    cursor: pointer; z-index: 50; transition: 0.3s;
+}
+.fab-extended:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(252, 178, 1, 0.5); }
+
+@media (max-width: 768px) {
+    .home-banner { flex-direction: column; align-items: flex-start; gap: 15px; position: relative; }
+    .home-banner-btn { position: absolute; right: 24px; top: 24px; }
+    .fab-extended { bottom: 90px; right: 20px; padding: 14px 20px; font-size: 0.95rem; }
+    .home-post { padding: 20px; }
+    .home-post-title { font-size: 1.2rem; }
 }
