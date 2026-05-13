@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - Ruang Aman</title>
+    <!-- Menghubungkan HANYA ke CSS Utama -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="app-body contact-page">
+
+    <!-- Efek Latar (Ambient Glow dari style.css utama) -->
+    <div class="ambient-glow"></div>
+
+    <div class="contact-container">
+        
+        <!-- HEADER KONTAK -->
+        <header class="contact-header">
+            <button class="back-btn" onclick="window.history.back();" title="Kembali">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </button>
+            <h1>Hubungi Kami</h1>
+            <!-- Spasi kosong agar judul tetap di tengah -->
+            <div style="width: 45px;"></div> 
+        </header>
+
+        <!-- LAYOUT UTAMA (KIRI & KANAN) -->
+        <main class="contact-grid">
+            
+            <!-- PANEL KIRI: INFO KONTAK -->
+            <aside class="info-panel">
+                <h2>Atau hubungi kami langsung melalui:</h2>
+                
+                <!-- Info Email -->
+                <div class="contact-item">
+                    <div class="icon-box-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h3>support@kkn-app.com</h3>
+                        <p>Email Bantuan</p>
+                    </div>
+                </div>
+
+                <!-- Info Instagram -->
+                <div class="contact-item">
+                    <div class="icon-box-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </div>
+                    <div class="contact-text">
+                        <h3>@kkn-app</h3>
+                        <p>Instagram</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- PANEL KANAN: FORMULIR -->
+            <section class="form-panel">
+                <form onsubmit="event.preventDefault(); showToast('Pesan berhasil dikirim ke Admin!'); this.reset();">
+                    
+                    <div class="input-group">
+                        <label>Nama/Samaran</label>
+                        <input type="text" placeholder="Masukkan nama panggilanmu" required autocomplete="off">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="contoh@student.ac.id" required autocomplete="off">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Kategori Pesan</label>
+                        <select required>
+                            <option value="" disabled selected>Pilih masalah yang dialami...</option>
+                            <option value="bug">Laporan Bug/Error Aplikasi</option>
+                            <option value="report">Laporkan Pengguna/Postingan</option>
+                            <option value="saran">Kritik & Saran Fitur</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Pesanmu</label>
+                        <textarea placeholder="Ceritakan detail pesanmu di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        Kirim Pesan
+                    </button>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- SCRIPT INTERAKTIF (TOAST) -->
+    <script>
+        function showToast(message) {
+            let toast = document.getElementById('custom-toast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'custom-toast';
+                toast.style.cssText = 'position: fixed; bottom: 50px; left: 50%; transform: translateX(-50%); background: var(--warna-kuning, #FCB201); color: var(--warna-latar, #120b02); padding: 14px 28px; border-radius: 30px; font-family: var(--font-teks); font-weight: 700; font-size: 1rem; z-index: 9999; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 8px 25px rgba(252, 178, 1, 0.4); text-align: center; white-space: nowrap;';
+                document.body.appendChild(toast);
+            }
+            toast.textContent = message;
+            toast.style.opacity = '1';
+            
+            clearTimeout(toast.timeoutId);
+            toast.timeoutId = setTimeout(() => {
+                toast.style.opacity = '0';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
