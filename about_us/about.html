@@ -5,29 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang KKN - Desktop Version</title>
     <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="app-body">
 
-    <header class="header">
-    <!-- Tombol Back dengan Ikon SVG Putih Bersih -->
-    <a href="javascript:history.back()" class="btn-nav" title="Kembali ke Beranda">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-    </a>
+    <!-- ==========================================
+         SISTEM SIDEBAR & LOGOUT MODAL
+         ========================================== -->
+    <input type="checkbox" id="menu-toggle">
+    <input type="checkbox" id="logout-toggle">
+    <label for="menu-toggle" class="overlay-blur"></label>
 
-    <h2 style="margin:0">Tentang</h2>
-
-    <!-- Tombol Menu dengan Ikon SVG Putih Bersih -->
-    <div class="btn-nav">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+    <!-- Modal Logout -->
+    <div class="logout-modal">
+        <label for="logout-toggle" class="logout-modal-bg"></label>
+        <div class="logout-modal-box">
+            <div class="logout-icon">🚪</div>
+            <div class="logout-modal-title">Yakin mau keluar?</div>
+            <div class="logout-modal-desc">Sesi kamu akan diakhiri. Kamu harus masuk kembali untuk bisa curhat.</div>
+            <div class="logout-modal-actions">
+                <label for="logout-toggle" class="btn-batal-logout">Batal</label>
+                <a href="../index.html" class="btn-ya-logout">Ya, Keluar</a>
+            </div>
+        </div>
     </div>
-</header>
+
+    <!-- Sidebar Overlay -->
+    <aside class="sidebar-overlay">
+        <div class="sidebar-header">
+            <h2 style="margin: 0; color: white;">Menu Utama</h2>
+            <label for="menu-toggle" class="close-sidebar" style="color: white;">✕</label>
+        </div>
+        <nav class="menu-list-sidebar">
+            <a href="../feed.html" class="menu-item-sidebar">
+                <img src="../assets/home.png" alt="Beranda" class="icon-sidebar"> Beranda
+            </a>
+            <a href="about.html" class="menu-item-sidebar">
+                <img src="../assets/profil.png" alt="Tentang" class="icon-sidebar"> Tentang KKN
+            </a>
+            <a href="../kontak/kontak.html" class="menu-item-sidebar">
+                <img src="../assets/email.png" alt="Hubungi" class="icon-sidebar"> Hubungi Kami
+            </a>
+
+            <div class="divider-sidebar"></div>
+
+            <label for="logout-toggle" class="menu-item-sidebar logout-btn" style="cursor: pointer;">
+                <img src="../assets/logout.png" alt="Keluar" class="icon-sidebar"> Keluar Akun
+            </label>
+        </nav>
+    </aside>
+    <!-- ========================================== -->
+
+    <!-- HEADER -->
+    <header class="header">
+        <!-- Tombol Back dengan Ikon SVG Putih Bersih -->
+        <a href="javascript:history.back()" class="btn-nav" title="Kembali ke Beranda">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </a>
+
+        <h2 style="margin:0">Tentang</h2>
+
+        <!-- Tombol Menu DENGAN LABEL agar bisa membuka sidebar -->
+        <label for="menu-toggle" class="btn-nav" title="Buka Menu" style="cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </label>
+    </header>
 
     <main class="main-container">  
         <section class="column-card brand-section">
@@ -106,7 +155,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer-area">
