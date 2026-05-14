@@ -2078,6 +2078,34 @@ body.contact-page {
    13. GAYA HALAMAN GALERI / KOLEKSI
    ========================================================== */
 
+/* --- HEADER FULL WIDTH GALERI --- */
+.gallery-full-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(14, 12, 10, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 100;
+}
+
+.gallery-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px; /* Lebar maksimal konten agar sejajar dengan feed */
+    margin: 0 auto;
+    padding: 18px 20px;
+    box-sizing: border-box;
+}
+
+.gallery-main-content {
+    padding-top: 40px; /* Jarak agar konten tengah tidak menempel ke header atas */
+}
+
 /* Wrapper untuk menengahkan toggle */
 .gallery-toggle-wrapper {
     display: flex;
@@ -2161,6 +2189,12 @@ body.contact-page {
 
 /* Penyesuaian Responsif Layar HP */
 @media (max-width: 768px) {
+    .gallery-header-inner {
+        padding: 15px 20px;
+    }
+    .gallery-main-content {
+        padding-top: 20px;
+    }
     .gallery-toggle-wrapper {
         margin-bottom: 40px;
     }
