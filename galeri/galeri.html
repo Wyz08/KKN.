@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri - Ruang Aman</title>
     <!-- Menghubungkan ke CSS Utama -->
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="app-body gallery-page">
@@ -13,18 +13,21 @@
     <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
     <div class="ambient-glow"></div>
 
-    <main class="feed-container">
-        
-        <!-- Header Atas -->
-        <header class="top-header">
+    <!-- HEADER ATAS (Sekarang Full Width / Tembus Kiri Kanan) -->
+    <header class="gallery-full-header">
+        <div class="gallery-header-inner">
             <a href="javascript:history.back()" class="icon-btn" title="Kembali">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             </a>
             <h1 class="header-title">Koleksiku</h1>
             <!-- Spacer kosong agar teks tetap presisi di tengah -->
             <div style="width: 28px;"></div>
-        </header>
+        </div>
+    </header>
 
+    <!-- CONTAINER TENGAH (Ukuran Tetap Dipertahankan) -->
+    <main class="feed-container gallery-main-content">
+        
         <!-- Toggle Switch (Tersimpan / Unggahan) -->
         <div class="gallery-toggle-wrapper">
             <div class="gallery-toggle-container">
@@ -77,11 +80,9 @@
     <!-- Script Sederhana untuk Tab & Toast -->
     <script>
         function switchTab(clickedBtn) {
-            // Hapus class active dari semua tombol
             document.querySelectorAll('.gallery-toggle-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            // Tambahkan class active ke tombol yang diklik
             clickedBtn.classList.add('active');
         }
 
