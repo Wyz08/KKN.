@@ -270,7 +270,7 @@
             z-index: 2000;
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 40px 30px;
-            border-left: var(--border-kaca);
+            border-left: var(--border-kaca, 1px solid rgba(255,255,255,0.05));
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
 
@@ -480,8 +480,8 @@
     <!-- Sidebar Overlay -->
     <aside class="sidebar-overlay">
         <div class="sidebar-header">
-            <h2>Menu Utama</h2>
-            <label for="menu-toggle" class="close-sidebar">✕</label>
+            <h2 style="margin: 0; color: white;">Menu Utama</h2>
+            <label for="menu-toggle" class="close-sidebar" style="color: white;">✕</label>
         </div>
         <nav class="menu-list-sidebar">
             <a href="../feed.html" class="menu-item-sidebar">
@@ -529,20 +529,20 @@
         </div>
     </div>
 
-    <!-- Container Utama Desktop Super Lebar -->
-    <main class="feed-container">
-
-        <!-- Header Atas -->
-        <header class="top-header">
-            <a href="../index.html" class="icon-btn" title="Kembali">
+    <!-- ==========================================================
+         HEADER DIPINDAHKAN KELUAR DARI CONTAINER AGAR FULL WIDTH
+         ========================================================== -->
+    <header class="gallery-full-header">
+        <div class="gallery-header-inner">
+            <a href="../index.html" class="icon-btn" title="Kembali" style="color: white;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="19" y1="12" x2="5" y2="12"></line>
                     <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
             </a>
-            <h1 class="header-title">Profil saya</h1>
-            <label for="menu-toggle" class="icon-btn btn-menu" style="cursor: pointer;" title="Menu Pengaturan">
+            <h1 class="header-title" style="margin: 0;">Profil saya</h1>
+            <label for="menu-toggle" class="icon-btn btn-menu" style="cursor: pointer; color: white;" title="Menu Pengaturan">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -550,7 +550,11 @@
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </label>
-        </header>
+        </div>
+    </header>
+
+    <!-- Container Utama Desktop Super Lebar -->
+    <main class="feed-container gallery-main-content">
 
         <!-- Kartu Profil -->
         <section class="profile-card-ui">
@@ -598,7 +602,7 @@
         <!-- DAFTAR POSTINGAN UTAMA (Riwayat) -->
         <div class="feed-section active-feed" id="feedRiwayat">
 
-            <!-- Postingan 1 (Beri data-id agar sistem tau) -->
+            <!-- Postingan 1 -->
             <article class="post-card" data-post-id="post-1">
                 <div class="post-header">
                     <div class="post-meta">
@@ -670,7 +674,7 @@
                             <span>42 Komentar</span>
                         </button>
                     </div>
-                    <!-- Tombol Bookmark (Pita) yang benar -->
+                    <!-- Tombol Bookmark (Pita) -->
                     <button class="btn-action btn-bookmark" title="Simpan Postingan">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -684,8 +688,7 @@
             <article class="post-card" data-post-id="post-2">
                 <div class="post-header">
                     <div class="post-meta">
-                        <span class="post-tag" style="color:#FCB201; background:rgba(252, 178, 1, 0.2);">Uang
-                            Habis</span>
+                        <span class="post-tag" style="color:#FCB201; background:rgba(252, 178, 1, 0.2);">Uang Habis</span>
                         <span class="post-time">Kemarin</span>
                     </div>
                     <!-- Dropdown Titik 3 -->
@@ -761,7 +764,6 @@
                             <span>12 Komentar</span>
                         </button>
                     </div>
-                    <!-- Tombol Bookmark (Pita) yang benar -->
                     <button class="btn-action btn-bookmark" title="Simpan Postingan">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -773,11 +775,7 @@
 
         </div>
 
-
-
     </main>
-
-
 
     <!-- Navigasi Bawah (Bottom Nav) -->
     <nav class="bottom-nav">
@@ -806,7 +804,7 @@
             </svg>
             <span>Notif</span>
         </a>
-        <a href="..profil/profil.html" class="nav-item active">
+        <a href="../profil/profil.html" class="nav-item active">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -818,7 +816,6 @@
 
     <!-- KODE JAVASCRIPT UNTUK INTERAKTIF -->
     <script>
-        // --- 1. FUNGSI TOAST (NOTIFIKASI) ---
         function showToast(message) {
             let toast = document.getElementById('custom-toast');
             if (!toast) {
@@ -836,7 +833,6 @@
             }, 2000);
         }
 
-        // --- 2. LOGIKA MODAL EDIT PROFIL ---
         const editModal = document.getElementById('editProfileModal');
         const displayProfileName = document.getElementById('displayProfileName');
         const displayProfileUsername = document.getElementById('displayProfileUsername');
@@ -858,30 +854,23 @@
             const newName = editNameInput.value.trim() || 'Anonim';
             displayProfileName.textContent = newName;
             displayProfileUsername.textContent = editUsernameInput.value.trim() || '@anonim';
-
-            // Ubah inisial 2 huruf pertama dari nama baru
             profileInitial.textContent = newName.substring(0, 2).toUpperCase();
-
             editModal.classList.remove('show');
             showToast('Profil berhasil diperbarui!');
         });
 
-        // --- 3. LOGIKA BOOKMARK ---
         const bookmarkBtns = document.querySelectorAll('.btn-bookmark');
-
         bookmarkBtns.forEach(btn => {
             btn.addEventListener('click', function () {
                 const isAktif = this.classList.contains('active');
                 const svg = this.querySelector('svg');
 
                 if (isAktif) {
-                    // Batalkan Simpan
                     this.classList.remove('active');
                     svg.setAttribute('fill', 'none');
                     svg.setAttribute('stroke', 'currentColor');
                     showToast('Postingan dihapus dari daftar simpanan.');
                 } else {
-                    // Simpan
                     this.classList.add('active');
                     svg.setAttribute('fill', '#FCB201');
                     svg.setAttribute('stroke', '#FCB201');
@@ -890,31 +879,24 @@
             });
         });
 
-        // --- 5. LOGIKA DROPDOWN TITIK TIGA (OPSI) ---
         const btnMores = document.querySelectorAll('.btn-more');
         btnMores.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Biar gak langsung ketutup oleh window click
+                e.stopPropagation(); 
                 const dropdown = btn.nextElementSibling;
-
-                // Tutup dropdown lain yang sedang terbuka
                 document.querySelectorAll('.dropdown-menu').forEach(d => {
                     if (d !== dropdown) d.classList.remove('show');
                 });
-
-                // Toggle dropdown yang ini
                 dropdown.classList.toggle('show');
             });
         });
 
-        // Tutup dropdown jika mengklik sembarang tempat
         window.addEventListener('click', () => {
             document.querySelectorAll('.dropdown-menu').forEach(d => {
                 d.classList.remove('show');
             });
         });
 
-        // --- 6. INTERAKTIF TOMBOL RELATE (LIKE) ---
         const relateBtns = document.querySelectorAll('.btn-action.relate');
         relateBtns.forEach(btn => {
             btn.addEventListener('click', function () {
@@ -935,31 +917,9 @@
             });
         });
 
-        // --- 7. TOMBOL KOMENTAR & NAVIGASI BAWAH ---
         document.querySelectorAll('.btn-comment').forEach(btn => {
             btn.addEventListener('click', () => showToast('Membuka kolom komentar...'));
         });
-
-        const navItems = document.querySelectorAll('.nav-item');
-        navItems.forEach(item => {
-            item.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') {
-                    e.preventDefault();
-                    navItems.forEach(n => {
-                        n.classList.remove('active');
-                        const icon = n.querySelector('svg');
-                        if (icon) icon.setAttribute('fill', 'none');
-                    });
-
-                    this.classList.add('active');
-                    const activeIcon = this.querySelector('svg');
-                    if (activeIcon) activeIcon.setAttribute('fill', 'currentColor');
-
-                    showToast('Beralih ke ' + this.querySelector('span').textContent);
-                }
-            });
-        });
     </script>
 </body>
-
 </html>
