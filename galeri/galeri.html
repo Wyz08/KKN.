@@ -10,61 +10,83 @@
 </head>
 <body class="app-body gallery-page">
 
-    <!-- CHECKBOX HACK UNTUK SIDEBAR -->
+    <!-- ==========================================
+         BAGIAN 1: SIDEBAR MENU UTAMA 
+         ========================================== -->
     <input type="checkbox" id="menu-toggle">
-    
-    <!-- OVERLAY GELAP SAAT SIDEBAR TERBUKA (Bisa diklik untuk menutup) -->
     <label for="menu-toggle" class="overlay-blur"></label>
 
-    <!-- SIDEBAR MENU -->
     <aside class="sidebar-overlay">
         <div class="sidebar-header">
-            <h2 style="font-family: var(--font-judul); font-size: 1.5rem; color: var(--warna-putih); margin: 0;">Menu Utama</h2>
+            <h2 style="font-family: var(--font-judul, 'ADLaM Display'); font-size: 1.5rem; color: #dcd4d4; margin: 0;">Menu Utama</h2>
             <label for="menu-toggle" class="close-sidebar">✕</label>
         </div>
         <nav class="menu-list-sidebar">
             <a href="../feed.html" class="menu-item-sidebar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sidebar"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> 
-                Beranda
+                <img src="../assets/home.png" alt="Beranda" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Beranda
             </a>
             <a href="../about_us/about.html" class="menu-item-sidebar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sidebar"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
-                Tentang KKN
+                <img src="../assets/profil.png" alt="Tentang" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Tentang KKN
             </a>
             <a href="../kontak/kontak.html" class="menu-item-sidebar">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sidebar"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> 
-                Hubungi Kami
+                <img src="../assets/email.png" alt="Hubungi" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Hubungi Kami
             </a>
 
             <div class="divider-sidebar"></div>
 
-            <!-- Tombol Keluar Akun -->
-            <a href="../index.html" class="menu-item-sidebar logout-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sidebar"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> 
-                Keluar Akun
-            </a>
+            <!-- Tombol Keluar Akun (Memicu Modal Logout) -->
+            <label for="logout-toggle" class="menu-item-sidebar logout-btn" style="cursor: pointer;">
+                <img src="../assets/logout.png" alt="Keluar" class="icon-sidebar" width="20" style="filter: invert(30%) sepia(90%) saturate(3000%) hue-rotate(340deg);"> Keluar Akun
+            </label>
         </nav>
     </aside>
 
-    <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
+    <!-- ==========================================
+         BAGIAN 2: MODAL LOGOUT POP-UP
+         ========================================== -->
+    <input type="checkbox" id="logout-toggle">
+    
+    <div class="logout-modal">
+        <!-- Background gelap modal (klik untuk menutup) -->
+        <label for="logout-toggle" class="logout-modal-bg"></label>
+        
+        <div class="logout-modal-box">
+            <div class="logout-icon">🚪</div>
+            <div class="logout-modal-title">Yakin mau keluar?</div>
+            <div class="logout-modal-desc">Sesi kamu akan diakhiri. Kamu harus masuk kembali untuk bisa curhat.</div>
+            <div class="logout-modal-actions">
+                <!-- Tombol Batal (Menutup modal) -->
+                <label for="logout-toggle" class="btn-batal-logout">Batal</label>
+                <!-- Tombol Keluar (Arahkan ke Landing Page / Index) -->
+                <a href="../index.html" class="btn-ya-logout">Ya, Keluar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BAGIAN 3: KONTEN UTAMA GALERI
+         ========================================== -->
+    <!-- Efek Cahaya Latar Belakang -->
     <div class="ambient-glow"></div>
 
-    <!-- HEADER ATAS (Sekarang Full Width / Tembus Kiri Kanan) -->
+    <!-- HEADER ATAS -->
     <header class="gallery-full-header">
         <div class="gallery-header-inner">
+            <!-- Tombol Kembali -->
             <a href="javascript:history.back()" class="icon-btn" title="Kembali">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             </a>
-            <h1 class="header-title">Koleksiku</h1>
             
-            <!-- INI Ikon Menu Sidebar pengganti spacer kosong -->
+            <h1 class="header-title" style="margin: 0; font-size: 1.4rem;">Koleksiku</h1>
+            
+            <!-- Ikon Menu (Membuka Sidebar) -->
             <label for="menu-toggle" class="icon-btn" title="Menu" style="cursor: pointer;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </label>
         </div>
     </header>
 
-    <!-- CONTAINER TENGAH (Ukuran Tetap Dipertahankan) -->
+    <!-- CONTAINER TENGAH GALERI -->
     <main class="feed-container gallery-main-content">
         
         <!-- Toggle Switch (Tersimpan / Unggahan) -->
@@ -102,7 +124,7 @@
             <span>Home</span>
         </a>
         <a href="galeri.html" class="nav-item active">
-            
+            <!-- Ikon Galeri Aktif -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
@@ -110,7 +132,7 @@
             </svg>
             <span>Galeri</span>
         </a>
-        <a href="../Notifikasi/Notifikasi.html" class="nav-item">
+        <a href="../notif/notif.html" class="nav-item">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
             <span>Notif</span>
         </a>
