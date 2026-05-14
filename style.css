@@ -2089,3 +2089,95 @@ body.contact-page {
         font-size: 0.95rem;
     }
 }
+
+/* ==========================================================
+   GAYA SIDEBAR DARI TEMAN ANDA
+   ========================================================== */
+#menu-toggle {
+    display: none;
+}
+
+.overlay-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: none;
+    z-index: 1500;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100%;
+    background: #0f0a02;
+    z-index: 2000;
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 40px 30px;
+    border-left: 1px solid rgba(255, 255, 255, 0.05); /* Disesuaikan agar border muncul */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.close-sidebar {
+    background: rgba(255, 255, 255, 0.1);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Menghubungkan Checkbox ke Sidebar */
+#menu-toggle:checked~.sidebar-overlay {
+    right: 0;
+}
+
+#menu-toggle:checked~.overlay-blur {
+    display: block;
+}
+
+.menu-list-sidebar {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.menu-item-sidebar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.menu-item-sidebar:hover {
+    color: var(--warna-kuning);
+}
+
+.divider-sidebar {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px 0;
+}
+
+.logout-btn {
+    color: #EA4335 !important; /* Disesuaikan ke warna merah heksadesimal agar aman */
+    font-weight: 700;
+}
