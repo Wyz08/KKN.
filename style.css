@@ -2074,8 +2074,6 @@ body.contact-page {
   }
 }
 
-/* ... existing code ... */
-
 /* ==========================================================
    13. GAYA HALAMAN GALERI / KOLEKSI
    ========================================================== */
@@ -2086,13 +2084,12 @@ body.contact-page {
     top: 0;
     left: 0;
     width: 100%;
-    /* Dikembalikan ke warna bening blur (kaca transparan elegan) */
-    background: rgba(18, 11, 2, 0.6); 
+    /* Benar-benar bening transparan tanpa warna coklat */
+    background: transparent; 
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     z-index: 100;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-header-inner {
