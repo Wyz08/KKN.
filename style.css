@@ -2084,11 +2084,13 @@ body.contact-page {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(14, 12, 10, 0.85);
+    /* Mengembalikan warna gradasi kecoklatan seperti desain sebelumnya */
+    background: linear-gradient(90deg, rgba(41, 24, 8, 0.95) 4%, rgba(63, 36, 2, 0.95) 43%);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     z-index: 100;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-header-inner {
@@ -2098,12 +2100,12 @@ body.contact-page {
     width: 100%;
     max-width: 1100px; /* Lebar maksimal konten agar sejajar dengan feed */
     margin: 0 auto;
-    padding: 18px 20px;
+    padding: 12px 20px; /* Padding dikecilkan agar tinggi header normal (tidak terlalu tebal) */
     box-sizing: border-box;
 }
 
 .gallery-main-content {
-    padding-top: 40px; /* Jarak agar konten tengah tidak menempel ke header atas */
+    padding-top: 25px; /* Jarak agar konten tengah tidak menempel ke header atas */
 }
 
 /* Wrapper untuk menengahkan toggle */
@@ -2111,8 +2113,8 @@ body.contact-page {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 50px;
-    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-top: 5px;
 }
 
 /* Container Toggle (Tersimpan / Unggahan) */
@@ -2129,7 +2131,7 @@ body.contact-page {
 
 .gallery-toggle-btn {
     flex: 1;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 40px;
     border: none;
     background: transparent;
@@ -2190,13 +2192,13 @@ body.contact-page {
 /* Penyesuaian Responsif Layar HP */
 @media (max-width: 768px) {
     .gallery-header-inner {
-        padding: 15px 20px;
+        padding: 12px 20px;
     }
     .gallery-main-content {
-        padding-top: 20px;
+        padding-top: 15px;
     }
     .gallery-toggle-wrapper {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     .gallery-empty-state h3 {
         font-size: 1.25rem;
