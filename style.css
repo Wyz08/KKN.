@@ -1194,6 +1194,234 @@ body#beranda footer {
     }
 }
 
+/* ==========================================================
+   9. GAYA HALAMAN APLIKASI (HOME, PROFIL) - WIDE LAYOUT
+   ========================================================== */
+
+body.app-body {
+    background-color: #0e0c0a; 
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* EFEK CAHAYA (AMBIENT GLOW) Sesuai Permintaan */
+.ambient-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 600px;
+    background: radial-gradient(ellipse at top, rgba(252, 178, 1, 0.12) 0%, rgba(14, 12, 10, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Container Super Lebar (Mengikuti Home Page Teman Anda) */
+.feed-container {
+    width: 95%; 
+    max-width: 1200px; /* Lebar maksimal sangat luas */
+    margin: 0 auto;
+    padding: 0 20px 120px 20px; 
+    box-sizing: border-box;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    background: transparent;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.header-title { font-size: 1.4rem; font-weight: 700; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.icon-btn { background: none; border: none; color: #a0a0a0; cursor: pointer; transition: 0.3s; display: flex;}
+.icon-btn:hover { color: #FCB201; }
+
+/* KARTU PROFIL (Base Mobile Styling) */
+.profile-card-ui {
+    background-color: #16120e; 
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.profile-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-circle {
+    width: 90px; height: 90px;
+    background-color: #FCB201; color: #120f0c;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.profile-text h2 { margin: 0 0 5px 0; font-size: 1.5rem; }
+.profile-text p { margin: 0 0 20px 0; color: #a0a0a0; font-size: 1rem; }
+
+.profile-actions-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-stats {
+    display: flex; justify-content: center; gap: 40px;
+    width: 100%; margin-bottom: 25px;
+}
+
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-number { font-size: 1.3rem; font-weight: 700; color: #FCB201; }
+.stat-label { font-size: 0.75rem; color: #a0a0a0; margin-top: 5px; font-weight: 600; }
+
+.btn-edit-profile {
+    width: 100%; max-width: 300px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff; padding: 14px; border-radius: 14px;
+    font-size: 1rem; font-weight: 600; cursor: pointer; display: flex;
+    justify-content: center; align-items: center; gap: 8px; transition: 0.3s;
+}
+.btn-edit-profile:hover { background: rgba(255,255,255,0.1); border-color: #FCB201; color: #FCB201;}
+
+/* Tabs */
+.profile-tabs { display: flex; gap: 15px; margin-bottom: 25px; }
+.tab-btn {
+    flex: 1; padding: 15px; background: #16120e;
+    border: 1px solid rgba(255,255,255,0.05); color: #a0a0a0;
+    font-size: 1rem; font-weight: 600; border-radius: 14px; cursor: pointer; transition: 0.3s;
+}
+.tab-btn.active { border-color: #FCB201; color: #FCB201; background: rgba(252, 178, 1, 0.05); }
+
+/* Feed Pos */
+.post-feed { display: flex; flex-direction: column; gap: 20px; }
+.post-card {
+    background-color: #16120e;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px; padding: 30px;
+    transition: 0.3s;
+}
+.post-card:hover { border-color: rgba(252, 178, 1, 0.2); }
+.post-header { display: flex; justify-content: space-between; margin-bottom: 15px; }
+.post-meta { display: flex; gap: 15px; align-items: center; }
+.post-tag { padding: 6px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 700; background: rgba(255,255,255,0.1); color: #fff;}
+.post-time { font-size: 0.9rem; color: #a0a0a0; }
+.post-title { font-size: 1.3rem; margin: 0 0 15px 0; font-weight: 700; }
+.post-body { font-size: 1rem; color: #b0b0b0; line-height: 1.6; margin: 0 0 20px 0; }
+.post-image-placeholder {
+    width: 100%; height: 350px; background: linear-gradient(45deg, #1a1611, #0e0c0a); border-radius: 16px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #a0a0a0; border: 1px dashed rgba(255,255,255,0.1); margin-bottom: 20px;
+}
+.post-actions { display: flex; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+.action-group { display: flex; gap: 30px; }
+.btn-action { display: flex; align-items: center; gap: 8px; background: none; border: none; color: #a0a0a0; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: 0.3s; }
+.btn-action.relate.active { color: #FCB201; }
+.btn-action:hover { color: #FCB201; }
+
+/* FAB Melayang di Kanan Bawah */
+.fab-post {
+    position: fixed;
+    bottom: 110px;
+    right: max(20px, calc(50% - 600px + 20px)); /* Akan menempel di batas kanan container 1200px */
+    background-color: #FCB201;
+    color: #120f0c;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 25px rgba(252, 178, 1, 0.4);
+    cursor: pointer;
+    z-index: 50;
+    transition: 0.3s;
+}
+.fab-post:hover { transform: scale(1.05) translateY(-5px); }
+
+/* Bottom Nav */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0e0c0a;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* Jarak lebar di Desktop */
+    padding: 18px 0 25px 0;
+    z-index: 60;
+}
+.nav-item {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: #a0a0a0; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: 0.3s;
+}
+.nav-item.active, .nav-item:hover { color: #FCB201; }
+
+
+/* =======================================
+   RESPONSIVE DESTKOP
+   ======================================= */
+@media (min-width: 769px) {
+    .profile-card-ui { 
+        flex-direction: row; /* Mengubah tumpukan atas-bawah menjadi kiri-kanan */
+        justify-content: space-between; 
+        padding: 40px 50px;
+        align-items: center;
+    }
+    
+    /* Avatar dan Teks pindah berdampingan di kiri */
+    .profile-identity {
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        text-align: left;
+    }
+    .avatar-circle { margin-bottom: 0; width: 100px; height: 100px; font-size: 2.5rem; }
+    .profile-text p { margin-bottom: 0; }
+    
+    /* Stats dan Tombol pindah ke kanan */
+    .profile-actions-area {
+        width: auto;
+        align-items: flex-end;
+    }
+    .profile-stats { margin-bottom: 20px; justify-content: flex-end; }
+    .btn-edit-profile { width: auto; padding: 12px 30px; }
+}
+
+/* Penyesuaian HP */
+@media (max-width: 768px) {
+    .feed-container { width: 100%; padding: 0 20px 100px 20px; }
+    .profile-card-ui { padding: 25px; }
+    .bottom-nav { gap: 0; justify-content: space-around; padding: 12px 0 15px 0; }
+    .fab-post { padding: 18px; border-radius: 50%; bottom: 90px; right: 20px; }
+    .fab-text { display: none; }
+}
 
 /* ==========================================================
    10. GAYA HALAMAN NOTIFIKASI
