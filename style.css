@@ -3832,207 +3832,252 @@ body#beranda .container {
 }
 
 /* ==========================================================
-   12. GAYA HALAMAN BUAT POSTINGAN & KOMENTAR (ADAPTASI KKN)
+   GAYA TAMBAHAN KHUSUS HALAMAN POSTINGAN & KOMENTAR KKN
    ========================================================== */
 
-/* ─── PEMBUNGKUS HALAMAN KHUSUS ─── */
-body:has(#app), body:has(.page-wrapper) {
-    background-color: var(--warna-latar);
-    background: radial-gradient(ellipse 80% 40% at 50% -5%, rgba(var(--rgb-kuning), 0.15) 0%, transparent 65%), var(--warna-latar);
-    color: var(--warna-putih);
-    font-family: var(--font-teks);
+/* Toast Error Alert */
+.toast-error {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: #EA4335;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4);
+    transition: all 0.3s ease;
+}
+.toast-error.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
-#app, .page-wrapper {
-    width: 100%;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 20px 100px 20px;
+/* Form Input Group Postingan (Diambil dari Form Kontak) */
+.form-panel .error-input select,
+.form-panel .error-input textarea,
+.upload-area.error-input {
+    border-color: #EA4335 !important;
+    box-shadow: 0 0 10px rgba(234, 67, 53, 0.2);
 }
 
-/* ─── TOP NAV (GLASSMORPHISM KKN) ─── */
-.top-nav {
+.field-error-msg {
+    color: #EA4335;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Identity Toggle */
+.identity-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.toggle-wrap {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 0 16px;
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(var(--rgb-latar), 0.7);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-bottom: var(--border-kaca-tipis);
-    margin-bottom: 20px;
+    gap: 10px;
+    cursor: pointer;
+}
+.toggle-track {
+    width: 44px; height: 24px;
+    background: #241406;
+    border: 1px solid #4b371f;
+    border-radius: 50px;
+    position: relative;
+    transition: 0.3s;
+}
+.toggle-thumb {
+    width: 18px; height: 18px;
+    background: var(--warna-abu-terang);
+    border-radius: 50%;
+    position: absolute;
+    top: 2px; left: 2px;
+    transition: 0.3s;
+}
+.toggle-wrap.on .toggle-track {
+    background: var(--warna-kuning);
+    border-color: var(--warna-kuning);
+}
+.toggle-wrap.on .toggle-thumb {
+    left: 22px;
+    background: var(--warna-latar);
+}
+.public-toggle-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--warna-putih);
+}
+.username-box {
+    background: rgba(252, 178, 1, 0.1);
+    border: 1px dashed var(--warna-kuning);
+    color: var(--warna-kuning);
+    padding: 10px 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+.username-hint {
+    font-size: 0.75rem;
+    color: var(--warna-abu-terang);
+    opacity: 0.7;
+}
+.char-counter {
+    text-align: right;
+    font-size: 0.75rem;
+    color: var(--warna-abu-terang);
+    opacity: 0.7;
+    margin-top: 5px;
 }
 
-.top-nav h1 {
-    font-family: var(--font-judul);
-    font-size: 1.2rem;
-    color: var(--warna-putih);
+/* Upload Area */
+.upload-area {
+    background: #241406;
+    border: 2px dashed #4b371f;
+    border-radius: 14px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.upload-area:hover {
+    border-color: var(--warna-kuning);
+    background: #2e1a08;
+}
+.upload-area input[type="file"] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer;
+}
+.upload-preview {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: none;
+}
+
+/* Aturan Komunitas Box */
+.rules-box-kkn {
+    background: rgba(252, 178, 1, 0.08);
+    border: 1px solid rgba(252, 178, 1, 0.2);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 25px;
+}
+.rules-box-kkn h4 {
+    color: var(--warna-kuning);
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+}
+.rules-box-kkn p {
+    color: var(--warna-abu-terang);
+    font-size: 0.8rem;
+    line-height: 1.5;
     margin: 0;
 }
 
-.nav-left {
+/* Daftar Komentar KKN */
+.comment-section-header {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--warna-putih);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: var(--border-kaca-tipis);
+}
+.comment-list {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 15px;
 }
-
-.nav-btn {
-    width: 40px; 
-    height: 40px;
-    background: rgba(255, 255, 255, 0.05);
-    border: var(--border-kaca-tipis);
-    border-radius: 12px;
-    color: var(--warna-putih);
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.nav-btn:hover {
-    background: rgba(var(--rgb-kuning), 0.2);
-    border-color: var(--warna-kuning);
-    color: var(--warna-kuning);
-}
-
-/* ─── TABS & TOGGLE (MINIMALIS) ─── */
-.tabs {
+.comment-kkn-item {
     display: flex;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border: var(--border-kaca-tipis);
-    border-radius: 20px;
-    padding: 6px;
-    margin-bottom: 24px;
-}
-
-.tab-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    border-radius: 14px;
-    border: none;
-    background: transparent;
-    color: var(--warna-abu-terang);
-    font-family: var(--font-teks);
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab-btn.active {
-    background: var(--warna-kuning);
-    color: var(--warna-latar);
-    box-shadow: 0 4px 15px rgba(var(--rgb-kuning), 0.3);
-}
-
-.section-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--warna-putih);
-    margin-bottom: 10px;
-}
-
-/* ─── INPUT, TEXTAREA, DROPDOWN (TEMA GELAP KKN) ─── */
-.dropdown-wrap select,
-.textarea-wrap textarea,
-.caption-wrap textarea,
-.comment-input-wrap textarea,
-.mobile-input-inner input {
-    width: 100%;
-    background: #241406; /* Menyesuaikan form kontak */
-    border: 1px solid #4b371f;
-    border-radius: 14px;
-    padding: 14px 16px;
-    color: var(--warna-putih);
-    font-family: var(--font-teks);
-    font-size: 0.95rem;
-    outline: none;
-    transition: 0.3s;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.dropdown-wrap select:focus,
-.textarea-wrap textarea:focus,
-.caption-wrap textarea:focus,
-.comment-input-wrap textarea:focus,
-.mobile-input-inner:focus-within {
-    border-color: var(--warna-kuning);
-    box-shadow: 0 0 10px rgba(var(--rgb-kuning), 0.2), inset 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* ─── TOMBOL KIRIM / SUBMIT ─── */
-.post-btn button, .send-btn {
-    background: var(--warna-kuning);
-    color: var(--warna-latar);
-    font-family: var(--font-judul);
-    font-size: 1.1rem;
+    gap: 12px;
+    background: rgba(255,255,255,0.03);
     padding: 15px;
-    border: none;
     border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    width: 100%;
-    box-shadow: 0 6px 20px rgba(var(--rgb-kuning), 0.3);
-}
-
-.post-btn button:hover, .send-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(var(--rgb-kuning), 0.5);
-}
-
-/* ─── KOMENTAR CARDS & ITEMS ─── */
-.post-card, .comment-item, .input-card {
-    background: var(--gradasi-kaca-bento);
     border: var(--border-kaca-tipis);
-    border-radius: 24px;
-    padding: 24px;
-    backdrop-filter: blur(10px);
 }
-
-.comment-item {
-    margin-bottom: 12px;
-    border-radius: 18px;
-    padding: 18px;
+.comment-content-kkn {
+    flex: 1;
 }
-
-.post-title {
-    font-family: var(--font-judul);
-    font-size: 1.4rem;
+.comment-kkn-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.comment-kkn-head strong {
+    font-size: 0.9rem;
     color: var(--warna-putih);
-    margin-bottom: 12px;
 }
-
-.post-body, .comment-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
+.comment-kkn-head span {
+    font-size: 0.75rem;
     color: var(--warna-abu-terang);
+    opacity: 0.7;
+}
+.comment-content-kkn p {
+    font-size: 0.85rem;
+    color: var(--warna-abu-terang);
+    line-height: 1.5;
+    margin: 0;
 }
 
-.comment-name {
-    font-weight: 700;
-    color: var(--warna-kuning);
-}
-
-/* ─── MOBILE BOTTOM BAR KOMENTAR ─── */
-.mobile-input-bar {
-    background: rgba(var(--rgb-latar), 0.9);
+/* Mobile Input Bar Komentar */
+.comment-input-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(18, 11, 2, 0.95);
     backdrop-filter: blur(20px);
     border-top: var(--border-kaca-tipis);
+    padding: 12px 20px 20px 20px;
+    z-index: 1000;
 }
-
-.mobile-send-btn {
+.input-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #241406;
+    border: 1px solid #4b371f;
+    border-radius: 50px;
+    padding: 5px 5px 5px 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.input-bar-inner input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--warna-putih);
+    font-family: var(--font-teks);
+    font-size: 0.9rem;
+    outline: none;
+}
+.btn-send-comment {
+    width: 38px; height: 38px;
+    border-radius: 50%;
     background: var(--warna-kuning);
+    border: none;
     color: var(--warna-latar);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-send-comment:hover {
+    transform: scale(1.05);
 }
