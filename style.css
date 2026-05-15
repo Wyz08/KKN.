@@ -4081,3 +4081,15 @@ body#beranda .container {
 .btn-send-comment:hover {
     transform: scale(1.05);
 }
+/* Menjaga tampilan tombol komentar tetap rapi */
+.stat-komentar {
+    text-decoration: none; 
+    color: inherit;        
+    cursor: pointer;       
+    display: inline-block;
+}
+
+
+.stat-komentar:hover {
+    opacity: 0.7;
+}
