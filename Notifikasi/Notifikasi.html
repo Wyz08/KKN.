@@ -11,34 +11,81 @@
 </head>
 <body class="app-body">
 
-    <!-- Efek Cahaya Latar Belakang (Ambient Glow) -->
-    <div class="ambient-glow"></div>
+    <!-- ==========================================
+         BAGIAN 1: SIDEBAR MENU UTAMA 
+         ========================================== -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="overlay-blur"></label>
 
-    <!-- BAGIAN ATAS (HEADER & SEARCH) - KACA DITARIK MENTOK SAMPAI SEARCH -->
-    <div class="top-section-glass full-width-header">
-        <div class="header-inner">
-            <!-- Header Atas (Logo dan Ikon dibentangkan ke ujung) -->
-            <header class="top-header notif-header">
-                <div class="logo-kkn" onclick="window.location.href='../index.html'">
-                    KKN<span>.</span>
-                </div>
-                <h1 class="header-title title-notif">Notifikasi</h1>
-                <button class="icon-btn btn-menu" title="Menu Pengaturan" onclick="showToast('Membuka menu pengaturan...')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                </button>
-            </header>
+    <aside class="sidebar-overlay">
+        <div class="sidebar-header">
+            <h2 style="font-family: var(--font-judul, 'ADLaM Display'); font-size: 1.5rem; color: #dcd4d4; margin: 0;">Menu Utama</h2>
+            <label for="menu-toggle" class="close-sidebar">✕</label>
+        </div>
+        <nav class="menu-list-sidebar">
+            <a href="../feed.html" class="menu-item-sidebar">
+                <img src="../assets/home.png" alt="Beranda" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Beranda
+            </a>
+            <a href="../about_us/about.html" class="menu-item-sidebar">
+                <img src="../assets/profil.png" alt="Tentang" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Tentang KKN
+            </a>
+            <a href="../kontak/kontak.html" class="menu-item-sidebar">
+                <img src="../assets/email.png" alt="Hubungi" class="icon-sidebar" width="20" style="filter: brightness(0) invert(1);"> Hubungi Kami
+            </a>
 
-            <!-- Kotak Pencarian -->
-            <div class="search-container notif-search">
-                <div class="search-inner">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
-                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <input type="text" placeholder="Cari notifikasi..." autocomplete="off">
-                </div>
+            <div class="divider-sidebar"></div>
+
+            <!-- Tombol Keluar Akun (Memicu Modal Logout) -->
+            <label for="logout-toggle" class="menu-item-sidebar logout-btn" style="cursor: pointer;">
+                <img src="../assets/logout.png" alt="Keluar" class="icon-sidebar" width="20"> Keluar Akun
+            </label>
+        </nav>
+    </aside>
+
+    <!-- ==========================================
+         BAGIAN 2: MODAL LOGOUT POP-UP
+         ========================================== -->
+    <input type="checkbox" id="logout-toggle">
+    
+    <div class="logout-modal">
+        <!-- Background gelap modal (klik untuk menutup) -->
+        <label for="logout-toggle" class="logout-modal-bg"></label>
+        
+        <div class="logout-modal-box">
+            <div class="logout-icon">🚪</div>
+            <div class="logout-modal-title">Yakin mau keluar?</div>
+            <div class="logout-modal-desc">Sesi kamu akan diakhiri. Kamu harus masuk kembali untuk bisa curhat.</div>
+            <div class="logout-modal-actions">
+                <!-- Tombol Batal (Menutup modal) -->
+                <label for="logout-toggle" class="btn-batal-logout">Batal</label>
+                <!-- Tombol Keluar (Arahkan ke Landing Page / Index) -->
+                <a href="../index.html" class="btn-ya-logout">Ya, Keluar</a>
             </div>
         </div>
-    </div> <!-- PENUTUP WADAH KACA (Sekarang mentok di Search Bar) -->
+    </div>
+
+    <!-- ==========================================
+         BAGIAN 3: KONTEN UTAMA NOTIFIKASI
+         ========================================== -->
+    <!-- Efek Cahaya Latar Belakang -->
+    <div class="ambient-glow"></div>
+
+    <!-- HEADER ATAS -->
+    <header class="gallery-full-header">
+        <div class="gallery-header-inner">
+            <!-- Tombol Kembali -->
+            <a href="javascript:history.back()" class="icon-btn" title="Kembali">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            </a>
+            
+            <h1 class="header-title" style="margin: 0; font-size: 1.4rem;">Notifikasi</h1>
+            
+            <!-- Ikon Menu (Membuka Sidebar) -->
+            <label for="menu-toggle" class="icon-btn" title="Menu" style="cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </label>
+        </div>
+    </header>
 
     <!-- CONTAINER TENGAH (Maks 800px) -->
     <main class="feed-container notif-feed">
