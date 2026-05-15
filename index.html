@@ -267,5 +267,18 @@
             trendingWrapper.addEventListener('touchend', resumeScrollAfterDelay);
         }
     </script>
+    
+    <script>
+        const headerContainer = document.querySelector('header.container');
+        window.addEventListener('scroll', () => {
+            // Jika layar digulir lebih dari 20 pixel, munculkan kaca
+            if (window.scrollY > 20) {
+                headerContainer.classList.add('scrolled');
+            } else {
+                headerContainer.classList.remove('scrolled');
+            }
+        });
+    </script>
+    
 </body>
 </html>
