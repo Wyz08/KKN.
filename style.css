@@ -3273,7 +3273,7 @@ body {
     border-top: var(--border-kaca);
     display: flex;
     justify-content: space-around;
-    padding: 12px 0;
+    padding: 8px 0;
     z-index: 1000;
 }
 
@@ -3351,32 +3351,24 @@ body {
 
 .nav-item span {
     display: block;
-    font-size: 22px;
-    margin-bottom: 4px;
+    font-size: 11px;
+    margin-top: 4px;
 }
 
-.nav-item span {
-    display: block;
-    margin-bottom: 4px;
-    height: 24px;
-    /* Tentukan tinggi wadah ikon */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
+.nav-item svg,
 .nav-item span img {
-    width: 22px;
-    /* Sesuaikan ukuran ikon agar pas di mata */
-    height: 22px;
+    display: block;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
 /* Efek sedikit membesar saat aktif atau di-hover */
+.nav-item.active svg,
 .nav-item.active span img {
     transform: scale(1.1);
-    /* Jika menggunakan SVG, kamu bisa mengatur filter warna di sini jika perlu */
 }
 
 .icon-sidebar {
