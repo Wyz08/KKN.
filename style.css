@@ -3391,13 +3391,20 @@ body {
 .menu-item-sidebar {
     display: flex;
     align-items: center;
-    gap: 15px; 
-    padding: 15px 10px; 
+    gap: 15px;
+    padding: 15px 10px; \
     color: rgb(255, 255, 255);
     text-decoration: none;
     font-size: 15px; 
-    font-family: var(--font-teks), 'Inter', sans-serif; 
-    transition: 0.3s;
+    font-family: var(--font-teks), 'Inter', sans-serif !important; 
+}
+
+/* Mengunci judul "Menu Utama" */
+.sidebar-header,
+.sidebar-header h2,
+.sidebar-header h3,
+.sidebar-header h1 {
+    font-family: var(--font-teks), 'Inter', sans-serif !important;
 }
 
 /* ============================================================
