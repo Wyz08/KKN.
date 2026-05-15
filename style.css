@@ -102,7 +102,7 @@ body#beranda {
     color: var(--warna-abu-terang);
     align-items: stretch;
     /* Membatalkan align center dari body default */
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* C. Body Khusus Halaman Sign In / Sign Up */
@@ -2996,6 +2996,10 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding-left: calc(50vw - 50% + 20px);
+    padding-right: calc(50vw - 50% + 20px);
     padding-top: 20px;
     padding-bottom: 10px;
     background: transparent;
