@@ -377,7 +377,7 @@ body:has(.signup-viewport) {
     z-index: 10;
 }
 
-header {
+header.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -386,10 +386,25 @@ header {
     position: sticky !important;
     top: 0 !important;
     z-index: 1000 !important;
-    background: transparent;
+    background: transparent !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
+
+header.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: 100%;
+    background: rgba(18, 11, 2, 0.7); /* Transparan gelap agar elegan */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Garis batas bawah elegan */
+    z-index: -1; /* Memastikan lapisan kaca ada di belakang tulisan menu */
+}
+
 
 .logo-kkn {
     font-family: var(--font-judul);
