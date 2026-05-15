@@ -399,10 +399,16 @@ header.container::before {
     width: 100vw;
     height: 100%;
     background: rgba(255, 255, 255, 0.02); 
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
-    z-index: -1; /* Memastikan lapisan kaca ada di belakang tulisan menu */
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out; /* Animasi muncul mulus */
+}
+
+header.container.scrolled::before {
+    opacity: 1;
 }
 
 
