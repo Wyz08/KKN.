@@ -386,9 +386,9 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(18, 11, 2, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .logo-kkn {
@@ -2998,9 +2998,9 @@ body {
     z-index: 100;
     padding-top: 20px;
     padding-bottom: 10px;
-    background: rgba(14, 12, 10, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .logo {
