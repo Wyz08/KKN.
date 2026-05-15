@@ -402,7 +402,7 @@ header.container::before {
     background: rgba(255, 255, 255, 0.02); 
     backdrop-filter: blur(15px); 
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+    border-bottom: none; 
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease-in-out; /* Animasi muncul mulus */
