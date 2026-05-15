@@ -31,22 +31,21 @@
             opacity: 0;
             transform: translateY(16px);
             animation: pageEnter 0.4s ease 0.05s forwards;
+            overflow-x: hidden;
         }
 
         @keyframes pageEnter {
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Header Kaca Premium ── */
+        /* ── Header Coklat Solid ── */
         .page-header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(18, 11, 2, 0.75);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            background: #120b02; /* Warna Coklat Solid */
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             padding: 12px 20px;
             display: flex;
             justify-content: center;
@@ -84,6 +83,34 @@
             color: var(--warna-kuning);
             transform: translateX(-3px); 
         }
+
+        .btn-menu {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--warna-putih, #dcd4d4);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+        }
+
+        .btn-menu:hover {
+            background: rgba(252, 178, 1, 0.15); 
+            border-color: rgba(252, 178, 1, 0.3);
+        }
+
+        .btn-menu svg {
+            transition: stroke 0.3s ease;
+        }
+
+        .btn-menu:hover svg {
+            stroke: var(--warna-kuning);
+        }
         
         .header-title-wrapper {
             flex: 1;
@@ -100,20 +127,38 @@
             color: white; 
             line-height: 1.2; 
         }
-        
-        .header-subtitle { 
-            font-size: 0.75rem; 
-            color: var(--warna-abu); 
-            margin-top: 2px; 
-            font-weight: 500;
-        }
 
-        /* Penyeimbang ukuran agar judul tepat di tengah */
-        .header-spacer {
-            width: 40px;
-            height: 40px;
-            flex-shrink: 0;
+        /* ── Sidebar (Pure CSS) ── */
+        #menu-toggle { display: none; }
+        .overlay-blur {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px);
+            display: none; z-index: 1500; cursor: pointer;
         }
+        .sidebar-overlay {
+            position: fixed; top: 0; right: -320px; width: 300px; height: 100%;
+            background: #0f0a02; z-index: 2000;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 40px 30px; border-left: var(--border-kaca);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+        #menu-toggle:checked ~ .overlay-blur { display: block; }
+        #menu-toggle:checked ~ .sidebar-overlay { right: 0; }
+        
+        .sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .close-sidebar {
+            background: rgba(255, 255, 255, 0.1); width: 32px; height: 32px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: white;
+        }
+        .menu-list-sidebar { list-style: none; display: flex; flex-direction: column; }
+        .menu-item-sidebar {
+            display: flex; align-items: center; gap: 15px; padding: 15px 0;
+            color: white; text-decoration: none; font-size: 15px; transition: 0.3s;
+        }
+        .menu-item-sidebar:hover { color: var(--warna-kuning); }
+        .divider-sidebar { height: 1px; background: rgba(255, 255, 255, 0.05); margin: 20px 0; }
+        .logout-btn { color: #EA4335 !important; font-weight: 700; }
 
         /* ── Container ── */
         .container {
@@ -280,16 +325,40 @@
 
 <body>
 
-    <!-- Header sticky dengan tombol kembali -->
+    <!-- Struktur Sidebar Logic -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="overlay-blur"></label>
+    
+    <nav class="sidebar-overlay">
+        <div class="sidebar-header">
+            <h2 style="color: var(--warna-kuning); font-family: var(--font-judul); font-size: 24px;">Menu KKN.</h2>
+            <label for="menu-toggle" class="close-sidebar">✕</label>
+        </div>
+        <ul class="menu-list-sidebar">
+            <li><a href="feed.html" class="menu-item-sidebar">Beranda</a></li>
+            <li><a href="profil.html" class="menu-item-sidebar">Profil</a></li>
+            <li><a href="galeri.html" class="menu-item-sidebar">Galeri / Koleksi</a></li>
+            <div class="divider-sidebar"></div>
+            <li><a href="#" class="menu-item-sidebar logout-btn">Keluar</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header coklat solid dengan tombol kembali dan menu -->
     <header class="page-header">
         <div class="header-inner">
             <a href="feed.html" class="btn-back" id="btn-back" aria-label="Kembali ke Feed">←</a>
+            
             <div class="header-title-wrapper">
                 <div class="header-title">Edisi Terbaru</div>
-                <div class="header-subtitle">Mei 2026</div>
             </div>
-            <!-- div kosong ini untuk menyeimbangkan tombol back, agar teks tetap persis di tengah -->
-            <div class="header-spacer"></div>
+            
+            <label for="menu-toggle" class="btn-menu" aria-label="Buka Menu">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </label>
         </div>
     </header>
 
