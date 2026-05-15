@@ -381,8 +381,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 20px;
     padding-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(18, 11, 2, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .logo-kkn {
@@ -2987,6 +2993,14 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: rgba(14, 12, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .logo {
