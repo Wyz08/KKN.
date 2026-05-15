@@ -398,10 +398,10 @@ header.container::before {
     left: calc(50% - 50vw);
     width: 100vw;
     height: 100%;
-    background: transparent; 
+    background: rgba(255, 255, 255, 0.02); 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
     z-index: -1; /* Memastikan lapisan kaca ada di belakang tulisan menu */
 }
 
