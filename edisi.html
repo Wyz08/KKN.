@@ -37,46 +37,83 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Header ── */
+        /* ── Header Kaca Premium ── */
         .page-header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: transparent;
-            backdrop-filter: blur(15px);
-            border-bottom: var(--border-kaca);
-            padding: 14px 20px;
+            background: rgba(18, 11, 2, 0.75);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 680px;
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: space-between;
         }
 
         .btn-back {
             background: rgba(255, 255, 255, 0.05);
-            border: var(--border-kaca);
-            color: white;
-            width: 36px;
-            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--warna-putih, #dcd4d4);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             font-size: 18px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             flex-shrink: 0;
         }
+
         .btn-back:hover { 
-            background: rgba(252, 178, 1, 0.1); 
-            border-color: var(--warna-kuning);
+            background: rgba(252, 178, 1, 0.15); 
+            border-color: rgba(252, 178, 1, 0.3);
             color: var(--warna-kuning);
-            transform: translateX(-2px); 
+            transform: translateX(-3px); 
         }
-            
-        .header-info { flex: 1; }
-        .header-logo { font-family: var(--font-judul); font-size: 22px; color: var(--warna-kuning); line-height: 1; }
-        .header-sub { font-size: 11px; color: var(--warna-abu); margin-top: 2px; }
+        
+        .header-title-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-title { 
+            font-family: var(--font-teks); 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: white; 
+            line-height: 1.2; 
+        }
+        
+        .header-subtitle { 
+            font-size: 0.75rem; 
+            color: var(--warna-abu); 
+            margin-top: 2px; 
+            font-weight: 500;
+        }
+
+        /* Penyeimbang ukuran agar judul tepat di tengah */
+        .header-spacer {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
 
         /* ── Container ── */
         .container {
@@ -245,10 +282,14 @@
 
     <!-- Header sticky dengan tombol kembali -->
     <header class="page-header">
-        <a href="feed.html" class="btn-back" id="btn-back" aria-label="Kembali ke Feed">←</a>
-        <div class="header-info">
-            <div class="header-logo">KKN.</div>
-            <div class="header-sub"></div>
+        <div class="header-inner">
+            <a href="feed.html" class="btn-back" id="btn-back" aria-label="Kembali ke Feed">←</a>
+            <div class="header-title-wrapper">
+                <div class="header-title">Edisi Terbaru</div>
+                <div class="header-subtitle">Mei 2026</div>
+            </div>
+            <!-- div kosong ini untuk menyeimbangkan tombol back, agar teks tetap persis di tengah -->
+            <div class="header-spacer"></div>
         </div>
     </header>
 
@@ -339,7 +380,7 @@
         </div>
 
         <!-- Kembali ke feed -->
-        <a href="feed.html" class="btn-kembali" id="btn-kembali-bawah">Kembali ke Halaman Utama</a>
+        <a href="feed.html" class="btn-kembali" id="btn-kembali-bawah">← Kembali ke Feed Utama</a>
 
     </div>
 
@@ -363,5 +404,4 @@
     </script>
 
 </body>
-
 </html>
