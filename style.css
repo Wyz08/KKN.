@@ -377,6 +377,7 @@ body:has(.signup-viewport) {
     z-index: 10;
 }
 
+/* 1. HEADER UTAMA (MEMBENTANG PENUH & ISI TETAP DI TENGAH) */
 header.container {
     display: flex;
     justify-content: space-between;
@@ -386,29 +387,25 @@ header.container {
     position: sticky !important;
     top: 0 !important;
     z-index: 1000 !important;
-    background: transparent !important;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: max(40px, calc((100% - 1200px) / 2 + 40px)) !important;
+    padding-right: max(40px, calc((100% - 1200px) / 2 + 40px)) !important;
+    background: transparent; 
+    transition: background 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
 }
 
-header.container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 100vw;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.02); 
-    backdrop-filter: blur(15px); 
+header.container.scrolled {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out; /* Animasi muncul mulus */
 }
 
-header.container.scrolled::before {
-    opacity: 1;
+@media (max-width: 768px) {
+    header.container {
+        padding-left: max(20px, calc((100% - 1200px) / 2 + 20px)) !important;
+        padding-right: max(20px, calc((100% - 1200px) / 2 + 20px)) !important;
+    }
 }
 
 
