@@ -1,377 +1,250 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buat Postingan – KKN</title>
-  <link rel="stylesheet" href="../style.css"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Buat Postingan – KKN</title>
+    <!-- Font KKN -->
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"/>
 </head>
-<body>
+<body class="app-body">
 
-<!-- ── APP WRAPPER ────────────────────────────────────────────── -->
-<div id="app">
+    <!-- Efek Latar Glow -->
+    <div class="ambient-glow"></div>
 
-  <!-- Top Nav -->
-  <nav class="top-nav">
-    <button class="nav-btn" onclick="history.back()" aria-label="Kembali">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M19 12H5M12 5l-7 7 7 7"/>
-      </svg>
-    </button>
-    <h1>Buat Postingan</h1>
-    <button class="nav-btn" aria-label="Menu">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-        <line x1="4" y1="7" x2="20" y2="7"/>
-        <line x1="4" y1="12" x2="20" y2="12"/>
-        <line x1="4" y1="17" x2="20" y2="17"/>
-      </svg>
-    </button>
-  </nav>
-
-  <!-- Toast Error -->
-  <div class="toast" id="toast">⚠ Keresahanmu belum diisi!!!!</div>
-
-  <!-- Content Area -->
-  <div class="content-area">
-
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active" id="tab-text" onclick="switchTab('text')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <line x1="7" y1="8" x2="17" y2="8"/>
-          <line x1="7" y1="12" x2="17" y2="12"/>
-          <line x1="7" y1="16" x2="13" y2="16"/>
-        </svg>
-        Teks Curhat
-      </button>
-      <button class="tab-btn" id="tab-img" onclick="switchTab('image')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <circle cx="8.5" cy="8.5" r="1.5"/>
-          <path d="M21 15l-5-5L5 21"/>
-        </svg>
-        Gambar/Visual
-      </button>
-    </div>
-
-    <!-- Category -->
-    <p class="section-label">Pilih Kategori Keresahan</p>
-    <div class="dropdown-wrap" id="cat-wrap">
-      <select id="category" onchange="onCategoryChange()">
-        <option value="" disabled selected hidden>Pilih kategori...</option>
-        <option value="akademik">📚 Akademik / Perkuliahan</option>
-        <option value="sosial">🤝 Sosial / Pertemanan</option>
-        <option value="keluarga">🏠 Keluarga</option>
-        <option value="percintaan">💔 Percintaan</option>
-        <option value="karir">💼 Karir / Pekerjaan</option>
-        <option value="kesehatan">🩺 Kesehatan Mental</option>
-        <option value="keuangan">💸 Keuangan</option>
-        <option value="lainnya">✨ Lainnya</option>
-      </select>
-      <div class="dropdown-chevron">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-          <path d="M6 9l6 6 6-6"/>
-        </svg>
-      </div>
-      <div class="field-error-msg" id="cat-err">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        Kategori tidak boleh kosong!!!!
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Identity -->
-    <div class="identity-row">
-      <p class="section-label" style="margin:0">Tampil Sebagai</p>
-      <div class="toggle-wrap on" id="pub-toggle" onclick="togglePublic()">
-        <span class="public-toggle-label" id="pub-label">Akun Publik</span>
-        <div class="toggle-track"><div class="toggle-thumb"></div></div>
-      </div>
-    </div>
-    <div class="username-box">@Masyeb_MCanime</div>
-    <p class="username-hint" id="identity-hint">Perhatian: Semua orang bisa melihat bahwa ini adalah kamu.</p>
-
-    <!-- ── PANEL: TEXT ──────────────────────────────────────────── -->
-    <div class="panel active" id="panel-text">
-      <p class="section-label">Ceritakan Keresahanmu</p>
-      <div class="textarea-wrap" id="text-wrap">
-        <textarea
-          id="curhat-text"
-          maxlength="1000"
-          placeholder="Tumpahkan semua yang ada di pikiranmu di sini......."
-          oninput="onTextInput()"
-        ></textarea>
-      </div>
-      <div class="char-counter" id="char-count">0 / 1000</div>
-      <div class="field-error-msg" id="text-err">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        Keresahan tidak boleh kosong!!!!
-      </div>
-    </div>
-
-    <!-- ── PANEL: IMAGE ─────────────────────────────────────────── -->
-    <div class="panel" id="panel-image">
-      <div class="upload-area" id="upload-area">
-        <input type="file" accept="image/*,video/*" id="file-input" onchange="onFileChange(event)"/>
-        <img class="upload-preview" id="preview-img" src="" alt="preview"/>
-        <div class="upload-default" id="upload-default">
-          <div class="upload-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="3"/>
-              <circle cx="8.5" cy="8.5" r="1.5"/>
-              <path d="M21 15l-5-5L5 21"/>
+    <!-- HEADER KACA -->
+    <div class="contact-header-glass" style="position: sticky; top: 0; z-index: 100;">
+        <button class="back-btn" onclick="history.back();" title="Kembali">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
             </svg>
-          </div>
-          <h3>Ketuk untuk pilih Gambar/Video</h3>
-          <p>PNG, JPG, MP4</p>
+        </button>
+        <h1>Buat Postingan</h1>
+        <div style="width: 40px;"></div> <!-- Spacer -->
+    </div>
+
+    <!-- Toast Error -->
+    <div class="toast-error" id="toast">⚠ Keresahanmu belum diisi!!!!</div>
+
+    <!-- CONTENT AREA -->
+    <div class="feed-container" style="padding-top: 20px; max-width: 700px;">
+        
+        <!-- Tabs -->
+        <div class="gallery-toggle-wrapper" style="margin-bottom: 24px;">
+            <div class="gallery-toggle-container" style="max-width: 100%;">
+                <button class="gallery-toggle-btn active" id="tab-text" onclick="switchTab('text')">📝 Teks Curhat</button>
+                <button class="gallery-toggle-btn" id="tab-img" onclick="switchTab('image')">🖼️ Gambar/Visual</button>
+            </div>
         </div>
-      </div>
-      <div class="field-error-msg" id="img-err" style="margin-bottom:10px">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        Gambar/video tidak boleh kosong!!!!
-      </div>
 
-      <p class="section-label" style="margin-top:8px">Caption Singkat</p>
-      <div class="caption-wrap" id="caption-wrap">
-        <textarea
-          id="caption-text"
-          maxlength="200"
-          placeholder="Beri judul atau caption untuk postinganmu....."
-          oninput="onCaptionInput()"
-        ></textarea>
-      </div>
-      <div class="char-counter" id="caption-count">0 / 200</div>
-      <div class="field-error-msg" id="caption-err">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="12" y1="8" x2="12" y2="12"/>
-          <line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        Caption tidak boleh kosong!!!!
-      </div>
+        <!-- Form Container (Mirip Contact Panel) -->
+        <div class="form-panel contact-container" style="padding: 24px; width: 100%; box-sizing: border-box;">
+            
+            <!-- Category -->
+            <div class="input-group" id="cat-wrap">
+                <label>Pilih Kategori Keresahan</label>
+                <select id="category" onchange="onCategoryChange()">
+                    <option value="" disabled selected hidden>Pilih kategori...</option>
+                    <option value="akademik">📚 Akademik / Perkuliahan</option>
+                    <option value="sosial">🤝 Sosial / Pertemanan</option>
+                    <option value="keluarga">🏠 Keluarga</option>
+                    <option value="percintaan">💔 Percintaan</option>
+                    <option value="karir">💼 Karir / Pekerjaan</option>
+                    <option value="kesehatan">🩺 Kesehatan Mental</option>
+                    <option value="keuangan">💸 Keuangan</option>
+                    <option value="lainnya">✨ Lainnya</option>
+                </select>
+                <div class="field-error-msg" id="cat-err">Kategori tidak boleh kosong!</div>
+            </div>
+
+            <div class="divider" style="margin: 20px 0; background: rgba(255,255,255,0.05); height: 1px;"></div>
+
+            <!-- Identity -->
+            <div class="identity-row">
+                <label style="color: var(--warna-putih); font-weight: 600; font-size: 0.85rem;">Tampil Sebagai</label>
+                <div class="toggle-wrap on" id="pub-toggle" onclick="togglePublic()">
+                    <span class="public-toggle-label" id="pub-label">Akun Publik</span>
+                    <div class="toggle-track"><div class="toggle-thumb"></div></div>
+                </div>
+            </div>
+            <div class="username-box">@MasYeb_MC</div>
+            <p class="username-hint" id="identity-hint">Perhatian: Semua orang bisa melihat bahwa ini adalah kamu.</p>
+
+            <!-- ── PANEL: TEXT ── -->
+            <div class="panel active" id="panel-text" style="margin-top: 20px;">
+                <div class="input-group" id="text-wrap">
+                    <label>Ceritakan Keresahanmu</label>
+                    <textarea id="curhat-text" maxlength="1000" placeholder="Tumpahkan semua yang ada di pikiranmu di sini......." oninput="onTextInput()" style="min-height: 150px;"></textarea>
+                </div>
+                <div class="char-counter" id="char-count">0 / 1000</div>
+                <div class="field-error-msg" id="text-err">Keresahan tidak boleh kosong!</div>
+            </div>
+
+            <!-- ── PANEL: IMAGE ── -->
+            <div class="panel" id="panel-image" style="display: none; margin-top: 20px;">
+                <div class="upload-area" id="upload-area">
+                    <input type="file" accept="image/*,video/*" id="file-input" onchange="onFileChange(event)"/>
+                    <img class="upload-preview" id="preview-img" src="" alt="preview"/>
+                    <div class="upload-default" id="upload-default">
+                        <div class="upload-icon">📸</div>
+                        <h3 style="color: var(--warna-putih); font-size: 1rem; margin-bottom: 5px;">Ketuk untuk pilih Gambar/Video</h3>
+                        <p style="color: var(--warna-abu-terang); font-size: 0.8rem;">PNG, JPG, MP4</p>
+                    </div>
+                </div>
+                <div class="field-error-msg" id="img-err">Gambar/video tidak boleh kosong!</div>
+
+                <div class="input-group" id="caption-wrap" style="margin-top: 15px;">
+                    <label>Caption Singkat</label>
+                    <textarea id="caption-text" maxlength="200" placeholder="Beri judul atau caption untuk postinganmu....." oninput="onCaptionInput()"></textarea>
+                </div>
+                <div class="char-counter" id="caption-count">0 / 200</div>
+                <div class="field-error-msg" id="caption-err">Caption tidak boleh kosong!</div>
+            </div>
+
+            <!-- Community Rules -->
+            <div class="rules-box-kkn">
+                <div class="rules-icon">🛡️</div>
+                <div>
+                    <h4>Aturan Komunitas KKN</h4>
+                    <p>Konten yang mengandung SARA, bullying, sebar data pribadi, atau ujaran kebencian akan dihapus otomatis.</p>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button onclick="submitPost()" class="btn-submit-contact" style="width: 100%; margin-top: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                Posting Sekarang
+            </button>
+
+        </div>
     </div>
 
-    <!-- Community Rules -->
-    <div class="rules-box">
-      <div class="rules-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round">
-          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/>
-          <line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-      </div>
-      <div>
-        <h4>Aturan Komunitas KKN</h4>
-        <p>Konten yang mengandung unsur SARA, bullying, sebar data pribadi, atau ujaran kebencian akan dihapus otomatis. Mari jaga ruang aman ini.</p>
-      </div>
+    <!-- SUCCESS MODAL KKN -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-box" style="text-align: center; transform: translateY(0) scale(0.9);">
+            <div style="font-size: 50px; margin-bottom: 10px;">🎉</div>
+            <h3 class="modal-title">Postingan Terkirim!</h3>
+            <p class="modal-subtitle" style="margin-bottom: 20px;">Keresahanmu sudah dibagikan ke komunitas. Semoga kamu mendapat dukungan yang kamu butuhkan.</p>
+            <button class="btn-primer" style="width: 100%;" onclick="closeModal()">Kembali ke Beranda</button>
+        </div>
     </div>
 
-  </div><!-- /content-area -->
+    <!-- JAVASCRIPT LOGIC (Tetap Sama, disesuaikan ID-nya) -->
+    <script>
+        let activeTab = 'text';
+        let isPublic  = true;
+        let hasFile   = false;
 
-  <!-- Post Button (fixed) -->
-  <div class="post-btn">
-    <button onclick="submitPost()">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line x1="22" y1="2" x2="11" y2="13"/>
-        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-      </svg>
-      Posting Sekarang
-    </button>
-  </div>
+        function switchTab(tab) {
+            activeTab = tab;
+            document.getElementById('tab-text').classList.toggle('active', tab === 'text');
+            document.getElementById('tab-img').classList.toggle('active',  tab === 'image');
+            document.getElementById('panel-text').style.display = tab === 'text' ? 'block' : 'none';
+            document.getElementById('panel-image').style.display = tab === 'image' ? 'block' : 'none';
+            clearErrors();
+        }
 
-</div><!-- /app -->
+        function togglePublic() {
+            isPublic = !isPublic;
+            const toggle = document.getElementById('pub-toggle');
+            const hint   = document.getElementById('identity-hint');
+            const label  = document.getElementById('pub-label');
+            toggle.classList.toggle('on', isPublic);
+            label.textContent = isPublic ? 'Akun Publik' : 'Anonim';
+            hint.textContent  = isPublic ? 'Perhatian: Semua orang bisa melihat bahwa ini adalah kamu.' : 'Postinganmu akan tampil secara anonim.';
+        }
 
-<!-- SUCCESS MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-card">
-    <div class="modal-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f5a623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"/>
-      </svg>
-    </div>
-    <h3>Postingan Terkirim! 🎉</h3>
-    <p>Keresahanmu sudah dibagikan ke komunitas. Semoga kamu mendapat dukungan yang kamu butuhkan.</p>
-    <button class="modal-close" onclick="closeModal()">Kembali ke Beranda</button>
-  </div>
-</div>
+        function onCategoryChange() {
+            document.getElementById('cat-wrap').classList.remove('error-input');
+            document.getElementById('cat-err').style.display = 'none';
+        }
 
-<script>
-  /* ─── STATE ─────────────────────────────────────────── */
-  let activeTab = 'text';
-  let isPublic  = true;
-  let hasFile   = false;
+        function onTextInput() {
+            const ta = document.getElementById('curhat-text');
+            document.getElementById('char-count').textContent = ta.value.length + ' / 1000';
+            if (ta.value.length > 0) {
+                document.getElementById('text-wrap').classList.remove('error-input');
+                document.getElementById('text-err').style.display = 'none';
+            }
+        }
 
-  /* ─── TAB SWITCH ────────────────────────────────────── */
-  function switchTab(tab) {
-    activeTab = tab;
-    document.getElementById('tab-text').classList.toggle('active', tab === 'text');
-    document.getElementById('tab-img').classList.toggle('active',  tab === 'image');
-    document.getElementById('panel-text').classList.toggle('active', tab === 'text');
-    document.getElementById('panel-image').classList.toggle('active', tab === 'image');
-    clearErrors();
-  }
+        function onCaptionInput() {
+            const ta = document.getElementById('caption-text');
+            document.getElementById('caption-count').textContent = ta.value.length + ' / 200';
+            if (ta.value.length > 0) {
+                document.getElementById('caption-wrap').classList.remove('error-input');
+                document.getElementById('caption-err').style.display = 'none';
+            }
+        }
 
-  /* ─── TOGGLE PUBLIC ─────────────────────────────────── */
-  function togglePublic() {
-    isPublic = !isPublic;
-    const toggle = document.getElementById('pub-toggle');
-    const hint   = document.getElementById('identity-hint');
-    const label  = document.getElementById('pub-label');
-    toggle.classList.toggle('on', isPublic);
-    label.textContent = isPublic ? 'Akun Publik' : 'Anonim';
-    hint.textContent  = isPublic
-      ? 'Perhatian: Semua orang bisa melihat bahwa ini adalah kamu.'
-      : 'Postinganmu akan tampil secara anonim.';
-  }
+        function onFileChange(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            hasFile = true;
+            document.getElementById('upload-area').classList.remove('error-input');
+            document.getElementById('img-err').style.display = 'none';
+            
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    const img = document.getElementById('preview-img');
+                    img.src = ev.target.result;
+                    img.style.display = 'block';
+                    document.getElementById('upload-default').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
 
-  /* ─── CATEGORY ──────────────────────────────────────── */
-  function onCategoryChange() {
-    document.getElementById('category').classList.add('has-value');
-    document.getElementById('cat-wrap').classList.remove('error');
-    document.getElementById('cat-err').classList.remove('show');
-  }
+        function clearErrors() {
+            document.querySelectorAll('.error-input').forEach(el => el.classList.remove('error-input'));
+            document.querySelectorAll('.field-error-msg').forEach(el => el.style.display = 'none');
+            document.getElementById('toast').classList.remove('show');
+        }
 
-  /* ─── TEXT INPUT ────────────────────────────────────── */
-  function onTextInput() {
-    const ta  = document.getElementById('curhat-text');
-    const len = ta.value.length;
-    const counter = document.getElementById('char-count');
-    counter.textContent = len + ' / 1000';
-    counter.classList.toggle('warn', len > 900);
-    if (len > 0) {
-      document.getElementById('text-wrap').classList.remove('error');
-      document.getElementById('text-err').classList.remove('show');
-    }
-  }
+        function submitPost() {
+            let valid = true;
+            const cat = document.getElementById('category').value;
+            if (!cat) {
+                document.getElementById('cat-wrap').classList.add('error-input');
+                document.getElementById('cat-err').style.display = 'block';
+                valid = false;
+            }
 
-  /* ─── CAPTION INPUT ─────────────────────────────────── */
-  function onCaptionInput() {
-    const ta  = document.getElementById('caption-text');
-    const len = ta.value.length;
-    const counter = document.getElementById('caption-count');
-    counter.textContent = len + ' / 200';
-    counter.classList.toggle('warn', len > 170);
-    if (len > 0) {
-      document.getElementById('caption-wrap').classList.remove('error');
-      document.getElementById('caption-err').classList.remove('show');
-    }
-  }
+            if (activeTab === 'text') {
+                if (!document.getElementById('curhat-text').value.trim()) {
+                    document.getElementById('text-wrap').classList.add('error-input');
+                    document.getElementById('text-err').style.display = 'block';
+                    valid = false;
+                }
+            } else {
+                if (!hasFile) {
+                    document.getElementById('upload-area').classList.add('error-input');
+                    document.getElementById('img-err').style.display = 'block';
+                    valid = false;
+                }
+                if (!document.getElementById('caption-text').value.trim()) {
+                    document.getElementById('caption-wrap').classList.add('error-input');
+                    document.getElementById('caption-err').style.display = 'block';
+                    valid = false;
+                }
+            }
 
-  /* ─── FILE CHANGE ───────────────────────────────────── */
-  function onFileChange(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    hasFile = true;
-    document.getElementById('upload-area').classList.remove('error');
-    document.getElementById('img-err').classList.remove('show');
-    if (file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      reader.onload = ev => {
-        const img = document.getElementById('preview-img');
-        img.src = ev.target.result;
-        img.classList.add('show');
-        document.getElementById('upload-default').classList.add('hidden');
-      };
-      reader.readAsDataURL(file);
-    } else {
-      document.getElementById('upload-default').querySelector('h3').textContent = '✅ ' + file.name;
-    }
-  }
+            if (!valid) {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+                return;
+            }
 
-  /* ─── CLEAR ERRORS ──────────────────────────────────── */
-  function clearErrors() {
-    ['cat-wrap', 'text-wrap', 'caption-wrap'].forEach(id => {
-      document.getElementById(id)?.classList.remove('error');
-    });
-    document.getElementById('upload-area').classList.remove('error');
-    ['cat-err', 'text-err', 'img-err', 'caption-err'].forEach(id => {
-      document.getElementById(id).classList.remove('show');
-    });
-    document.getElementById('toast').classList.remove('show');
-  }
+            document.getElementById('modal').classList.add('open');
+        }
 
-  /* ─── SUBMIT ────────────────────────────────────────── */
-  function submitPost() {
-    let valid = true;
-
-    const cat = document.getElementById('category').value;
-    if (!cat) {
-      document.getElementById('cat-wrap').classList.add('error');
-      document.getElementById('cat-err').classList.add('show');
-      valid = false;
-    }
-
-    if (activeTab === 'text') {
-      const txt = document.getElementById('curhat-text').value.trim();
-      if (!txt) {
-        document.getElementById('text-wrap').classList.add('error');
-        document.getElementById('text-err').classList.add('show');
-        valid = false;
-      }
-    } else {
-      if (!hasFile) {
-        document.getElementById('upload-area').classList.add('error');
-        document.getElementById('img-err').classList.add('show');
-        valid = false;
-      }
-      const cap = document.getElementById('caption-text').value.trim();
-      if (!cap) {
-        document.getElementById('caption-wrap').classList.add('error');
-        document.getElementById('caption-err').classList.add('show');
-        valid = false;
-      }
-    }
-
-    if (!valid) {
-      const toast = document.getElementById('toast');
-      toast.classList.remove('show');
-      void toast.offsetWidth;
-      toast.classList.add('show');
-      document.getElementById('app').classList.add('shake');
-      setTimeout(() => document.getElementById('app').classList.remove('shake'), 400);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    document.getElementById('modal').classList.add('show');
-  }
-
-  /* ─── CLOSE MODAL ───────────────────────────────────── */
-  function closeModal() {
-    document.getElementById('modal').classList.remove('show');
-    document.getElementById('category').value = '';
-    document.getElementById('category').classList.remove('has-value');
-    document.getElementById('curhat-text').value = '';
-    document.getElementById('char-count').textContent = '0 / 1000';
-    document.getElementById('caption-text').value = '';
-    document.getElementById('caption-count').textContent = '0 / 200';
-    document.getElementById('preview-img').classList.remove('show');
-    document.getElementById('preview-img').src = '';
-    document.getElementById('upload-default').classList.remove('hidden');
-    document.getElementById('upload-default').querySelector('h3').textContent = 'Ketuk untuk pilih Gambar/Video';
-    document.getElementById('file-input').value = '';
-    hasFile = false;
-    switchTab('text');
-  }
-
-  /* Close modal on overlay click */
-  document.getElementById('modal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-</script>
+        function closeModal() {
+            window.location.href = '../feed.html'; // Redirect ke feed
+        }
+    </script>
 </body>
 </html>
